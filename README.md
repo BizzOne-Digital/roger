@@ -14,12 +14,16 @@ A production-ready luxury photo booth website for **Red Rose Photo Booth LLC** i
 ## Project Structure
 
 ```
-Roger/
-├── frontend/          # React public site + admin portal
+Roger/                 # Single project folder — one npm install
+├── client/            # React public site + admin (Vite)
 │   └── src/admin/     # Protected admin panel
-└── backend/           # Express API only
+├── api/               # Express API (routes, models, controllers)
+├── scripts/           # Database seed
+├── dist/              # Production build output (gitignored)
+├── server.js          # Entry point
+├── .env               # All secrets + config (one file)
+└── package.json       # Unified dependencies & scripts
 ```
-
 ## Prerequisites
 
 - Node.js 18+
@@ -53,9 +57,7 @@ mongodb+srv://<username>:<password>@<cluster>.mongodb.net/redrosephotobooth?retr
 
 ## Environment Configuration
 
-### Backend (`backend/.env`)
-
-Copy `backend/.env.example` to `backend/.env` and fill in:
+Copy `.env.example` to `.env` in the **project root** and fill in:
 
 ```env
 NODE_ENV=development
@@ -64,28 +66,11 @@ MONGODB_URI=mongodb+srv://...
 JWT_SECRET=your_long_random_secret_here
 JWT_EXPIRES_IN=7d
 FRONTEND_URL=http://localhost:5173
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_USER=your@gmail.com
-SMTP_APP_PASSWORD=your_gmail_app_password
-ADMIN_NOTIFICATION_EMAIL=Roger@redrosephotobooth.com
-ADMIN_SEED_EMAIL=admin@redrosephotobooth.com
-ADMIN_SEED_PASSWORD=ChangeThisPassword123!
-```
-
-### Frontend (`frontend/.env`)
-
-Copy `frontend/.env.example` to `frontend/.env`:
-
-```env
 VITE_API_BASE_URL=http://localhost:5000/api
+# SMTP, Cloudinary, admin seed — see .env.example
 ```
 
-**Never expose backend secrets in Vite environment variables.**
-
+**Never expose backend secrets in Vite env vars** — only `VITE_*` keys are for the frontend build.
 ## Gmail SMTP Setup
 
 1. Enable 2-Factor Authentication on your Google account.
@@ -96,27 +81,18 @@ VITE_API_BASE_URL=http://localhost:5000/api
 ## Cloudinary Setup
 
 1. Create a free account at [cloudinary.com](https://cloudinary.com).
-2. Copy Cloud Name, API Key, and API Secret to `backend/.env`.
+2. Copy Cloud Name, API Key, and API Secret to `.env`.
 
 ## Installation & Development
 
-### Backend
+From the project root:
 
 ```bash
-cd backend
 npm install
-npm run seed    # Creates admin account + initial data
-npm run dev     # Starts API on http://localhost:5000
+npm run seed    # Creates admin account + initial data (first time)
+npm run dev     # API on http://localhost:5000
+npm run dev:client   # Frontend on http://localhost:5173 (separate terminal)
 ```
-
-### Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev     # Starts site on http://localhost:5173
-```
-
 ## Default Admin Credentials (after seed)
 
 - **Email:** `admin@redrosephotobooth.com`
@@ -150,62 +126,42 @@ Routes:
 
 ## Production Build & Deploy
 
-The backend serves the built React app in production (single-server deploy on Railway, Render, VPS, etc.).
-
-### 1. Configure production environment
-
-**`backend/.env`** (copy from `backend/.env.example`):
+### 1. Configure `.env` (project root)
 
 ```env
 NODE_ENV=production
-PORT=5000
 MONGODB_URI=mongodb+srv://...
 JWT_SECRET=your_long_random_secret_min_32_chars
-JWT_EXPIRES_IN=7d
 FRONTEND_URL=https://your-production-domain.com
-# SMTP + optional Cloudinary — see .env.example
+SERVE_FRONTEND=false   # if frontend is on Vercel separately
 ```
 
-**Frontend:** `frontend/.env.production` is already set for same-origin deploy:
+For **same-server** deploy, `.env.production` sets `VITE_API_BASE_URL=/api`. For **split** deploy, set `VITE_API_BASE_URL=https://your-api.vercel.app/api` in Vercel env.
 
-```env
-VITE_API_BASE_URL=/api
-```
-
-If the API runs on a **different domain**, set `VITE_API_BASE_URL=https://api.yourdomain.com/api` before building.
-
-### 2. Install, seed, and build
-
-From the project root:
+### 2. Build and start
 
 ```bash
-npm run install:all
-npm run seed          # first time only — creates admin + sample data
-npm run build         # builds frontend/dist
-```
-
-### 3. Start production server
-
-```bash
+npm install
+npm run seed    # first time only
+npm run build   # outputs to dist/
 npm start
 ```
 
-The site and API are available on the same port (default `5000`). Admin login: `https://your-domain.com/admin/login`.
+### Vercel (split deploy from one repo)
 
-### Separate frontend hosting (optional)
-
-Deploy `frontend/dist` to Vercel/Netlify and set `VITE_API_BASE_URL` to your API URL at build time. Ensure `FRONTEND_URL` in backend `.env` matches the frontend URL for CORS.
+| Project | Build command | Output | Env |
+|---------|---------------|--------|-----|
+| **Backend** | (uses `vercel.json` + `server.js`) | — | All `.env` vars except `VITE_*` |
+| **Frontend** | `npm run build` | `dist` | `VITE_API_BASE_URL` |
 
 ### Production checklist
 
-- [ ] Real `MONGODB_URI` in `backend/.env`
-- [ ] Strong `JWT_SECRET` (32+ random characters)
-- [ ] `FRONTEND_URL` matches your live domain
-- [ ] Gmail SMTP credentials for contact/booking emails
-- [ ] `npm run seed` completed (or admin created manually)
+- [ ] Real `MONGODB_URI` in `.env`
+- [ ] Strong `JWT_SECRET` (32+ characters)
+- [ ] `FRONTEND_URL` matches live frontend URL (no trailing slash)
+- [ ] Gmail SMTP configured
+- [ ] `npm run seed` completed
 - [ ] Admin password changed after first login
-- [ ] HTTPS enabled (required for secure cookies in production)
-
 ## API Endpoints
 
 | Endpoint | Description |

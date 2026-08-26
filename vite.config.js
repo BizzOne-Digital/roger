@@ -1,7 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  root: path.resolve(rootDir, 'client'),
+  publicDir: path.resolve(rootDir, 'client/public'),
   plugins: [react()],
   server: {
     port: 5173,
@@ -13,7 +19,8 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: path.resolve(rootDir, 'dist'),
+    emptyOutDir: true,
     sourcemap: false,
     chunkSizeWarningLimit: 700,
     rollupOptions: {

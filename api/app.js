@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs';
-import path from 'path';import { fileURLToPath } from 'url';
-import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';
@@ -17,8 +17,7 @@ import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
-const frontendIndexPath = path.join(frontendDistPath, 'index.html');
+const frontendDistPath = path.resolve(__dirname, '../dist');const frontendIndexPath = path.join(frontendDistPath, 'index.html');
 const hasFrontendBuild = fs.existsSync(frontendIndexPath);
 const serveFrontend =
   process.env.SERVE_FRONTEND === 'true' ||

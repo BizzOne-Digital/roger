@@ -2,11 +2,10 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
-import Admin from '../src/models/Admin.js';
-import Service from '../src/models/Service.js';
-import Product from '../src/models/Product.js';
-import Testimonial from '../src/models/Testimonial.js';
-
+import Admin from '../api/models/Admin.js';
+import Service from '../api/models/Service.js';
+import Product from '../api/models/Product.js';
+import Testimonial from '../api/models/Testimonial.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
