@@ -9,6 +9,7 @@
     "dev": "node --watch server.js",
     "dev:client": "vite",
     "build": "vite build",
+    "vercel-build": "vite build",
     "start": "node server.js",
     "seed": "node scripts/seed.js",
     "preview": "vite preview"

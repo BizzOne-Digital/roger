@@ -1,10 +1,13 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';import cors from 'cors';
+import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
+import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';
+import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
@@ -17,7 +20,8 @@ import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const frontendDistPath = path.resolve(__dirname, '../dist');const frontendIndexPath = path.join(frontendDistPath, 'index.html');
+const frontendDistPath = path.resolve(__dirname, '../dist');
+const frontendIndexPath = path.join(frontendDistPath, 'index.html');
 const hasFrontendBuild = fs.existsSync(frontendIndexPath);
 const serveFrontend =
   process.env.SERVE_FRONTEND === 'true' ||
@@ -42,6 +46,17 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(sanitizeInput);
+
+app.use(async (req, res, next) => {
+  try {
+    if (mongoose.connection.readyState === 0) {
+      await connectDB();
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Red Rose Photo Booth API is running' });
