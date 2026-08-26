@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Backend
+backend/node_modules/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+
+# Environment (generic — never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Uploads (if any local disk fallback)
+backend/uploads/
