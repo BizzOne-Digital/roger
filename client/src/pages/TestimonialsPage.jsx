@@ -46,7 +46,7 @@ export default function TestimonialsPage() {
                   transition={{ delay: i * 0.05 }}
                   className="h-full"
                 >
-                  <TestimonialCard testimonial={t} large={t.featured} showEventImage />
+                  <TestimonialCard testimonial={t} large={t.featured} />
                 </motion.div>
               ))}
             </div>
