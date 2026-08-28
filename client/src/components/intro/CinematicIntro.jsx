@@ -1,141 +1,95 @@
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const petals = Array.from({ length: 12 }, (_, i) => ({
-  id: i,
-  left: `${5 + (i * 8)}%`,
-  delay: i * 0.3,
-  duration: 4 + (i % 3),
-}));
+const INTRO_DURATION_MS = 5000;
 
-export default function CinematicIntro({ onComplete, onSkip }) {
-  const containerRef = useRef(null);
-  const [flash, setFlash] = useState(false);
+export default function CinematicIntro({ onComplete }) {
+  const [exiting, setExiting] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
       onComplete();
-      return;
+      return undefined;
     }
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          setFlash(true);
-          setTimeout(() => onComplete(), 400);
-        },
-      });
+    const timer = window.setTimeout(() => {
+      setExiting(true);
+    }, INTRO_DURATION_MS);
 
-      tl.from('.intro-aperture-line', {
-        scale: 0,
-        rotation: -180,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: 'power3.out',
-      })
-        .from('.intro-letter', {
-          opacity: 0,
-          y: 40,
-          duration: 0.4,
-          stagger: 0.08,
-          ease: 'power3.out',
-        }, '-=0.3')
-        .from('.intro-subtitle', {
-          opacity: 0,
-          letterSpacing: '0.5em',
-          duration: 0.8,
-          ease: 'power2.out',
-        }, '-=0.2')
-        .from('.intro-tagline', {
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-        }, '-=0.4')
-        .to('.intro-curtain-left', {
-          x: '-100%',
-          duration: 1,
-          ease: 'power4.inOut',
-        }, '+=0.5')
-        .to('.intro-curtain-right', {
-          x: '100%',
-          duration: 1,
-          ease: 'power4.inOut',
-        }, '<');
-    }, containerRef);
-
-    return () => ctx.revert();
+    return () => window.clearTimeout(timer);
   }, [onComplete]);
 
-  const letters = 'Red Rose'.split('');
+  const handleExitComplete = () => {
+    if (exiting) onComplete();
+  };
+
+  const handleSkip = () => {
+    setExiting(true);
+  };
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 z-[10000] bg-roseNoir overflow-hidden"
-      role="dialog"
-      aria-label="Website introduction"
-    >
-      <div className="absolute inset-0 bg-cinematic-radial opacity-80" />
+    <AnimatePresence onExitComplete={handleExitComplete}>
+      {!exiting && (
+        <motion.div
+          key="intro"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[10000] bg-charcoal flex flex-col items-center justify-center overflow-hidden"
+          role="dialog"
+          aria-label="Red Rose Photo Booth introduction"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-roseNoir to-charcoal" />
 
-      {petals.map((p) => (
-        <div
-          key={p.id}
-          className="absolute w-3 h-3 bg-velvetRed/60 rounded-full blur-[1px] animate-float"
-          style={{
-            left: p.left,
-            top: '-10%',
-            animationDelay: `${p.delay}s`,
-            animationDuration: `${p.duration}s`,
-          }}
-        />
-      ))}
-
-      <div className="relative z-10 flex flex-col items-center justify-center h-full">
-        <div className="relative w-24 h-24 mb-8">
-          {[0, 45, 90, 135].map((rot, i) => (
-            <div
-              key={i}
-              className="intro-aperture-line absolute inset-0 border border-antiqueGold/80 rounded-full"
-              style={{ transform: `rotate(${rot}deg)` }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-10 w-full max-w-6xl px-4 sm:px-6"
+          >
+            <img
+              src="/banner-hero.png"
+              alt="Red Rose Photo Booth LLC — Capturing Your Story"
+              className="w-full h-auto max-h-[min(82vh,780px)] object-contain mx-auto drop-shadow-2xl"
+              width={1920}
+              height={1080}
+              fetchPriority="high"
             />
-          ))}
-          <div className="intro-aperture-line absolute inset-4 border-2 border-antiqueGold rounded-full" />
-          <div className="intro-aperture-line absolute inset-8 bg-antiqueGold rounded-full" />
-        </div>
+          </motion.div>
 
-        <h1 className="font-display text-5xl md:text-7xl text-warmIvory mb-2">
-          {letters.map((letter, i) => (
-            <span key={i} className="intro-letter inline-block">
-              {letter === ' ' ? '\u00A0' : letter}
-            </span>
-          ))}
-        </h1>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="relative z-10 mt-8 w-48 h-0.5 bg-antiqueGold/30 rounded-full overflow-hidden"
+            aria-hidden="true"
+          >
+            <motion.div
+              className="h-full bg-antiqueGold origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: INTRO_DURATION_MS / 1000, ease: 'linear' }}
+            />
+          </motion.div>
 
-        <p className="intro-subtitle font-display text-sm md:text-base tracking-[0.3em] text-champagneGold uppercase mb-4">
-          Photo Booth LLC
-        </p>
-
-        <p className="intro-tagline font-script text-2xl md:text-3xl text-antiqueGold">
-          Capturing Your Story
-        </p>
-      </div>
-
-      <button
-        onClick={onSkip}
-        className="absolute bottom-8 right-8 z-20 text-champagneGold/70 text-sm tracking-widest uppercase hover:text-antiqueGold transition-colors focus:outline-none focus:ring-2 focus:ring-antiqueGold"
-        aria-label="Skip introduction"
-      >
-        Skip Intro
-      </button>
-
-      <div className="intro-curtain-left absolute top-0 left-0 w-1/2 h-full bg-velvetRed z-30" />
-      <div className="intro-curtain-right absolute top-0 right-0 w-1/2 h-full bg-deepBurgundy z-30" />
-
-      {flash && (
-        <div className="absolute inset-0 bg-warmIvory z-40 animate-pulse" />
+          <button
+            type="button"
+            onClick={handleSkip}
+            className="absolute bottom-8 right-6 sm:right-10 z-20 text-champagneGold/80 text-xs sm:text-sm tracking-[0.2em] uppercase font-bold hover:text-antiqueGold transition-colors focus:outline-none focus:ring-2 focus:ring-antiqueGold px-3 py-2"
+            aria-label="Skip introduction"
+          >
+            Skip Intro
+          </button>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 }

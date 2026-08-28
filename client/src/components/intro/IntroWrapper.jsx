@@ -1,15 +1,18 @@
+import { useLocation } from 'react-router-dom';
 import { useIntroSeen } from '../../hooks/useIntro';
 import CinematicIntro from './CinematicIntro';
 
 export default function IntroWrapper({ children }) {
-  const { showIntro, ready, completeIntro, skipIntro } = useIntroSeen();
+  const location = useLocation();
+  const { showIntro, ready, completeIntro } = useIntroSeen();
+  const isHomepage = location.pathname === '/';
 
   if (!ready) return null;
 
   return (
     <>
-      {showIntro && (
-        <CinematicIntro onComplete={completeIntro} onSkip={skipIntro} />
+      {showIntro && isHomepage && (
+        <CinematicIntro onComplete={completeIntro} />
       )}
       {children}
     </>

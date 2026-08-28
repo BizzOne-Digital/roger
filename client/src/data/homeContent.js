@@ -24,7 +24,7 @@ export const HOME_PACKAGES = [
   {
     name: 'The Full Dozen',
     duration: '5 Hours',
-    price: 1400,
+    price: 1500,
     features: 'Maximum event runtime, full feature suite, and priority customization.',
   },
 ];
@@ -38,12 +38,12 @@ export const PACKAGE_INCLUDES = [
   {
     title: 'Instant Sharing & Digital Access',
     description:
-      "Instant file downloads straight to guests' phones, unlimited GIFs and boomerangs (by request), and a complete online gallery post-event.",
+      "Instant file downloads straight to guests' phones, unlimited GIFs, and a complete online gallery post-event.",
   },
   {
     title: 'Custom Branding & Visuals',
     description:
-      'Custom tap-to-start screen, custom-designed photo template and/or overlay, custom LED lighting, and a choice from our selection of fabric backdrops.',
+      'Custom tap-to-start screen and custom-designed photo template and/or overlay.',
   },
   {
     title: 'Printing & Photo Captures',
@@ -51,7 +51,7 @@ export const PACKAGE_INCLUDES = [
   },
   {
     title: 'Props & Add-Ons',
-    description: 'High-quality props included. (Ask us about our GLAM filter!)',
+    description: 'LED lighting, and a choice from a selection of backdrops.',
   },
 ];
 
