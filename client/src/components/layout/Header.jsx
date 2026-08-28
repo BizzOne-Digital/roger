@@ -10,12 +10,12 @@ export default function Header() {
   const location = useLocation();
 
   const isHome = location.pathname === '/';
-  const onDarkHero = !scrolled && (
-    isHome ||
+  const onDarkHero = !scrolled && !isHome && (
     ['/services', '/testimonials', '/pricing', '/shop', '/blog', '/booking', '/contact'].includes(
       location.pathname
     )
   );
+  const headerSolid = scrolled || isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -39,7 +39,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+          headerSolid
             ? 'glass-header py-3 shadow-lg shadow-black/20'
             : 'bg-transparent py-4 md:py-5'
         }`}

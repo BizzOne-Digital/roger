@@ -1,7 +1,7 @@
 export const BUSINESS = {
   name: 'Red Rose Photo Booth LLC',
   shortName: 'Red Rose Photo Booth',
-  tagline: 'Capturing Your Story, One Celebration at a Time',
+  tagline: 'Capturing Your Story',
   owner: 'Roger Marionneaux',
   phone: '(916) 287-0870',
   phoneRaw: '9162870870',
