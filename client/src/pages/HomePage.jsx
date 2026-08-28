@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import HomeHeroBanner from '../components/home/HomeHeroBanner';
+import HeroSection from '../components/home/HeroSection';
+import EventMarquee from '../components/home/EventMarquee';
 import HomeIntroSection from '../components/home/HomeIntroSection';
 import HomePackagesSection from '../components/home/HomePackagesSection';
 import HomeIncludesSection from '../components/home/HomeIncludesSection';
@@ -33,7 +34,8 @@ export default function HomePage() {
 
   return (
     <>
-      <HomeHeroBanner />
+      <HeroSection />
+      <EventMarquee />
       <HomeIntroSection />
       <HomePackagesSection />
       <HomeIncludesSection />

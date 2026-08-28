@@ -10,7 +10,8 @@ export default function Header() {
   const location = useLocation();
 
   const isHome = location.pathname === '/';
-  const onDarkHero = !scrolled && !isHome && (
+  const onDarkHero = !scrolled && (
+    isHome ||
     ['/services', '/testimonials', '/pricing', '/shop', '/blog', '/booking', '/contact'].includes(
       location.pathname
     )
@@ -48,19 +49,15 @@ export default function Header() {
           {/* Logo — brand artwork only, no extra text */}
           <Link
             to="/"
-            className="shrink min-w-0 group"
+            className="shrink-0 flex items-center group"
             aria-label="Red Rose Photo Booth LLC — Home"
           >
-            <div
-              className="relative h-11 sm:h-14 md:h-16 lg:h-[4.5rem] w-[140px] sm:w-[190px] md:w-[220px] lg:w-[260px] max-w-[42vw] sm:max-w-none overflow-hidden rounded-sm transition-opacity group-hover:opacity-90"
-            >
-              <img
-                src="/header-logo.png"
-                alt="Red Rose Photo Booth LLC"
-                className="absolute top-0 left-0 w-full h-auto pointer-events-none select-none"
-                fetchPriority="high"
-              />
-            </div>
+            <img
+              src="/header-logo.png"
+              alt="Red Rose Photo Booth LLC"
+              className="h-11 sm:h-14 md:h-[4.25rem] w-auto max-w-[min(200px,38vw)] sm:max-w-[240px] object-contain object-left transition-opacity group-hover:opacity-90"
+              fetchPriority="high"
+            />
           </Link>
 
           {/* Desktop nav */}
