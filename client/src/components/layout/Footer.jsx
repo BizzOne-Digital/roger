@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PhoneIcon, EmailIcon, MapPinIcon } from '../icons/Icons';
+import BrandLogo from '../ui/BrandLogo';
 import { BUSINESS } from '../../utils/constants';
 
 export default function Footer() {
@@ -9,14 +10,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-14 pb-4 md:pb-5 min-w-0 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link to="/" className="block mb-4 group" aria-label="Red Rose Photo Booth LLC — Home">
-              <div className="relative h-16 sm:h-20 w-[200px] sm:w-[240px] overflow-hidden rounded-sm transition-opacity group-hover:opacity-90">
-                <img
-                  src="/header-logo.png"
-                  alt="Red Rose Photo Booth LLC"
-                  className="absolute top-0 left-0 w-full h-auto pointer-events-none select-none"
-                />
-              </div>
+            <Link to="/" className="inline-flex items-center mb-4 group" aria-label="Red Rose Photo Booth LLC — Home">
+              <BrandLogo size="footer" className="transition-opacity group-hover:opacity-90" />
             </Link>
             <p className="text-body-muted-light text-base">
               Sacramento&apos;s luxury photo booth experience for weddings, corporate events, and celebrations.

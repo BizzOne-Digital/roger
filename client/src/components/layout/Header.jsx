@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, CloseIcon } from '../icons/Icons';
+import BrandLogo from '../ui/BrandLogo';
 import { NAV_LINKS, NAV_LINKS_EXTENDED } from '../../utils/constants';
 
 export default function Header() {
@@ -52,12 +53,7 @@ export default function Header() {
             className="shrink-0 flex items-center group"
             aria-label="Red Rose Photo Booth LLC — Home"
           >
-            <img
-              src="/header-logo.png"
-              alt="Red Rose Photo Booth LLC"
-              className="h-11 sm:h-14 md:h-[4.25rem] w-auto max-w-[min(200px,38vw)] sm:max-w-[240px] object-contain object-left transition-opacity group-hover:opacity-90"
-              fetchPriority="high"
-            />
+            <BrandLogo size="header" className="transition-opacity group-hover:opacity-90" />
           </Link>
 
           {/* Desktop nav */}
@@ -122,11 +118,7 @@ export default function Header() {
             className="fixed inset-0 z-[60] bg-charcoal/98 backdrop-blur-sm"
           >
             <div className="flex justify-between items-center p-6 border-b border-antiqueGold/20">
-              <img
-                src="/header-logo.png"
-                alt="Red Rose Photo Booth LLC"
-                className="h-12 w-auto max-w-[200px] object-contain object-left"
-              />
+              <BrandLogo size="header" />
               <button
                 onClick={() => setMobileOpen(false)}
                 className="text-warmIvory p-2"
