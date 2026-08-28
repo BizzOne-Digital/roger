@@ -29,12 +29,10 @@ const seed = async () => {
       console.log('Admin already exists');
     }
 
-    const serviceSlug = 'photo-booth-rental';
-    let service = await Service.findOne({ slug: serviceSlug });
-    if (!service) {
-      service = await Service.create({
+    const sampleServices = [
+      {
         title: 'Photo Booth Rental',
-        slug: serviceSlug,
+        slug: 'photo-booth-rental',
         shortDescription:
           'Luxury photo booth rental with touch-screen kiosk, custom templates, instant sharing, props, and professional attendant.',
         fullDescription:
@@ -49,10 +47,88 @@ const seed = async () => {
         pricingType: 'contact',
         displayOrder: 1,
         isActive: true,
-      });
-      console.log('Photo Booth Rental service created');
-    } else {
-      console.log('Service already exists');
+      },
+      {
+        title: 'Wedding Photo Booth',
+        slug: 'wedding-photo-booth',
+        shortDescription:
+          'Elegant wedding-ready booth with custom templates, unlimited prints, and a dedicated attendant for your big day.',
+        fullDescription:
+          'Make your wedding unforgettable with a luxury photo booth experience tailored to your theme. Custom tap-to-start screens, branded photo templates, fabric backdrops, and instant sharing keep guests entertained from cocktail hour through the reception.',
+        features: [
+          'Custom wedding photo template',
+          'Fabric backdrop selection',
+          'Unlimited sessions & prints',
+          'Dedicated on-site attendant',
+          'Online gallery after the event',
+        ],
+        pricingType: 'fixed',
+        price: 900,
+        displayOrder: 2,
+        isActive: true,
+      },
+      {
+        title: 'Corporate Events',
+        slug: 'corporate-events',
+        shortDescription:
+          'Brand-forward photo booth experiences for galas, trade shows, and company celebrations.',
+        fullDescription:
+          'Engage your team and impress clients with a professional photo booth setup featuring custom branding, logo overlays, instant digital delivery, and seamless setup for corporate venues.',
+        features: [
+          'Custom branded overlay',
+          'Instant SMS & email sharing',
+          'Professional setup & teardown',
+          'On-site attendant',
+          'GIFs and boomerangs available',
+        ],
+        pricingType: 'contact',
+        displayOrder: 3,
+        isActive: true,
+      },
+      {
+        title: 'Private Celebrations',
+        slug: 'private-celebrations',
+        shortDescription:
+          'Birthdays, anniversaries, graduations, and private parties with full-feature booth packages.',
+        fullDescription:
+          'From milestone birthdays to anniversary parties, our private celebration packages deliver the same luxury experience with props, custom LED lighting, and unlimited fun for guests of all ages.',
+        features: [
+          'Premium prop collection',
+          'Custom LED lighting',
+          'Unlimited GIFs & boomerangs',
+          'Instant downloads to phones',
+          'Choice of fabric backdrops',
+        ],
+        pricingType: 'fixed',
+        price: 1200,
+        displayOrder: 4,
+        isActive: true,
+      },
+      {
+        title: 'GLAM Filter Add-On',
+        slug: 'glam-filter-addon',
+        shortDescription:
+          'Studio-quality GLAM beauty filter for flawless, magazine-worthy event photos.',
+        fullDescription:
+          'Upgrade any package with our popular GLAM filter — perfect for weddings, galas, and upscale events where every guest wants to look their absolute best.',
+        features: [
+          'Professional beauty retouching filter',
+          'Works with prints & digital shares',
+          'Add to any package',
+          'Guest-favorite upgrade',
+        ],
+        pricingType: 'contact',
+        displayOrder: 5,
+        isActive: true,
+      },
+    ];
+
+    for (const s of sampleServices) {
+      const exists = await Service.findOne({ slug: s.slug });
+      if (!exists) {
+        await Service.create(s);
+        console.log(`Service created: ${s.title}`);
+      }
     }
 
     const sampleProducts = [

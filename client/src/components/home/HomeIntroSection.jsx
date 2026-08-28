@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
-import BrandLogo from '../ui/BrandLogo';
 import { HOME_INTRO, HOME_CONTACT_LINKS, HOME_QUICK_LINKS } from '../../data/homeContent';
 
 export default function HomeIntroSection() {
@@ -28,10 +27,6 @@ export default function HomeIntroSection() {
 
       <div className="section-padding">
         <div className="max-w-4xl mx-auto">
-          <Link to="/" className="inline-flex items-center mb-8 group" aria-label="Red Rose Photo Booth LLC — Home">
-            <BrandLogo size="intro" className="transition-opacity group-hover:opacity-90" />
-          </Link>
-
           <SectionHeader
             align="left"
             eyebrow="Sacramento's Luxury Photo Booth"
