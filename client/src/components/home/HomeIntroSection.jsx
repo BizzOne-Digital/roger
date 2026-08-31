@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
 import { HOME_INTRO, HOME_CONTACT_LINKS, HOME_QUICK_LINKS, RED_ROSE_BIO } from '../../data/homeContent';
 
@@ -8,23 +7,6 @@ export default function HomeIntroSection() {
 
   return (
     <section className="bg-warmIvory w-full overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="w-full bg-charcoal"
-      >
-        <img
-          src="/banner-hero.png"
-          alt="Red Rose Photo Booth LLC — Capturing Your Story. Owner and Operator Roger Marionneaux."
-          className="w-full h-auto max-h-[min(85vh,820px)] object-contain object-center mx-auto block"
-          width={1920}
-          height={1080}
-          loading="lazy"
-        />
-      </motion.div>
-
       <div className="section-padding">
         <div className="max-w-4xl mx-auto">
           <SectionHeader
