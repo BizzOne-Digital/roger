@@ -14,7 +14,7 @@ const filmPhotos = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-charcoal w-full" aria-label="Luxury photo booth at elegant gala event">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-charcoal w-full" aria-label="Red Rose Photo Booth at elegant gala event">
       {/* Background — SS2 hero image (brightened) */}
       <div
         className="absolute inset-0 overflow-hidden"
@@ -42,7 +42,7 @@ export default function HeroSection() {
           >
             <GoldFlourish className="w-10 h-3 text-antiqueGold/70 hidden sm:block" />
             <p className="text-antiqueGold text-xs sm:text-sm md:text-base font-bold tracking-[0.12em] sm:tracking-[0.22em] uppercase leading-snug">
-              Sacramento&apos;s Luxury Photo Booth Experience
+              Red Rose Photo Booth Experience
             </p>
             <GoldFlourish className="w-10 h-3 text-antiqueGold/70 hidden sm:block rotate-180" />
           </motion.div>

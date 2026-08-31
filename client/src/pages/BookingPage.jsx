@@ -10,7 +10,7 @@ const STEPS = ['Contact', 'Event Details', 'Service & Features', 'Review'];
 export default function BookingPage() {
   usePageMeta({
     title: 'Book Your Booth',
-    description: 'Request a luxury photo booth booking for your Sacramento event.',
+    description: 'Request a Red Rose Photo Booth booking for your Bay Area event.',
   });
 
   const [step, setStep] = useState(0);
@@ -98,7 +98,7 @@ export default function BookingPage() {
       <PageHero
         variant="booking"
         title={<>Book Your <span className="text-gradient-gold">Experience</span></>}
-        subtitle="Tell us about your event and we will craft a luxury photo booth experience for you."
+        subtitle="Tell us about your event and we will craft a Red Rose photo booth experience for you."
       />
 
       <section className="section-padding bg-warmIvory">

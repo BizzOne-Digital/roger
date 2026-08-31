@@ -3,9 +3,9 @@ import GoldFlourish, { GoldOrnamentDivider } from './GoldDecor';
 
 const HERO_VARIANTS = {
   services: {
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80',
+    image: '/banner-hero.png',
     eyebrow: 'What We Offer',
-    alt: 'Luxury photo booth at an elegant event',
+    alt: 'Red Rose Photo Booth services',
   },
   testimonials: {
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80',
@@ -30,12 +30,13 @@ const HERO_VARIANTS = {
   booking: {
     image: '/hero-bg.png',
     eyebrow: 'Reserve Your Date',
-    alt: 'Red Rose Photo Booth luxury experience',
+    alt: 'Red Rose Photo Booth experience',
   },
   contact: {
-    image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80',
+    image: '/hero-bg.png',
+    watermark: '/banner-hero.png',
     eyebrow: "We'd Love To Hear From You",
-    alt: 'Beautifully styled event table',
+    alt: 'Contact Red Rose Photo Booth',
   },
   checkout: {
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=80',
@@ -51,7 +52,7 @@ const HERO_VARIANTS = {
   default: {
     image: '/hero-bg.png',
     eyebrow: 'Red Rose Photo Booth',
-    alt: 'Luxury photo booth experience',
+    alt: 'Red Rose Photo Booth experience',
   },
 };
 
@@ -74,12 +75,14 @@ export default function PageHero({
   variant = 'default',
   image,
   imageAlt,
+  watermark,
   compact = false,
   align = 'left',
   children,
 }) {
   const config = HERO_VARIANTS[variant] || HERO_VARIANTS.default;
   const bgImage = image || config.image;
+  const watermarkImage = watermark ?? config.watermark;
   const eyebrowText = eyebrow || config.eyebrow;
   const alt = imageAlt || config.alt;
   const isCompact = compact || config.compact;
@@ -98,6 +101,19 @@ export default function PageHero({
           style={{ backgroundImage: `url(${bgImage})` }}
         />
       </div>
+
+      {watermarkImage && (
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]"
+          aria-hidden="true"
+        >
+          <img
+            src={watermarkImage}
+            alt=""
+            className="w-full max-w-4xl md:max-w-5xl h-auto object-contain opacity-[0.18] md:opacity-[0.22] mix-blend-lighten"
+          />
+        </div>
+      )}
 
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/60 to-charcoal/35" />
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/20 to-charcoal/75" />

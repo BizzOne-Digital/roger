@@ -31,12 +31,12 @@ const seed = async () => {
 
     const sampleServices = [
       {
-        title: 'Photo Booth Rental',
+        title: 'Red Rose Photo Booth Rental',
         slug: 'photo-booth-rental',
         shortDescription:
-          'Luxury photo booth rental with touch-screen kiosk, custom templates, instant sharing, props, and professional attendant.',
+          'Red Rose photo booth rental with touch-screen kiosk, custom templates, instant sharing, props, and professional attendant.',
         fullDescription:
-          'Our signature Photo Booth Rental includes a touch-screen photo booth kiosk, custom photo-strip template designed for your event, instant digital sharing through SMS and email, a fun prop box, and a professional on-site attendant to ensure every guest has an unforgettable experience.',
+          'Our signature Red Rose Photo Booth Rental includes a touch-screen photo booth kiosk, custom photo-strip template designed for your event, instant digital sharing through SMS and email, a fun prop box, and a professional on-site attendant to ensure every guest has an unforgettable experience.',
         features: [
           'Touch-screen photo booth kiosk',
           'Custom photo-strip template',
@@ -54,7 +54,7 @@ const seed = async () => {
         shortDescription:
           'Elegant wedding-ready booth with custom templates, unlimited prints, and a dedicated attendant for your big day.',
         fullDescription:
-          'Make your wedding unforgettable with a luxury photo booth experience tailored to your theme. Custom tap-to-start screens, branded photo templates, fabric backdrops, and instant sharing keep guests entertained from cocktail hour through the reception.',
+          'Make your wedding unforgettable with a Red Rose photo booth experience tailored to your theme. Custom tap-to-start screens, branded photo templates, fabric backdrops, and instant sharing keep guests entertained from cocktail hour through the reception.',
         features: [
           'Custom wedding photo template',
           'Fabric backdrop selection',
@@ -63,7 +63,7 @@ const seed = async () => {
           'Online gallery after the event',
         ],
         pricingType: 'fixed',
-        price: 900,
+        price: 950,
         displayOrder: 2,
         isActive: true,
       },
@@ -79,7 +79,7 @@ const seed = async () => {
           'Instant SMS & email sharing',
           'Professional setup & teardown',
           'On-site attendant',
-          'GIFs and boomerangs available',
+          'GIFs available',
         ],
         pricingType: 'contact',
         displayOrder: 3,
@@ -89,18 +89,17 @@ const seed = async () => {
         title: 'Private Celebrations',
         slug: 'private-celebrations',
         shortDescription:
-          'Birthdays, anniversaries, graduations, and private parties with full-feature booth packages.',
+          'Birthdays, anniversaries, graduations, and private parties — contact for pricing and consultation.',
         fullDescription:
-          'From milestone birthdays to anniversary parties, our private celebration packages deliver the same luxury experience with props, custom LED lighting, and unlimited fun for guests of all ages.',
+          'From milestone birthdays to anniversary parties, our private celebration packages deliver the same Red Rose experience with props, custom LED lighting, and unlimited fun for guests of all ages. Contact us for pricing and consultation.',
         features: [
           'Premium prop collection',
           'Custom LED lighting',
-          'Unlimited GIFs & boomerangs',
           'Instant downloads to phones',
           'Choice of fabric backdrops',
+          'Contact for pricing and consultation',
         ],
-        pricingType: 'fixed',
-        price: 1200,
+        pricingType: 'contact',
         displayOrder: 4,
         isActive: true,
       },
@@ -124,11 +123,12 @@ const seed = async () => {
     ];
 
     for (const s of sampleServices) {
-      const exists = await Service.findOne({ slug: s.slug });
-      if (!exists) {
-        await Service.create(s);
-        console.log(`Service created: ${s.title}`);
-      }
+      const updated = await Service.findOneAndUpdate(
+        { slug: s.slug },
+        { $set: s },
+        { upsert: true, new: true }
+      );
+      console.log(`Service synced: ${updated.title}`);
     }
 
     const sampleProducts = [

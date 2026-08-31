@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
-import { HOME_INTRO, HOME_CONTACT_LINKS, HOME_QUICK_LINKS } from '../../data/homeContent';
+import { HOME_INTRO, HOME_CONTACT_LINKS, HOME_QUICK_LINKS, RED_ROSE_BIO } from '../../data/homeContent';
 
 export default function HomeIntroSection() {
   const secondaryLinks = HOME_QUICK_LINKS.filter((l) => l.variant === 'secondary');
@@ -29,7 +29,7 @@ export default function HomeIntroSection() {
         <div className="max-w-4xl mx-auto">
           <SectionHeader
             align="left"
-            eyebrow="Sacramento's Luxury Photo Booth"
+            eyebrow="Red Rose Photo Booth"
             title="High-End Experiences. Unforgettable Memories."
             className="mb-8 !mb-8"
           />
@@ -38,6 +38,17 @@ export default function HomeIntroSection() {
               {text}
             </p>
           ))}
+
+          <div className="mt-10 pt-8 border-t border-antiqueGold/20">
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-4">
+              {RED_ROSE_BIO.title}
+            </h3>
+            {RED_ROSE_BIO.paragraphs.map((text, i) => (
+              <p key={i} className="text-body-muted text-base md:text-lg mb-4 leading-relaxed last:mb-0">
+                {text}
+              </p>
+            ))}
+          </div>
 
           <div className="flex flex-wrap gap-3 mt-8">
             <Link to="/booking" className="btn-primary">

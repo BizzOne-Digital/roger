@@ -4,7 +4,7 @@ export const usePageMeta = ({ title, description, image }) => {
   useEffect(() => {
     const fullTitle = title
       ? `${title} | Red Rose Photo Booth LLC`
-      : 'Red Rose Photo Booth LLC | Sacramento Luxury Photo Booth';
+      : 'Red Rose Photo Booth LLC | Bay Area Photo Booth';
 
     document.title = fullTitle;
 

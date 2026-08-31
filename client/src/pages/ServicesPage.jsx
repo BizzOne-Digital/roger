@@ -12,7 +12,7 @@ import { getImageUrlFromObject } from '../utils/imageUrl';
 import { ChevronIcon } from '../components/icons/Icons';
 
 const SERVICE_IMAGES = {
-  'photo-booth-rental': 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
+  'photo-booth-rental': '/banner-hero.png',
   'wedding-photo-booth': 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
   'corporate-events': 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80',
   'private-celebrations': 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80',
@@ -24,10 +24,20 @@ const getServiceImage = (service) => {
   return SERVICE_IMAGES[service.slug] || SERVICE_IMAGES['photo-booth-rental'];
 };
 
+const getPricingLabel = (service) => {
+  if (service.pricingType === 'fixed' && service.price) {
+    return formatPrice(service.price);
+  }
+  if (service.slug === 'private-celebrations') {
+    return 'Contact for Pricing & Consultation';
+  }
+  return 'Contact for Pricing';
+};
+
 export default function ServicesPage() {
   usePageMeta({
     title: 'Services',
-    description: 'Luxury photo booth rental services for weddings, corporate events, and celebrations in Sacramento.',
+    description: 'Red Rose Photo Booth rental services for weddings, corporate events, and celebrations across the Bay Area.',
   });
 
   const [services, setServices] = useState([]);
@@ -56,7 +66,7 @@ export default function ServicesPage() {
           <SectionHeader
             eyebrow="What We Offer"
             title="All Services"
-            subtitle="Browse our full range of luxury photo booth experiences for every occasion."
+            subtitle="Browse our full range of Red Rose photo booth experiences for every occasion."
             className="mb-10 md:mb-14"
           />
 
@@ -89,9 +99,7 @@ export default function ServicesPage() {
                       </h2>
                       <p className="card-text mb-4 line-clamp-3 flex-1">{service.shortDescription}</p>
                       <p className="text-antiqueGold font-bold text-lg shrink-0">
-                        {service.pricingType === 'fixed' && service.price
-                          ? formatPrice(service.price)
-                          : 'Contact for Pricing'}
+                        {getPricingLabel(service)}
                       </p>
                       <button
                         type="button"
@@ -141,9 +149,7 @@ export default function ServicesPage() {
               </ul>
             )}
             <p className="text-antiqueGold font-bold text-xl mb-6">
-              {selected.pricingType === 'fixed' && selected.price
-                ? formatPrice(selected.price)
-                : 'Contact for Pricing'}
+              {getPricingLabel(selected)}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/booking" className="btn-primary">Book This Service</Link>

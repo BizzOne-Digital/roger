@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 export default function TestimonialsPage() {
   usePageMeta({
     title: 'Testimonials',
-    description: 'Read what Sacramento clients say about Red Rose Photo Booth luxury event experiences.',
+    description: 'Read what Bay Area clients say about Red Rose Photo Booth event experiences.',
   });
 
   const [testimonials, setTestimonials] = useState([]);
@@ -27,7 +27,7 @@ export default function TestimonialsPage() {
       <PageHero
         variant="testimonials"
         title={<>Client <span className="text-gradient-gold">Testimonials</span></>}
-        subtitle="Real stories from weddings, corporate events, and celebrations across Sacramento."
+        subtitle="Real stories from weddings, corporate events, and celebrations across the Bay Area."
       />
 
       <section className="section-padding bg-warmIvory">

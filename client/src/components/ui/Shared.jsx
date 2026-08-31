@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export function LocalBusinessSchema() {
   const schema = {
     '@context': 'https://schema.org',
@@ -10,30 +8,17 @@ export function LocalBusinessSchema() {
     url: 'https://www.redrosephotobooth.com',
     telephone: '+19162870870',
     email: 'Roger@redrosephotobooth.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2193 Raymar Way',
-      addressLocality: 'Sacramento',
-      addressRegion: 'CA',
-      postalCode: '95835',
-      addressCountry: 'US',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 38.6594,
-      longitude: -121.4944,
-    },
     priceRange: '$$',
     description:
-      "Sacramento's luxury photo booth experience for weddings, corporate events, and celebrations.",
+      'Red Rose Photo Booth brings unforgettable photo booth experiences to weddings, corporate events, and celebrations across the Bay Area.',
     founder: {
       '@type': 'Person',
       name: 'Roger Marionneaux',
     },
-    areaServed: {
-      '@type': 'City',
-      name: 'Sacramento',
-    },
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'San Francisco Bay Area' },
+      { '@type': 'State', name: 'California' },
+    ],
   };
 
   return (

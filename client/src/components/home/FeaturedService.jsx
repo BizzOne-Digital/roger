@@ -18,7 +18,7 @@ export default function FeaturedService() {
             <SectionHeader
               align="left"
               eyebrow="Featured Service"
-              title="Luxury Photo Booth Rental"
+              title="Red Rose Photo Booth Rental"
               className="mb-8"
             />
             <p className="section-lead mb-8">
@@ -40,9 +40,9 @@ export default function FeaturedService() {
           <div className="relative overflow-hidden pb-8 sm:pb-0 min-w-0">
             <div className="absolute inset-2 sm:-inset-4 border border-antiqueGold/20 rounded-lg pointer-events-none" />
             <img
-              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"
-              alt="Luxury photo booth setup at elegant event"
-              className="rounded-lg w-full h-[280px] sm:h-[360px] md:h-[400px] object-cover"
+              src="/banner-hero.png"
+              alt="Red Rose Photo Booth LLC — Capturing Your Story"
+              className="rounded-lg w-full h-[280px] sm:h-[360px] md:h-[400px] object-contain bg-charcoal/5"
               loading="lazy"
             />
             <div className="absolute bottom-2 left-2 sm:-bottom-6 sm:-left-6 bg-charcoal text-warmIvory p-3 sm:p-4 rounded border border-antiqueGold/30">

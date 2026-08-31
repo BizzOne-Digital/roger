@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PhoneIcon, EmailIcon, MapPinIcon } from '../icons/Icons';
+import { PhoneIcon, EmailIcon } from '../icons/Icons';
 import BrandLogo from '../ui/BrandLogo';
 import { BUSINESS } from '../../utils/constants';
 
@@ -14,7 +14,7 @@ export default function Footer() {
               <BrandLogo size="footer" className="transition-opacity group-hover:opacity-90" />
             </Link>
             <p className="text-body-muted-light text-base">
-              Sacramento&apos;s luxury photo booth experience for weddings, corporate events, and celebrations.
+              Red Rose Photo Booth brings unforgettable photo booth experiences to weddings, corporate events, and celebrations across the Bay Area.
             </p>
           </div>
 
@@ -49,10 +49,6 @@ export default function Footer() {
                   {BUSINESS.email}
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-warmIvory/90 font-medium">
-                <MapPinIcon className="w-4 h-4 text-antiqueGold mt-0.5 shrink-0" />
-                <span className="font-semibold">{BUSINESS.address}</span>
-              </li>
             </ul>
           </div>
 
@@ -78,7 +74,7 @@ export default function Footer() {
 
         <div className="gold-line my-5 md:my-6" />
         <p className="text-center text-warmIvory/70 text-sm md:text-base font-medium pb-1">
-          &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved. Sacramento, CA.
+          &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved. {BUSINESS.serviceArea}.
         </p>
       </div>
     </footer>

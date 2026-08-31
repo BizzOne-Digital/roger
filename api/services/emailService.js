@@ -35,7 +35,7 @@ const emailWrapper = (content) => `
         <tr><td style="background:${brandColors.roseNoir};padding:20px;text-align:center;color:${brandColors.warmIvory};font-size:13px;">
           <p style="margin:0;">Roger Marionneaux | (916) 287-0870</p>
           <p style="margin:4px 0 0;">Roger@redrosephotobooth.com | www.redrosephotobooth.com</p>
-          <p style="margin:4px 0 0;">2193 Raymar Way, Sacramento, CA 95835</p>
+          <p style="margin:4px 0 0;">Serving the Bay Area &amp; Northern California</p>
         </td></tr>
       </table>
     </td></tr>

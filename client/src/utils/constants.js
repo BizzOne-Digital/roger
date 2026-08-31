@@ -6,9 +6,8 @@ export const BUSINESS = {
   phone: '(916) 287-0870',
   phoneRaw: '9162870870',
   email: 'Roger@redrosephotobooth.com',
-  address: '2193 Raymar Way, Sacramento, CA 95835',
+  serviceArea: 'Bay Area & Northern California',
   website: 'www.redrosephotobooth.com',
-  city: 'Sacramento',
   state: 'CA',
 };
 

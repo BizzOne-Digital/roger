@@ -4,12 +4,13 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { contactAPI } from '../api/client';
 import { BUSINESS, EVENT_TYPES } from '../utils/constants';
 import PageHero from '../components/ui/PageHero';
-import { PhoneIcon, EmailIcon, MapPinIcon } from '../components/icons/Icons';
+import { PhoneIcon, EmailIcon } from '../components/icons/Icons';
+import { RED_ROSE_BIO } from '../data/homeContent';
 
 export default function ContactPage() {
   usePageMeta({
     title: 'Contact',
-    description: 'Contact Red Rose Photo Booth LLC in Sacramento. Call (916) 287-0870 or email Roger@redrosephotobooth.com',
+    description: `Contact Red Rose Photo Booth LLC. Call ${BUSINESS.phone} or email ${BUSINESS.email} for pricing and consultation.`,
   });
 
   const [form, setForm] = useState({
@@ -74,12 +75,12 @@ export default function ContactPage() {
               </a>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full border border-antiqueGold/30 flex items-center justify-center text-antiqueGold">
-                  <MapPinIcon />
+                <div className="w-12 h-12 rounded-full border border-antiqueGold/30 flex items-center justify-center text-antiqueGold text-lg font-bold">
+                  ✦
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-charcoal/70">Address</p>
-                  <p className="font-bold text-lg">{BUSINESS.address}</p>
+                  <p className="text-sm font-semibold text-charcoal/70">Service Area</p>
+                  <p className="font-bold text-lg">{BUSINESS.serviceArea}</p>
                 </div>
               </div>
             </div>
@@ -92,14 +93,15 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-lg overflow-hidden border border-antiqueGold/20 h-64">
-              <iframe
-                title="Red Rose Photo Booth location"
-                src="https://maps.google.com/maps?q=2193+Raymar+Way+Sacramento+CA+95835&output=embed"
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="card-luxury p-6 md:p-8">
+              <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-4">
+                {RED_ROSE_BIO.title}
+              </h3>
+              {RED_ROSE_BIO.paragraphs.map((paragraph, i) => (
+                <p key={i} className="text-body-muted text-base leading-relaxed mb-4 last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
 

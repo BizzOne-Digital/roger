@@ -1,5 +1,13 @@
 import { BUSINESS } from '../utils/constants';
 
+export const RED_ROSE_BIO = {
+  title: 'About Red Rose Photo Booth',
+  paragraphs: [
+    'Red Rose Photo Booth LLC is owned and operated by Roger Marionneaux, delivering high-end, customizable photo booth experiences throughout the Bay Area and beyond.',
+    'We combine top-tier camera technology, instant digital sharing, and custom-branded prints so every guest leaves with memories they will treasure — and share — long after the celebration ends.',
+  ],
+};
+
 export const HOME_INTRO = {
   paragraphs: [
     'Ready to make your event unforgettable? Red Rose Photo Booth delivers high-end, customizable photo booth experiences that bring the fun and save every epic moment. By combining top-tier camera technology, instant digital sharing, and custom-branded prints, we capture memories your guests will talk about long after the party ends!',
@@ -9,25 +17,29 @@ export const HOME_INTRO = {
 
 export const HOME_PACKAGES = [
   {
-    name: 'The One Rose',
-    duration: '3 Hours',
-    price: 900,
-    features: 'Standard booth setup, full feature suite, and select fabric backdrop.',
+    name: 'Package 1',
+    price: 950,
+    features: [
+      'Full setup and props',
+      'Instant email sharing',
+    ],
   },
   {
-    name: 'The Half Dozen',
-    duration: '4 Hours',
-    price: 1200,
-    features: 'Extended event coverage, full feature suite, and upgraded prop options.',
+    name: 'Package 2',
+    price: 1300,
     featured: true,
-  },
-  {
-    name: 'The Full Dozen',
-    duration: '5 Hours',
-    price: 1500,
-    features: 'Maximum event runtime, full feature suite, and priority customization.',
+    features: [
+      'Full setup and props (included from Package 1)',
+      'Instant email sharing',
+      'One extra hour of service',
+      'Audio guestbook for recorded voice messages',
+      'Choice of custom photo keychains OR photo magnets for guests',
+    ],
   },
 ];
+
+export const PACKAGE_MINIMUM_NOTE =
+  '4-hour event minimum. $250 for each additional hour after your initial booking.';
 
 export const PACKAGE_INCLUDES = [
   {

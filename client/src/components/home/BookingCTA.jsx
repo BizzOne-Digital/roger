@@ -14,7 +14,7 @@ export default function BookingCTA() {
           Your Event Deserves More Than Ordinary Photos.
         </h2>
         <p className="section-lead-light text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-          Reserve your date with Sacramento&apos;s premier luxury photo booth experience.
+          Reserve Your Date with Red Rose Photo Booth for an unforgettable event!
         </p>
         <Link to="/booking">
           <MagneticButton className="btn-primary text-lg !px-10 !py-4">
