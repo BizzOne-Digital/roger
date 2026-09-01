@@ -47,6 +47,8 @@ export const ADD_ON_SERVICES = {
     {
       name: 'Digital Guest Phone — Audio Guestbook',
       price: '$200 bundled with booth packages',
+      image: '/addon-audio-guestbook.jpg',
+      imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
         'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $350 elsewhere; bundle it with your existing booth package for $200.',
       note: 'Available when added to Package 1 or Package 2. Consultation required.',
@@ -54,6 +56,8 @@ export const ADD_ON_SERVICES = {
     {
       name: 'On-Site Custom Acrylic Keychains',
       price: '$175 for 50 Keychains',
+      image: '/addon-keychains.jpg',
+      imageAlt: 'Red Rose Photo Booth on-site keychain station with custom photo keychains',
       description:
         'Using our on-site keychain maker, guests take their photo and we print it live onto a 1-inch clear circle acrylic keychain. Includes a stylish leather wristlet — a keepsake they can take home the same night.',
       note: 'Distributed on a first-come, first-served basis. Consultation required.',
