@@ -46,12 +46,12 @@ export const ADD_ON_SERVICES = {
   items: [
     {
       name: 'Digital Guest Phone — Audio Guestbook',
-      price: '$200 bundled with booth packages',
+      price: '$250 bundled with booth packages',
       image: '/addon-audio-guestbook.jpg',
       imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
-        'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $350 elsewhere; bundle it with your existing booth package for $200.',
-      note: 'Available when added to Package 1 or Package 2. Consultation required.',
+        'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $450 elsewhere; bundle it with your existing booth package for $250.',
+      note: 'Available when added to Package 1. Consultation required.',
     },
     {
       name: 'On-Site Custom Acrylic Keychains',
@@ -85,14 +85,18 @@ export const HOME_PACKAGES = [
   },
   {
     name: 'Package 2',
+    tagline: 'The Full Rose Experience',
     price: 1300,
     featured: true,
+    badge: 'Best Value — Guest Favorite',
     features: [
-      'Full setup and props (included from Package 1)',
-      'Instant email sharing',
-      'One extra hour of service',
-      'Audio guestbook for recorded voice messages',
-      'Choice of custom photo keychains OR photo magnets for guests',
+      'Everything in Package 1, plus:',
+      'One extra hour of booth service',
+      'Digital guest phone audio guestbook INCLUDED ($250 value)',
+      '50 on-site custom photo keychains OR photo strip magnets for guests',
+      'Custom wedding photo template designed for your big day',
+      'Premium props collection & choice of LED backdrops',
+      'Complete online gallery delivered after your event',
     ],
   },
 ];

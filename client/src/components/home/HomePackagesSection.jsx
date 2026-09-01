@@ -52,10 +52,17 @@ export default function HomePackagesSection() {
                   }`}
                 >
                   <td className="p-4 md:p-5 font-display text-xl font-semibold text-warmIvory">
-                    {pkg.name}
+                    <div>
+                      {pkg.name}
+                      {pkg.tagline && (
+                        <span className="block text-base text-antiqueGold/90 font-medium mt-0.5">
+                          {pkg.tagline}
+                        </span>
+                      )}
+                    </div>
                     {pkg.featured && (
-                      <span className="block text-xs text-antiqueGold font-bold uppercase tracking-wider mt-1">
-                        Most Popular
+                      <span className="block text-xs text-antiqueGold font-bold uppercase tracking-wider mt-2">
+                        {pkg.badge || 'Most Popular'}
                       </span>
                     )}
                   </td>
@@ -85,12 +92,22 @@ export default function HomePackagesSection() {
                   : 'border-antiqueGold/25 bg-roseNoir/40'
               }`}
             >
-              <div className="flex justify-between gap-3 mb-3">
-                <h3 className="font-display text-xl font-semibold">{pkg.name}</h3>
+              <div className="flex justify-between gap-3 mb-1">
+                <div>
+                  <h3 className="font-display text-xl font-semibold">{pkg.name}</h3>
+                  {pkg.tagline && (
+                    <p className="text-antiqueGold/90 text-sm font-medium mt-0.5">{pkg.tagline}</p>
+                  )}
+                </div>
                 <p className="font-display text-2xl text-antiqueGold font-semibold shrink-0">
                   {formatPrice(pkg.price)}
                 </p>
               </div>
+              {pkg.featured && (
+                <p className="text-xs text-antiqueGold font-bold uppercase tracking-wider mb-3">
+                  {pkg.badge || 'Most Popular'}
+                </p>
+              )}
               <PackageFeatures features={pkg.features} />
             </motion.article>
           ))}
