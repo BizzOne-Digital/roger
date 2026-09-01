@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { HERO_BANNER } from '../../data/homeContent';
 
 const INTRO_DURATION_MS = 5000;
 
@@ -56,7 +57,7 @@ export default function CinematicIntro({ onComplete }) {
             className="relative z-10 w-full max-w-6xl px-4 sm:px-6"
           >
             <img
-              src="/banner-hero.png"
+              src={HERO_BANNER}
               alt="Red Rose Photo Booth LLC — Capturing Your Story"
               className="w-full h-auto max-h-[min(82vh,780px)] object-contain mx-auto drop-shadow-2xl"
               width={1920}

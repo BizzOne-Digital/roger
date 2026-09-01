@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
+import BookingLink from '../ui/BookingLink';
 import { SectionHeader } from '../ui/SectionTypography';
-import { HOME_INTRO, HOME_CONTACT_LINKS, HOME_QUICK_LINKS, RED_ROSE_BIO } from '../../data/homeContent';
+import {
+  HOME_WELCOME,
+  HOME_CONTACT_LINKS,
+  HOME_QUICK_LINKS,
+  RED_ROSE_BIO,
+} from '../../data/homeContent';
 
 export default function HomeIntroSection() {
   const secondaryLinks = HOME_QUICK_LINKS.filter((l) => l.variant === 'secondary');
@@ -12,14 +18,12 @@ export default function HomeIntroSection() {
           <SectionHeader
             align="left"
             eyebrow="Red Rose Photo Booth"
-            title="High-End Experiences. Unforgettable Memories."
-            className="mb-8 !mb-8"
+            title={HOME_WELCOME.title}
+            className="mb-8"
           />
-          {HOME_INTRO.paragraphs.map((text, i) => (
-            <p key={i} className="text-body-muted text-base md:text-lg mb-5 leading-relaxed">
-              {text}
-            </p>
-          ))}
+          <p className="text-body-muted text-base md:text-lg mb-8 leading-relaxed">
+            {HOME_WELCOME.body}
+          </p>
 
           <div className="mt-10 pt-8 border-t border-antiqueGold/20">
             <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-4">
@@ -33,11 +37,11 @@ export default function HomeIntroSection() {
           </div>
 
           <div className="flex flex-wrap gap-3 mt-8">
-            <Link to="/booking" className="btn-primary">
-              Book Online Instantly
-            </Link>
+            <BookingLink className="btn-primary">
+              Check Availability & Book
+            </BookingLink>
             <Link to="/contact" className="btn-secondary">
-              Personalized Consultation
+              Schedule a Consultation
             </Link>
           </div>
 

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import BookingLink from '../ui/BookingLink';
 import MagneticButton from '../ui/MagneticButton';
 import RosePetals from '../animations/RosePetals';
 
@@ -16,11 +16,11 @@ export default function BookingCTA() {
         <p className="section-lead-light text-lg md:text-xl mb-10 max-w-2xl mx-auto">
           Reserve Your Date with Red Rose Photo Booth for an unforgettable event!
         </p>
-        <Link to="/booking">
+        <BookingLink>
           <MagneticButton className="btn-primary text-lg !px-10 !py-4">
             Reserve Your Date
           </MagneticButton>
-        </Link>
+        </BookingLink>
       </div>
     </section>
   );

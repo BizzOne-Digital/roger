@@ -1,5 +1,26 @@
 import { BUSINESS } from '../utils/constants';
 
+export const HERO_BANNER = '/banner-hero-top.jpg';
+
+export const HERO_FEATURE_HIGHLIGHTS = [
+  {
+    title: 'Tailored Event Prints',
+    description:
+      'Custom-tailored to you and your event. Choose 2×6 photo strips, classic 4×6 prints, or enjoy both!',
+  },
+  {
+    title: 'Instant Digital Sharing',
+    description:
+      'Guests can instantly receive and share their photos digitally, making it effortless to save and post every moment.',
+  },
+];
+
+export const HOME_WELCOME = {
+  title: 'Welcome to Red Rose Photo Booth',
+  body:
+    'We appreciate your interest in Red Rose Photo Booth for your special occasion! We are dedicated to collaborating with you to deliver an exceptional, unforgettable photo booth experience for you and your guests on your big day.',
+};
+
 export const RED_ROSE_BIO = {
   title: 'About Red Rose Photo Booth',
   paragraphs: [
@@ -8,11 +29,45 @@ export const RED_ROSE_BIO = {
   ],
 };
 
-export const HOME_INTRO = {
-  paragraphs: [
-    'Ready to make your event unforgettable? Red Rose Photo Booth delivers high-end, customizable photo booth experiences that bring the fun and save every epic moment. By combining top-tier camera technology, instant digital sharing, and custom-branded prints, we capture memories your guests will talk about long after the party ends!',
-    `Whether you're planning a wedding, corporate showcase, or private celebration, checking availability and securing your spot is effortless. Visit our website to check your date and book online instantly, or give us a call or text to set up a personalized consultation today!`,
+export const EVENT_EXPERIENCE = {
+  title: 'Your Event Experience',
+  features: [
+    '24 Megapixel DSLR Camera',
+    'Studio-Quality Lighting',
+    'High-Quality Professional Prints',
+    'Black & White or Color Photo Options',
+    '2×6 Photo Strips or 4×6 Prints',
+    'Bonus: 1.5 Hours Included for Early Setup & Breakdown (at no extra charge to your active booth time)',
   ],
+};
+
+export const ADD_ON_SERVICES = {
+  title: 'Package Upgrades & Add-Ons',
+  items: [
+    {
+      name: 'Digital Guest Phone — Audio Guestbook',
+      price: '$200 bundled with booth packages',
+      description:
+        'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $350 elsewhere; bundle it with your existing booth package for $200.',
+      note: 'Available when added to Package 1 or Package 2. Consultation required.',
+    },
+    {
+      name: 'On-Site Custom Acrylic Keychains',
+      price: '$175 for 50 Keychains',
+      description:
+        'Using our on-site keychain maker, guests take their photo and we print it live onto a 1-inch clear circle acrylic keychain. Includes a stylish leather wristlet — a keepsake they can take home the same night.',
+      note: 'Distributed on a first-come, first-served basis. Consultation required.',
+    },
+    {
+      name: 'Photo Strip Magnet Keepsakes',
+      price: '$175 for 50 Magnets',
+      description:
+        'Guests snap their photo at the booth, then we add it on-site to a photo strip magnet — the same great keepsake experience as our keychains, priced the same. A fun takeaway they can stick on the fridge and enjoy every day.',
+      note: 'Distributed on a first-come, first-served basis. Consultation required.',
+    },
+  ],
+  consultationNote:
+    'Any package upgrades, add-ons, or custom edits require a consultation so we can tailor everything to your event.',
 };
 
 export const HOME_PACKAGES = [

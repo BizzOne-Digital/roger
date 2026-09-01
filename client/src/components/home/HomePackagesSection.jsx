@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import BookingLink from '../ui/BookingLink';
 import { SectionHeader } from '../ui/SectionTypography';
-import { HOME_PACKAGES, PACKAGE_MINIMUM_NOTE } from '../../data/homeContent';
+import { HOME_PACKAGES, PACKAGE_MINIMUM_NOTE, ADD_ON_SERVICES } from '../../data/homeContent';
 import { formatPrice } from '../../utils/constants';
 
 function PackageFeatures({ features }) {
@@ -95,14 +96,17 @@ export default function HomePackagesSection() {
           ))}
         </div>
 
-        <p className="text-center text-warmIvory/90 font-semibold text-base md:text-lg mb-10 px-4">
+        <p className="text-center text-warmIvory/90 font-semibold text-base md:text-lg mb-4 px-4">
           {PACKAGE_MINIMUM_NOTE}
+        </p>
+        <p className="text-center text-warmIvory/75 text-sm md:text-base font-medium mb-10 px-4 max-w-2xl mx-auto">
+          {ADD_ON_SERVICES.consultationNote}
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/booking" className="btn-primary">
+          <BookingLink className="btn-primary">
             Check Your Date & Book
-          </Link>
+          </BookingLink>
           <Link to="/pricing" className="btn-secondary">
             View Full Pricing
           </Link>

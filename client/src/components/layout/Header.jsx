@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, CloseIcon } from '../icons/Icons';
 import BrandLogo from '../ui/BrandLogo';
+import BookingLink from '../ui/BookingLink';
 import { NAV_LINKS, NAV_LINKS_EXTENDED } from '../../utils/constants';
 
 export default function Header() {
@@ -84,8 +85,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3 shrink-0">
-            <Link
-              to="/booking"
+            <BookingLink
               className={`hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-sm lg:text-base font-bold tracking-[0.18em] uppercase border transition-all duration-300 ${
                 onDarkHero || scrolled
                   ? 'border-antiqueGold text-antiqueGold hover:bg-antiqueGold hover:text-charcoal'
@@ -93,7 +93,7 @@ export default function Header() {
               }`}
             >
               Book Now
-            </Link>
+            </BookingLink>
 
             <button
               onClick={() => setMobileOpen(true)}
@@ -149,12 +149,9 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_LINKS_EXTENDED.length * 0.06 }}
               >
-                <Link
-                  to="/booking"
-                  className="inline-flex px-8 py-3 border border-antiqueGold text-antiqueGold text-sm font-bold tracking-[0.2em] uppercase hover:bg-antiqueGold hover:text-charcoal transition-colors mt-4"
-                >
+                <BookingLink className="inline-flex px-8 py-3 border border-antiqueGold text-antiqueGold text-sm font-bold tracking-[0.2em] uppercase hover:bg-antiqueGold hover:text-charcoal transition-colors mt-4">
                   Book Now
-                </Link>
+                </BookingLink>
               </motion.div>
             </nav>
           </motion.div>
