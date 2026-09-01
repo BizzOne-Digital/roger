@@ -47,7 +47,7 @@ function PackageFeatures({ features }) {
 export default function PricingPage() {
   usePageMeta({
     title: 'Pricing',
-    description: 'Red Rose Photo Booth wedding packages — Package 1 and Package 2. Bay Area photo booth rental.',
+    description: 'Red Rose Photo Booth wedding packages — 1/2 Dozen and Dozen. Bay Area photo booth rental.',
   });
 
   return (
