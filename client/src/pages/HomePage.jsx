@@ -30,8 +30,8 @@ export default function HomePage() {
       <EventMarquee />
       <HomeIntroSection />
       <HomePackagesSection />
-      <HomeIncludesSection />
       <HomeAddOnsSection />
+      <HomeIncludesSection />
       <HowItWorks />
       <TestimonialsSection testimonials={testimonials} loading={loadingTestimonials} />
       <BookingCTA />

@@ -9,6 +9,7 @@ import {
   PACKAGE_MINIMUM_NOTE,
   BOOKING_TERMS,
 } from '../data/homeContent';
+import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import { formatPrice } from '../utils/constants';
 
 const faqs = [
@@ -118,6 +119,8 @@ export default function PricingPage() {
           <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-14 px-4">
             {PACKAGE_MINIMUM_NOTE}
           </p>
+
+          <HomeAddOnsSection embedded />
 
           <SectionHeader title="Included in All Packages" align="left" className="mb-6" />
           <ul className="grid sm:grid-cols-2 gap-4 mb-12">

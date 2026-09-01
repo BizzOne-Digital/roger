@@ -107,6 +107,9 @@ export default function HomePackagesSection() {
           <BookingLink className="btn-primary">
             Check Your Date & Book
           </BookingLink>
+          <a href="#package-add-ons" className="btn-secondary">
+            View Add-Ons
+          </a>
           <Link to="/pricing" className="btn-secondary">
             View Full Pricing
           </Link>
