@@ -1,4 +1,4 @@
-/** Secure online booking & deposits via Check Cherry */
+/** Public booking engine — all packages (from Check Cherry Package Manager “Share” link) */
 export const CHECK_CHERRY_BOOKING_URL =
   'https://red-rose-photo-booth-llc.checkcherry.com/reservation';
 

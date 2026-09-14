@@ -1,12 +1,12 @@
 /** Fallback testimonials for homepage carousel when DB has fewer entries */
 export const HOME_TESTIMONIAL_FALLBACKS = [
   {
-    _id: 'fallback-maria-james',
-    customerName: 'Maria & James',
+    _id: 'fallback-erin-daley-pontari',
+    customerName: 'Erin Daley Pontari',
     eventType: 'Wedding',
     rating: 5,
     review:
-      'From setup to teardown, everything was flawless. Our guests are still talking about the photo booth weeks later. The custom template matched our wedding colors perfectly.',
+      'I highly recommend Roger to anyone looking for someone to help capture the special memories from their wedding day! He was professional, dependable, and arrived right on time. Throughout the day, he captured so many wonderful moments of us and our guests that we will be able to look back on for years to come. He stayed until the reception was completely over, making sure he didn\'t miss anything and that I was fully happy as the bride before leaving. His dedication and attention to detail meant so much to us. We truly enjoyed having him there and are so grateful for the memories he helped preserve from our special day! Thank you so much',
   },
   {
     _id: 'fallback-amanda',

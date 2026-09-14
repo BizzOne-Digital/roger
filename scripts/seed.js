@@ -181,6 +181,23 @@ const seed = async () => {
       }
     }
 
+    const erinDaleyPontariReview =
+      'I highly recommend Roger to anyone looking for someone to help capture the special memories from their wedding day! He was professional, dependable, and arrived right on time. Throughout the day, he captured so many wonderful moments of us and our guests that we will be able to look back on for years to come. He stayed until the reception was completely over, making sure he didn\'t miss anything and that I was fully happy as the bride before leaving. His dedication and attention to detail meant so much to us. We truly enjoyed having him there and are so grateful for the memories he helped preserve from our special day! Thank you so much';
+
+    const legacyMariaTestimonial = await Testimonial.findOne({
+      customerName: 'Maria & James',
+      eventType: 'Wedding',
+    });
+    if (legacyMariaTestimonial) {
+      legacyMariaTestimonial.customerName = 'Erin Daley Pontari';
+      legacyMariaTestimonial.review = erinDaleyPontariReview;
+      legacyMariaTestimonial.rating = 5;
+      legacyMariaTestimonial.featured = true;
+      legacyMariaTestimonial.isActive = true;
+      await legacyMariaTestimonial.save();
+      console.log('Testimonial updated: Erin Daley Pontari (replaced Maria & James)');
+    }
+
     const sampleTestimonials = [
       {
         customerName: 'Sarah & Michael',
@@ -210,11 +227,10 @@ const seed = async () => {
         isActive: true,
       },
       {
-        customerName: 'Maria & James',
+        customerName: 'Erin Daley Pontari',
         eventType: 'Wedding',
         rating: 5,
-        review:
-          'From setup to teardown, everything was flawless. Our guests are still talking about the photo booth weeks later. The custom template matched our wedding colors perfectly.',
+        review: erinDaleyPontariReview,
         featured: true,
         isActive: true,
       },
