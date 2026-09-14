@@ -4,10 +4,20 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { ordersAPI, servicesAPI } from '../api/client';
 import { EVENT_TYPES } from '../utils/constants';
 import PageHero from '../components/ui/PageHero';
+import ExternalBookingRedirect from '../components/booking/ExternalBookingRedirect';
+import { isExternalBooking } from '../utils/booking';
 
 const STEPS = ['Contact', 'Event Details', 'Service & Features', 'Review'];
 
 export default function BookingPage() {
+  if (isExternalBooking()) {
+    return <ExternalBookingRedirect />;
+  }
+
+  return <BookingRequestForm />;
+}
+
+function BookingRequestForm() {
   usePageMeta({
     title: 'Book Your Booth',
     description: 'Request a Red Rose Photo Booth booking for your Bay Area event.',

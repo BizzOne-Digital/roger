@@ -13,6 +13,7 @@ export const BUSINESS = {
 
 export const NAV_LINKS = [
   { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Testimonials', path: '/testimonials' },
   { name: 'Shop', path: '/shop' },

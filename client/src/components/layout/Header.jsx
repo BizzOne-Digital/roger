@@ -14,7 +14,7 @@ export default function Header() {
   const isHome = location.pathname === '/';
   const onDarkHero = !scrolled && (
     isHome ||
-    ['/services', '/testimonials', '/pricing', '/shop', '/blog', '/booking', '/contact'].includes(
+    ['/about', '/services', '/testimonials', '/pricing', '/shop', '/blog', '/booking', '/contact'].includes(
       location.pathname
     )
   );

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { usePageMeta } from '../hooks/usePageMeta';
 import PageHero from '../components/ui/PageHero';
 import { SectionHeader } from '../components/ui/SectionTypography';
+import BookingLink from '../components/ui/BookingLink';
 import {
   HOME_PACKAGES,
   PACKAGE_INCLUDES,
@@ -15,7 +16,7 @@ import { formatPrice } from '../utils/constants';
 const faqs = [
   {
     q: 'How do I lock in my date?',
-    a: 'Submit a booking request online or contact Roger directly. A 25% non-refundable retainer secures your event date.',
+    a: 'Use our secure Check Cherry booking page to check availability, select your package, and pay your 25% non-refundable retainer online. You can also contact Roger directly for a consultation.',
   },
   {
     q: 'When is the final balance due?',
@@ -154,7 +155,7 @@ export default function PricingPage() {
 
           <div className="text-center mb-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/booking" className="btn-primary">Check Availability & Book</Link>
+              <BookingLink className="btn-primary">Check Availability & Book</BookingLink>
               <Link to="/contact" className="btn-secondary">Request a Consultation</Link>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { contactAPI } from '../api/client';
@@ -102,6 +103,12 @@ export default function ContactPage() {
                   {paragraph}
                 </p>
               ))}
+              <Link
+                to="/about"
+                className="inline-block text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
+              >
+                Read our full story →
+              </Link>
             </div>
           </div>
 

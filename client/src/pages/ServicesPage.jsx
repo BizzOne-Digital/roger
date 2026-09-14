@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import BookingLink from '../components/ui/BookingLink';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { servicesAPI } from '../api/client';
 import { LoadingSpinner } from '../components/ui/Shared';
@@ -115,7 +116,7 @@ export default function ServicesPage() {
           )}
 
           <div className="flex flex-wrap justify-center gap-4 mt-12 md:mt-16">
-            <Link to="/booking" className="btn-primary">Book Your Experience</Link>
+            <BookingLink className="btn-primary">Book Your Experience</BookingLink>
             <Link to="/pricing" className="btn-secondary">View Package Pricing</Link>
           </div>
         </div>
@@ -152,7 +153,7 @@ export default function ServicesPage() {
               {getPricingLabel(selected)}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/booking" className="btn-primary">Book This Service</Link>
+              <BookingLink className="btn-primary">Book This Service</BookingLink>
               <button type="button" onClick={() => setSelected(null)} className="btn-secondary">Close</button>
             </div>
           </motion.div>

@@ -38,6 +38,12 @@ const HERO_VARIANTS = {
     eyebrow: "We'd Love To Hear From You",
     alt: 'Contact Red Rose Photo Booth',
   },
+  about: {
+    image: '/hero-bg.png',
+    watermark: '/banner-hero.png',
+    eyebrow: 'Our Story',
+    alt: 'About Red Rose Photo Booth',
+  },
   checkout: {
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=80',
     eyebrow: 'Secure Checkout',

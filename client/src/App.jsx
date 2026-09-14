@@ -17,6 +17,7 @@ import BookingConfirmationPage from './pages/BookingConfirmationPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
 import AdminLogin from './admin/pages/AdminLogin';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import AdminProducts from './admin/pages/AdminProducts';
@@ -45,6 +46,7 @@ function App() {
                 <Route path="booking/confirmation/:orderNumber" element={<BookingConfirmationPage />} />
                 <Route path="blog" element={<BlogPage />} />
                 <Route path="blog/:slug" element={<BlogDetailPage />} />
+                <Route path="about" element={<AboutPage />} />
                 <Route path="contact" element={<ContactPage />} />
               </Route>
 

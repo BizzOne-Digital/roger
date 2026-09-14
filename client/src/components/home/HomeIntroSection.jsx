@@ -34,6 +34,12 @@ export default function HomeIntroSection() {
                 {text}
               </p>
             ))}
+            <Link
+              to="/about"
+              className="inline-block mt-2 text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
+            >
+              Read our full story →
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-3 mt-8">
