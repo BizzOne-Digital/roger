@@ -148,7 +148,7 @@ export const PACKAGE_INCLUDES = [
 export const BOOKING_TERMS = [
   {
     title: 'Retainer',
-    description: '25% non-refundable retainer required to lock in your date.',
+    description: '20% non-refundable retainer required to lock in your date.',
   },
   {
     title: 'Final Balance',

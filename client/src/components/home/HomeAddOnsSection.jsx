@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
 import { ADD_ON_SERVICES } from '../../data/homeContent';
+import CheckCherryAddOnGallery from '../booking/CheckCherryAddOnGallery';
 
 function AddOnCard({ item, index, embedded }) {
   const hasImage = Boolean(item.image);
@@ -65,6 +66,16 @@ export default function HomeAddOnsSection({ embedded = false }) {
         {ADD_ON_SERVICES.items.map((item, i) => (
           <AddOnCard key={item.name} item={item} index={i} embedded={embedded} />
         ))}
+      </div>
+
+      <div className="mb-8 p-6 md:p-8 rounded-lg border border-antiqueGold/30 bg-white/90">
+        <h3 className="font-display text-xl md:text-2xl font-semibold text-charcoal mb-2 text-center">
+          Book Add-Ons Online
+        </h3>
+        <p className="text-body-muted text-center text-sm md:text-base mb-6 max-w-2xl mx-auto">
+          Select add-ons and book through Check Cherry — prices and availability stay in sync with your account.
+        </p>
+        <CheckCherryAddOnGallery />
       </div>
 
       <div className="p-5 md:p-6 rounded-lg border border-antiqueGold/30 bg-charcoal text-warmIvory text-center">

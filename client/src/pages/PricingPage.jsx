@@ -16,7 +16,7 @@ import { formatPrice } from '../utils/constants';
 const faqs = [
   {
     q: 'How do I lock in my date?',
-    a: 'Use our secure Check Cherry booking page to check availability, select your package, and pay your 25% non-refundable retainer online. You can also contact Roger directly for a consultation.',
+    a: 'Use our secure Check Cherry booking page to check availability, select your package, and pay your 20% non-refundable retainer online. You can also contact Roger directly for a consultation.',
   },
   {
     q: 'When is the final balance due?',
