@@ -30,6 +30,17 @@ export default function TestimonialCard({
         )}
       </div>
 
+      {testimonial.eventImage?.url && (
+        <img
+          src={getImageUrlFromObject(testimonial.eventImage)}
+          alt={testimonial.eventImage.alt || `${testimonial.eventType} photo booth`}
+          className={`w-full rounded-lg object-cover border border-antiqueGold/20 mb-4 shrink-0 ${
+            large ? 'max-h-64' : 'max-h-48'
+          }`}
+          loading="lazy"
+        />
+      )}
+
       <p
         className={`text-charcoal font-medium leading-relaxed mb-6 ${
           equalHeight ? 'flex-1' : ''

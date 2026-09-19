@@ -184,6 +184,29 @@ const seed = async () => {
     const erinDaleyPontariReview =
       'I highly recommend Roger to anyone looking for someone to help capture the special memories from their wedding day! He was professional, dependable, and arrived right on time. Throughout the day, he captured so many wonderful moments of us and our guests that we will be able to look back on for years to come. He stayed until the reception was completely over, making sure he didn\'t miss anything and that I was fully happy as the bride before leaving. His dedication and attention to detail meant so much to us. We truly enjoyed having him there and are so grateful for the memories he helped preserve from our special day! Thank you so much';
 
+    const cousinsWeddingGuestReview =
+      'I had the absolute best experience with Roger and his Red Rose Photo Booth LLC! They were such a wonderful addition to our cousin\'s wedding and made the celebration even more fun and memorable. I\'ve known Roger personally, so I already knew how amazing and caring he is, but seeing how professionally he handled everything made the experience even better. The photo booth setup was beautiful, the pictures came out AMAZING, and the props made it so much fun for everyone. Our entire family had such a great time taking pictures, laughing, and creating memories together. It honestly became one of the highlights of the wedding! I would 100% recommend Roger and his Red Rose Photo Booth LLC for any wedding, birthday, or special event. You can tell he genuinely cares about making people happy and making sure everyone has an unforgettable experience. Thank you for capturing such fun memories for us. We absolutely loved it!';
+
+    const cousinsWeddingEventImage = {
+      url: '/testimonials/cousins-wedding-guest.jpg',
+      alt: 'Wedding guests enjoying the Red Rose Photo Booth with themed props',
+    };
+
+    const existingCousinsWeddingReview = await Testimonial.findOne({
+      review: { $regex: /^I had the absolute best experience with Roger/i },
+    });
+    if (existingCousinsWeddingReview) {
+      existingCousinsWeddingReview.customerName = 'Verified Wedding Guest';
+      existingCousinsWeddingReview.eventType = 'Wedding';
+      existingCousinsWeddingReview.rating = 5;
+      existingCousinsWeddingReview.review = cousinsWeddingGuestReview;
+      existingCousinsWeddingReview.eventImage = cousinsWeddingEventImage;
+      existingCousinsWeddingReview.featured = true;
+      existingCousinsWeddingReview.isActive = true;
+      await existingCousinsWeddingReview.save();
+      console.log('Testimonial updated: Verified Wedding Guest (cousin\'s wedding review)');
+    }
+
     const legacyMariaTestimonial = await Testimonial.findOne({
       customerName: 'Maria & James',
       eventType: 'Wedding',
@@ -231,6 +254,15 @@ const seed = async () => {
         eventType: 'Wedding',
         rating: 5,
         review: erinDaleyPontariReview,
+        featured: true,
+        isActive: true,
+      },
+      {
+        customerName: 'Verified Wedding Guest',
+        eventType: 'Wedding',
+        rating: 5,
+        review: cousinsWeddingGuestReview,
+        eventImage: cousinsWeddingEventImage,
         featured: true,
         isActive: true,
       },
