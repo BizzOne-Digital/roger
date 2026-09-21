@@ -21,6 +21,24 @@ export const HOME_TESTIMONIAL_FALLBACKS = [
     },
   },
   {
+    _id: 'fallback-camille-sutton',
+    customerName: 'Mrs. Camille Sutton',
+    eventType: 'Birthdays',
+    rating: 5,
+    review:
+      'Red Rose Photo Booth was such a fun birthday party addition. The kids loved posing with the props and having 2 photo strips made it easy for friends to share a memento. The digital backdrops made it so we could do several different looks all in one. Roger was so helpful and available the whole party to assist everyone in getting the perfect shot.',
+    eventImages: [
+      {
+        url: '/testimonials/camille-sutton-birthday-1.jpg',
+        alt: 'Children enjoying Red Rose Photo Booth props at a birthday party',
+      },
+      {
+        url: '/testimonials/camille-sutton-birthday-2.jpg',
+        alt: 'Kids posing with photo booth props and digital backdrops',
+      },
+    ],
+  },
+  {
     _id: 'fallback-amanda',
     customerName: 'Amanda Rodriguez',
     eventType: 'Bridal Shower',

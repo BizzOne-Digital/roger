@@ -6,6 +6,13 @@ export default function TestimonialCard({
   large = false,
   equalHeight = true,
 }) {
+  const eventPhotos =
+    testimonial.eventImages?.filter((img) => img?.url)?.length > 0
+      ? testimonial.eventImages.filter((img) => img?.url)
+      : testimonial.eventImage?.url
+        ? [testimonial.eventImage]
+        : [];
+
   return (
     <div
       className={`card-luxury p-6 ${large ? 'md:p-8' : ''} ${
@@ -30,15 +37,24 @@ export default function TestimonialCard({
         )}
       </div>
 
-      {testimonial.eventImage?.url && (
-        <img
-          src={getImageUrlFromObject(testimonial.eventImage)}
-          alt={testimonial.eventImage.alt || `${testimonial.eventType} photo booth`}
-          className={`w-full rounded-lg object-cover border border-antiqueGold/20 mb-4 shrink-0 ${
-            large ? 'max-h-64' : 'max-h-48'
+      {eventPhotos.length > 0 && (
+        <div
+          className={`grid gap-2 mb-4 shrink-0 ${
+            eventPhotos.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
           }`}
-          loading="lazy"
-        />
+        >
+          {eventPhotos.map((img, index) => (
+            <img
+              key={img.url || index}
+              src={getImageUrlFromObject(img)}
+              alt={img.alt || `${testimonial.eventType} photo booth`}
+              className={`w-full rounded-lg object-cover border border-antiqueGold/20 ${
+                large ? 'max-h-64' : 'max-h-48'
+              }`}
+              loading="lazy"
+            />
+          ))}
+        </div>
       )}
 
       <p

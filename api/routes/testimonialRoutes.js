@@ -1,6 +1,8 @@
 import { Router } from 'express';
+import rateLimit from 'express-rate-limit';
 import {
   getTestimonials,
+  submitPublicReview,
   createTestimonial,
   updateTestimonial,
   deleteTestimonial,
@@ -9,7 +11,14 @@ import { protect } from '../middleware/auth.js';
 
 const router = Router();
 
+const reviewSubmitLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 5,
+  message: { success: false, message: 'Too many review submissions. Please try again later.' },
+});
+
 router.get('/', getTestimonials);
+router.post('/submit', reviewSubmitLimiter, submitPublicReview);
 
 router.post('/', protect, createTestimonial);
 router.put('/:id', protect, updateTestimonial);

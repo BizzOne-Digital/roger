@@ -11,16 +11,29 @@ import BookingCTA from '../components/home/BookingCTA';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import { testimonialsAPI } from '../api/client';
 import { mergeHomeTestimonials } from '../data/homeTestimonials';
+import { TESTIMONIALS_UPDATED_EVENT } from '../utils/testimonialsEvents';
 
 export default function HomePage() {
   const [testimonials, setTestimonials] = useState([]);
   const [loadingTestimonials, setLoadingTestimonials] = useState(true);
 
-  useEffect(() => {
-    testimonialsAPI.getAll({ limit: 8 })
+  const loadTestimonials = () => {
+    setLoadingTestimonials(true);
+    testimonialsAPI
+      .getAll({ limit: 8 })
       .then(({ data }) => setTestimonials(mergeHomeTestimonials(data.testimonials)))
       .catch(() => setTestimonials(mergeHomeTestimonials([])))
       .finally(() => setLoadingTestimonials(false));
+  };
+
+  useEffect(() => {
+    loadTestimonials();
+  }, []);
+
+  useEffect(() => {
+    const onUpdate = () => loadTestimonials();
+    window.addEventListener(TESTIMONIALS_UPDATED_EVENT, onUpdate);
+    return () => window.removeEventListener(TESTIMONIALS_UPDATED_EVENT, onUpdate);
   }, []);
 
   return (

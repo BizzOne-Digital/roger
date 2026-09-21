@@ -44,6 +44,7 @@ export const servicesAPI = {
 
 export const testimonialsAPI = {
   getAll: (params) => api.get('/testimonials', { params }),
+  submitReview: (data) => api.post('/testimonials/submit', data),
   create: (data) => api.post('/testimonials', data),
   update: (id, data) => api.put(`/testimonials/${id}`, data),
   delete: (id) => api.delete(`/testimonials/${id}`),

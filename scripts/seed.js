@@ -192,6 +192,35 @@ const seed = async () => {
       alt: 'Wedding guests enjoying the Red Rose Photo Booth with themed props',
     };
 
+    const camilleSuttonReview =
+      'Red Rose Photo Booth was such a fun birthday party addition. The kids loved posing with the props and having 2 photo strips made it easy for friends to share a memento. The digital backdrops made it so we could do several different looks all in one. Roger was so helpful and available the whole party to assist everyone in getting the perfect shot.';
+
+    const camilleSuttonEventImages = [
+      {
+        url: '/testimonials/camille-sutton-birthday-1.jpg',
+        alt: 'Children enjoying Red Rose Photo Booth props at a birthday party',
+      },
+      {
+        url: '/testimonials/camille-sutton-birthday-2.jpg',
+        alt: 'Kids posing with photo booth props and digital backdrops',
+      },
+    ];
+
+    const existingCamilleSutton = await Testimonial.findOne({
+      customerName: 'Mrs. Camille Sutton',
+      eventType: 'Birthdays',
+    });
+    if (existingCamilleSutton) {
+      existingCamilleSutton.review = camilleSuttonReview;
+      existingCamilleSutton.rating = 5;
+      existingCamilleSutton.eventImage = camilleSuttonEventImages[0];
+      existingCamilleSutton.eventImages = camilleSuttonEventImages;
+      existingCamilleSutton.featured = true;
+      existingCamilleSutton.isActive = true;
+      await existingCamilleSutton.save();
+      console.log('Testimonial updated: Mrs. Camille Sutton');
+    }
+
     const existingCousinsWeddingReview = await Testimonial.findOne({
       review: { $regex: /^I had the absolute best experience with Roger/i },
     });
@@ -263,6 +292,16 @@ const seed = async () => {
         rating: 5,
         review: cousinsWeddingGuestReview,
         eventImage: cousinsWeddingEventImage,
+        featured: true,
+        isActive: true,
+      },
+      {
+        customerName: 'Mrs. Camille Sutton',
+        eventType: 'Birthdays',
+        rating: 5,
+        review: camilleSuttonReview,
+        eventImage: camilleSuttonEventImages[0],
+        eventImages: camilleSuttonEventImages,
         featured: true,
         isActive: true,
       },

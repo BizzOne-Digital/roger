@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, CloseIcon } from '../icons/Icons';
@@ -30,6 +31,15 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mobileOpen]);
 
   const isActive = (path) => {
     if (path === '/') {
@@ -109,54 +119,78 @@ export default function Header() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-charcoal/98 backdrop-blur-sm"
-          >
-            <div className="flex justify-between items-center p-6 border-b border-antiqueGold/20">
-              <BrandLogo size="header" />
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="text-warmIvory p-2"
-                aria-label="Close menu"
-              >
-                <CloseIcon />
-              </button>
-            </div>
-
-            <nav className="flex flex-col items-center justify-center min-h-[70vh] gap-5" aria-label="Mobile navigation">
-              {NAV_LINKS_EXTENDED.map((link, i) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  <Link
-                    to={link.path}
-                    className="font-display font-semibold text-2xl text-warmIvory hover:text-antiqueGold transition-colors tracking-wide"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {mobileOpen && (
               <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS_EXTENDED.length * 0.06 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-[100] flex flex-col bg-charcoal xl:hidden"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Site menu"
               >
-                <BookingLink className="inline-flex px-8 py-3 border border-antiqueGold text-antiqueGold text-sm font-bold tracking-[0.2em] uppercase hover:bg-antiqueGold hover:text-charcoal transition-colors mt-4">
-                  Book Now
-                </BookingLink>
+                <div className="flex shrink-0 justify-between items-center px-4 py-4 sm:p-6 border-b border-antiqueGold/30 bg-charcoal">
+                  <BrandLogo size="header" />
+                  <button
+                    type="button"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-warmIvory p-3 -mr-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-antiqueGold"
+                    aria-label="Close menu"
+                  >
+                    <CloseIcon />
+                  </button>
+                </div>
+
+                <nav
+                  className="flex-1 overflow-y-auto overscroll-contain px-4 py-8 sm:py-10"
+                  aria-label="Mobile navigation"
+                >
+                  <ul className="flex flex-col items-center gap-1 max-w-md mx-auto">
+                    {NAV_LINKS_EXTENDED.map((link, i) => (
+                      <motion.li
+                        key={link.path}
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.04 }}
+                        className="w-full text-center"
+                      >
+                        <Link
+                          to={link.path}
+                          onClick={() => setMobileOpen(false)}
+                          className={`block w-full py-3.5 font-display font-semibold text-xl sm:text-2xl tracking-wide transition-colors ${
+                            isActive(link.path)
+                              ? 'text-antiqueGold'
+                              : 'text-warmIvory hover:text-antiqueGold'
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.li>
+                    ))}
+                    <motion.li
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: NAV_LINKS_EXTENDED.length * 0.04 }}
+                      className="w-full pt-6 mt-4 border-t border-antiqueGold/25 text-center"
+                    >
+                      <BookingLink
+                        onClick={() => setMobileOpen(false)}
+                        className="inline-flex w-full max-w-xs justify-center px-8 py-3.5 border-2 border-antiqueGold text-antiqueGold text-sm font-bold tracking-[0.2em] uppercase hover:bg-antiqueGold hover:text-charcoal transition-colors"
+                      >
+                        Book Now
+                      </BookingLink>
+                    </motion.li>
+                  </ul>
+                </nav>
               </motion.div>
-            </nav>
-          </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }

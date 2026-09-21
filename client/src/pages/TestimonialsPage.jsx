@@ -5,6 +5,7 @@ import TestimonialCard from '../components/testimonials/TestimonialCard';
 import { LoadingSpinner } from '../components/ui/Shared';
 import PageHero from '../components/ui/PageHero';
 import { motion } from 'framer-motion';
+import { TESTIMONIALS_UPDATED_EVENT } from '../utils/testimonialsEvents';
 
 export default function TestimonialsPage() {
   usePageMeta({
@@ -15,11 +16,23 @@ export default function TestimonialsPage() {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    testimonialsAPI.getAll({ limit: 50 })
+  const loadTestimonials = () => {
+    setLoading(true);
+    testimonialsAPI
+      .getAll({ limit: 50 })
       .then(({ data }) => setTestimonials(data.testimonials))
       .catch(() => {})
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadTestimonials();
+  }, []);
+
+  useEffect(() => {
+    const onUpdate = () => loadTestimonials();
+    window.addEventListener(TESTIMONIALS_UPDATED_EVENT, onUpdate);
+    return () => window.removeEventListener(TESTIMONIALS_UPDATED_EVENT, onUpdate);
   }, []);
 
   return (

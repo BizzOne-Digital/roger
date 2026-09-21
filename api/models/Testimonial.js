@@ -14,6 +14,7 @@ const testimonialSchema = new mongoose.Schema(
     review: { type: String, required: true, maxlength: 2000 },
     customerImage: imageSchema,
     eventImage: imageSchema,
+    eventImages: [imageSchema],
     featured: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },
   },

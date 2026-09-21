@@ -4,6 +4,7 @@ import Footer from '../components/layout/Footer';
 import CustomCursor from '../components/animations/CustomCursor';
 import ScrollTriggerRefresh from '../components/animations/ScrollTriggerRefresh';
 import { LocalBusinessSchema } from '../components/ui/Shared';
+import WriteReviewFloatingCTA from '../components/reviews/WriteReviewFloatingCTA';
 
 export default function PublicLayout() {
   return (
@@ -16,6 +17,7 @@ export default function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      <WriteReviewFloatingCTA />
     </div>
   );
 }

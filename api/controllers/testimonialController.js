@@ -46,6 +46,48 @@ export const getTestimonials = async (req, res, next) => {
   }
 };
 
+export const submitPublicReview = async (req, res, next) => {
+  try {
+    const customerName = String(req.body.customerName || '').trim();
+    const eventType = String(req.body.eventType || '').trim();
+    const review = String(req.body.review || '').trim();
+    const rating = parseInt(req.body.rating, 10);
+
+    if (!customerName || customerName.length < 2) {
+      return next(new AppError('Please enter your name (at least 2 characters).', 400));
+    }
+    if (!eventType) {
+      return next(new AppError('Please select an event type.', 400));
+    }
+    if (!review || review.length < 20) {
+      return next(new AppError('Please write a review of at least 20 characters.', 400));
+    }
+    if (review.length > 2000) {
+      return next(new AppError('Review is too long (max 2000 characters).', 400));
+    }
+    if (!Number.isFinite(rating) || rating < 1 || rating > 5) {
+      return next(new AppError('Please select a star rating from 1 to 5.', 400));
+    }
+
+    const testimonial = await Testimonial.create({
+      customerName,
+      eventType,
+      review,
+      rating,
+      featured: false,
+      isActive: true,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Thank you! Your review is now live on our Testimonials page.',
+      testimonial,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const createTestimonial = async (req, res, next) => {
   try {
     const data = parseBody(req);
