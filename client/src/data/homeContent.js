@@ -29,6 +29,24 @@ export const RED_ROSE_BIO = {
   ],
 };
 
+/** Opening value proposition — home page (below logo banner). */
+export const RED_ROSE_PROMISE = {
+  title: 'More Than a Photo Booth — It\'s a Red Rose.',
+  paragraphs: [
+    'At Red Rose Photo Booth, we don\'t just set up a booth and walk away. We\'re there to help your guests have fun, keep everything running smoothly, and make sure your photo booth experience feels like a special part of your celebration.',
+    'We provide professional photo-booth experiences for weddings, birthdays, celebrations, corporate events, school events, and special occasions throughout Sacramento and the Bay Area.',
+  ],
+};
+
+export const BRIDAL_EXPO_ANNOUNCEMENT = {
+  eyebrow: 'Meet us in person',
+  title: 'California Bridal & Wedding Expo',
+  when: 'Saturday, November 15, 2026',
+  where: 'SAFE Credit Union Convention Center · Sacramento, CA',
+  detail:
+    'Red Rose Photo Booth will be an exhibitor — stop by our booth to see the experience and chat about your wedding day.',
+};
+
 export const ABOUT_PAGE = {
   title: 'Red Rose Photo Booths',
   paragraphs: [

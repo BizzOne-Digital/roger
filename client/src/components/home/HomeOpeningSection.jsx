@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
 import HomeServicesSection from './HomeServicesSection';
-import { HERO_BANNER, PACKAGE_PAGE_INTRO, RED_ROSE_BIO } from '../../data/homeContent';
+import { HERO_BANNER, PACKAGE_PAGE_INTRO, RED_ROSE_BIO, RED_ROSE_PROMISE, BRIDAL_EXPO_ANNOUNCEMENT } from '../../data/homeContent';
 import { BUSINESS } from '../../utils/constants';
 
 export default function HomeOpeningSection() {
@@ -33,8 +33,46 @@ export default function HomeOpeningSection() {
         <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-warmIvory to-transparent z-[5] pointer-events-none" />
       </section>
 
+      {/* Value proposition */}
+      <section className="section-padding bg-warmIvory pt-10 md:pt-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <SectionHeader
+            title={RED_ROSE_PROMISE.title}
+            className="mb-6"
+          />
+          {RED_ROSE_PROMISE.paragraphs.map((text, i) => (
+            <p
+              key={i}
+              className={`text-body-muted text-base md:text-lg leading-relaxed font-medium ${
+                i === 0 ? 'mb-4' : 'mb-0'
+              }`}
+            >
+              {text}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-padding bg-softBlush pt-0 pb-10 md:pb-12">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="rounded-lg border border-antiqueGold/35 bg-warmIvory/90 p-6 md:p-8 text-center shadow-sm">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-antiqueGold mb-2">
+              {BRIDAL_EXPO_ANNOUNCEMENT.eyebrow}
+            </p>
+            <h2 className="font-display text-xl md:text-2xl font-semibold text-charcoal mb-2">
+              {BRIDAL_EXPO_ANNOUNCEMENT.title}
+            </h2>
+            <p className="text-charcoal font-semibold">{BRIDAL_EXPO_ANNOUNCEMENT.when}</p>
+            <p className="text-body-muted text-sm md:text-base mt-1">{BRIDAL_EXPO_ANNOUNCEMENT.where}</p>
+            <p className="text-body-muted text-sm md:text-base mt-4 leading-relaxed">
+              {BRIDAL_EXPO_ANNOUNCEMENT.detail}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Bio */}
-      <section className="section-padding bg-warmIvory pt-8 md:pt-10">
+      <section className="section-padding bg-warmIvory pt-0 md:pt-4 border-t border-antiqueGold/15">
         <div className="max-w-4xl mx-auto">
           <SectionHeader align="left" eyebrow="Our Story" title={RED_ROSE_BIO.title} className="mb-6" />
           {RED_ROSE_BIO.paragraphs.map((text, i) => (

@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'Do you travel outside the Bay Area?',
-    a: 'Yes! We serve the Bay Area and surrounding regions. Travel fees may apply for distant venues.',
+    a: 'Yes! We serve Sacramento, the Bay Area, and surrounding regions. Travel fees may apply for distant venues.',
   },
   {
     q: 'What is the minimum booking time?',

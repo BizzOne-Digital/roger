@@ -6,7 +6,7 @@ export const BUSINESS = {
   phone: '(916) 287-0870',
   phoneRaw: '9162870870',
   email: 'Roger@redrosephotobooth.com',
-  serviceArea: 'Bay Area & Northern California',
+  serviceArea: 'Sacramento, Bay Area & Northern California',
   website: 'www.redrosephotobooth.com',
   state: 'CA',
 };

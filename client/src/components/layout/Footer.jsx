@@ -15,7 +15,7 @@ export default function Footer() {
               <BrandLogo size="footer" className="transition-opacity group-hover:opacity-90" />
             </Link>
             <p className="text-body-muted-light text-base">
-              Red Rose Photo Booth brings unforgettable photo booth experiences to weddings, corporate events, and celebrations across the Bay Area.
+              Red Rose Photo Booth brings unforgettable photo booth experiences to weddings, corporate events, and celebrations across Sacramento and the Bay Area.
             </p>
           </div>
 
