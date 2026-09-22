@@ -7,7 +7,7 @@ import ProductCard from '../components/shop/ProductCard';
 import CartDrawer from '../components/shop/CartDrawer';
 import { SkeletonCard } from '../components/ui/Shared';
 import PageHero from '../components/ui/PageHero';
-import CheckCherryAddOnGallery from '../components/booking/CheckCherryAddOnGallery';
+import BookingLink from '../components/ui/BookingLink';
 import { CartIcon } from '../components/icons/Icons';
 
 export default function ShopPage() {
@@ -112,14 +112,15 @@ export default function ShopPage() {
             </select>
           </div>
 
-          <div className="mb-12 p-6 md:p-8 rounded-lg border border-antiqueGold/30 bg-white/80">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-charcoal mb-2 text-center">
-              Book Add-Ons Online
+          <div className="mb-12 p-6 md:p-8 rounded-lg border border-antiqueGold/30 bg-white/80 text-center">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-charcoal mb-2">
+              Book Your Package Online
             </h2>
-            <p className="text-body-muted text-center text-base mb-6 max-w-2xl mx-auto">
-              Browse and book package add-ons directly through our secure Check Cherry gallery.
+            <p className="text-body-muted text-base mb-6 max-w-2xl mx-auto">
+              Packages, add-ons, and retainer payment are handled through BoothBook — our secure booking
+              system.
             </p>
-            <CheckCherryAddOnGallery />
+            <BookingLink className="btn-primary">Check Availability &amp; Book</BookingLink>
           </div>
 
           {loading ? (

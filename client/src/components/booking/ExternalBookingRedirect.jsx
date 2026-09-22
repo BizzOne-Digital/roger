@@ -25,7 +25,7 @@ export default function ExternalBookingRedirect() {
             Book &amp; Pay <span className="text-gradient-gold">Deposit</span>
           </>
         }
-        subtitle="Secure online booking powered by Check Cherry — packages, quotes, and retainer in one place."
+        subtitle="Secure online booking — choose your package and pay your retainer in one place."
       />
       <section className="section-padding bg-warmIvory">
         <div className="max-w-xl mx-auto text-center">
@@ -36,8 +36,8 @@ export default function ExternalBookingRedirect() {
             Continue to Check Availability
           </a>
           <p className="text-sm text-body-muted mt-6">
-            You&apos;ll review packages, choose your date, and pay your deposit on our verified Check Cherry
-            booking site.
+            You&apos;ll review packages, choose your date, and complete booking on our secure online
+            booking page.
           </p>
         </div>
       </section>
