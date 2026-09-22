@@ -8,6 +8,7 @@ const links = [
   { to: '/admin/services', label: 'Services' },
   { to: '/admin/orders', label: 'Orders' },
   { to: '/admin/testimonials', label: 'Testimonials' },
+  { to: '/admin/analytics', label: 'Analytics' },
 ];
 
 export default function AdminSidebar() {

@@ -6,6 +6,9 @@ import PublicLayout from './layouts/PublicLayout';
 import AdminLayout from './admin/layouts/AdminLayout';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
+import PartyServicesPage from './pages/PartyServicesPage';
+import CorporateServicesPage from './pages/CorporateServicesPage';
+import GlamAddOnPage from './pages/GlamAddOnPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
 import ShopPage from './pages/ShopPage';
@@ -24,6 +27,7 @@ import AdminProducts from './admin/pages/AdminProducts';
 import AdminServices from './admin/pages/AdminServices';
 import AdminOrders from './admin/pages/AdminOrders';
 import AdminTestimonials from './admin/pages/AdminTestimonials';
+import AdminAnalytics from './admin/pages/AdminAnalytics';
 import IntroWrapper from './components/intro/IntroWrapper';
 
 function App() {
@@ -36,6 +40,9 @@ function App() {
               <Route element={<PublicLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path="services" element={<ServicesPage />} />
+                <Route path="services/parties" element={<PartyServicesPage />} />
+                <Route path="services/corporate" element={<CorporateServicesPage />} />
+                <Route path="services/glam" element={<GlamAddOnPage />} />
                 <Route path="testimonials" element={<TestimonialsPage />} />
                 <Route path="pricing" element={<PricingPage />} />
                 <Route path="shop" element={<ShopPage />} />
@@ -59,6 +66,7 @@ function App() {
                 <Route path="orders" element={<AdminOrders />} />
                 <Route path="orders/:id" element={<AdminOrders />} />
                 <Route path="testimonials" element={<AdminTestimonials />} />
+                <Route path="analytics" element={<AdminAnalytics />} />
               </Route>
 
               <Route path="*" element={<Navigate to="/" replace />} />

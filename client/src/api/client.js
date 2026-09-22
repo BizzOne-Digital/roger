@@ -62,7 +62,21 @@ export const servicesAPI = {
 
 export const testimonialsAPI = {
   getAll: (params) => api.get('/testimonials', { params }),
-  submitReview: (data) => api.post('/testimonials/submit', data),
+  submitReview: (data, eventPhoto) => {
+    if (eventPhoto) {
+      const formData = new FormData();
+      formData.append('customerName', data.customerName);
+      formData.append('eventType', data.eventType);
+      formData.append('rating', String(data.rating));
+      formData.append('review', data.review);
+      formData.append('eventPhoto', eventPhoto);
+      return api.post('/testimonials/submit', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    }
+    return api.post('/testimonials/submit', data);
+  },
+  approve: (id) => api.patch(`/testimonials/${id}/approve`),
   create: (data) => api.post('/testimonials', data),
   update: (id, data) => api.put(`/testimonials/${id}`, data),
   delete: (id) => api.delete(`/testimonials/${id}`),
@@ -79,6 +93,11 @@ export const ordersAPI = {
 
 export const contactAPI = {
   submit: (data) => api.post('/contact', data),
+};
+
+export const analyticsAPI = {
+  recordPageView: (data) => api.post('/analytics/pageview', data),
+  getSummary: (params) => api.get('/analytics/summary', { params }),
 };
 
 export const uploadAPI = {

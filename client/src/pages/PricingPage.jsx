@@ -48,16 +48,20 @@ function PackageFeatures({ features }) {
 
 export default function PricingPage() {
   usePageMeta({
-    title: 'Pricing',
+    title: 'Wedding Packages',
     description:
-      'Red Rose Photo Booth packages — 1/2 Dozen, Dozen, and Baker\'s Dozen. Bay Area photo booth rental.',
+      'Red Rose Photo Booth wedding packages — 1/2 Dozen, Dozen, and Baker\'s Dozen. Bay Area photo booth rental.',
   });
 
   return (
     <>
       <PageHero
         variant="pricing"
-        title={<>Photo Booth <span className="text-gradient-gold">Packages</span></>}
+        title={
+          <>
+            Wedding Photo Booth <span className="text-gradient-gold">Packages</span>
+          </>
+        }
         subtitle={PACKAGE_PAGE_INTRO.lead}
       />
 

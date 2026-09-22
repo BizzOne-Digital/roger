@@ -25,7 +25,15 @@ export default function AdminTestimonials() {
 
   const fetchTestimonials = () => {
     testimonialsAPI.getAll({ admin: true, limit: 100 })
-      .then(({ data }) => setTestimonials(data.testimonials))
+      .then(({ data }) => {
+        const sorted = [...data.testimonials].sort((a, b) => {
+          if (a.isActive === b.isActive) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          }
+          return a.isActive ? 1 : -1;
+        });
+        setTestimonials(sorted);
+      })
       .catch(() => toast.error('Failed to load testimonials'))
       .finally(() => setLoading(false));
   };
@@ -94,6 +102,16 @@ export default function AdminTestimonials() {
     }
   };
 
+  const handleApprove = async (id) => {
+    try {
+      await testimonialsAPI.approve(id);
+      toast.success('Review approved and published');
+      fetchTestimonials();
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   const handleDelete = async (id) => {
     if (!confirm('Delete this testimonial?')) return;
     try {
@@ -117,15 +135,33 @@ export default function AdminTestimonials() {
       <div className="space-y-4">
         {testimonials.map((t) => (
           <div key={t._id} className="bg-roseNoir border border-antiqueGold/20 rounded-lg p-4">
-            <div className="flex justify-between">
-              <div>
-                <h3 className="text-warmIvory font-semibold">{t.customerName}</h3>
+            <div className="flex justify-between gap-4">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-warmIvory font-semibold">{t.customerName}</h3>
+                  {!t.isActive && (
+                    <span className="text-xs uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-velvetRed/30 text-warmIvory">
+                      Pending approval
+                    </span>
+                  )}
+                </div>
                 <p className="text-warmIvory/50 text-sm">{t.eventType} · {t.rating}/5</p>
-                <p className="text-warmIvory/70 text-sm mt-2 line-clamp-2">{t.review}</p>
+                <p className="text-warmIvory/70 text-sm mt-2">{t.review}</p>
               </div>
-              <div className="space-x-2 shrink-0">
-                <button onClick={() => openEdit(t)} className="text-antiqueGold text-sm hover:underline">Edit</button>
-                <button onClick={() => handleDelete(t._id)} className="text-velvetRed text-sm hover:underline">Delete</button>
+              <div className="flex flex-col items-end gap-2 shrink-0">
+                {!t.isActive && (
+                  <button
+                    type="button"
+                    onClick={() => handleApprove(t._id)}
+                    className="text-sm px-3 py-1 rounded bg-antiqueGold text-charcoal font-semibold hover:opacity-90"
+                  >
+                    Approve
+                  </button>
+                )}
+                <div className="space-x-2">
+                  <button onClick={() => openEdit(t)} className="text-antiqueGold text-sm hover:underline">Edit</button>
+                  <button onClick={() => handleDelete(t._id)} className="text-velvetRed text-sm hover:underline">Delete</button>
+                </div>
               </div>
             </div>
           </div>

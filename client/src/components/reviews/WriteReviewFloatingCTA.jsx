@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonialsAPI } from '../../api/client';
 import { EVENT_TYPES } from '../../utils/constants';
-import { notifyTestimonialsUpdated } from '../../utils/testimonialsEvents';
 
 const emptyForm = {
   customerName: '',
@@ -16,6 +15,7 @@ const emptyForm = {
 export default function WriteReviewFloatingCTA() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState(emptyForm);
+  const [eventPhoto, setEventPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -37,6 +37,7 @@ export default function WriteReviewFloatingCTA() {
     if (success) {
       setSuccess(false);
       setForm(emptyForm);
+      setEventPhoto(null);
     }
   };
 
@@ -44,10 +45,9 @@ export default function WriteReviewFloatingCTA() {
     e.preventDefault();
     setLoading(true);
     try {
-      await testimonialsAPI.submitReview(form);
+      await testimonialsAPI.submitReview(form, eventPhoto);
       setSuccess(true);
-      notifyTestimonialsUpdated();
-      toast.success('Thank you! Your review is live on Testimonials.');
+      toast.success('Thank you! Roger will review your submission before it goes live.');
     } catch (err) {
       toast.error(err.message);
     } finally {
@@ -112,7 +112,8 @@ export default function WriteReviewFloatingCTA() {
                 <div className="p-6 md:p-8 text-center">
                   <p className="text-antiqueGold font-display text-xl font-semibold mb-3">Thank you!</p>
                   <p className="text-body-muted mb-6">
-                    Your review is now on our Testimonials page for others to read.
+                    Your review was sent to Roger for approval. Once approved, it will appear on our Testimonials
+                    page.
                   </p>
                   <div className="flex flex-wrap justify-center gap-3">
                     <Link to="/testimonials" className="btn-primary" onClick={close}>
@@ -196,11 +197,25 @@ export default function WriteReviewFloatingCTA() {
                     />
                   </div>
 
+                  <div>
+                    <label className="label-luxury" htmlFor="review-photo">
+                      Event photo (optional)
+                    </label>
+                    <input
+                      id="review-photo"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp,image/gif"
+                      className="input-luxury file:mr-3 file:py-2 file:px-3 file:rounded file:border-0 file:bg-antiqueGold/20 file:text-charcoal file:font-semibold"
+                      onChange={(e) => setEventPhoto(e.target.files?.[0] || null)}
+                    />
+                    <p className="text-xs text-body-muted mt-1">JPEG, PNG, or WebP — max 8 MB.</p>
+                  </div>
+
                   <button type="submit" disabled={loading} className="btn-primary w-full disabled:opacity-50">
                     {loading ? 'Submitting…' : 'Submit Review'}
                   </button>
                   <p className="text-xs text-body-muted text-center">
-                    Reviews appear on our public Testimonials page. Roger may edit or remove inappropriate content.
+                    Submissions are reviewed before publishing. Roger may edit or remove inappropriate content.
                   </p>
                 </form>
               )}

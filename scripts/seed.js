@@ -31,39 +31,37 @@ const seed = async () => {
 
     const sampleServices = [
       {
-        title: 'Red Rose Photo Booth Rental',
-        slug: 'photo-booth-rental',
+        title: 'Wedding Photo Booth',
+        slug: 'wedding-photo-booth',
         shortDescription:
-          'Red Rose photo booth rental with touch-screen kiosk, custom templates, instant sharing, props, and professional attendant.',
+          'Elegant wedding-ready booth — DSLR photography, prints, templates, props, and professional attendant. Starting at $950.',
         fullDescription:
-          'Our signature Red Rose Photo Booth Rental includes a touch-screen photo booth kiosk, custom photo-strip template designed for your event, instant digital sharing through SMS and email, a fun prop box, and a professional on-site attendant to ensure every guest has an unforgettable experience.',
+          'Elegant, wedding-ready photo booth experiences featuring professional DSLR photography, studio-quality lighting, unlimited photo sessions, professional onsite prints, personalized wedding templates, instant digital sharing, fun props, and a professional booth attendant.',
         features: [
-          'Touch-screen photo booth kiosk',
-          'Custom photo-strip template',
-          'Instant digital sharing via SMS and email',
-          'Fun prop box',
-          'Professional on-site attendant',
+          '½ Dozen, Dozen, and Baker\'s Dozen packages',
+          'Professional DSLR photography & lighting',
+          'Unlimited sessions and onsite prints',
+          'Personalized wedding templates',
         ],
-        pricingType: 'contact',
+        pricingType: 'fixed',
+        price: 950,
         displayOrder: 1,
         isActive: true,
       },
       {
-        title: 'Wedding Photo Booth',
-        slug: 'wedding-photo-booth',
+        title: 'Parties & Special Occasions',
+        slug: 'parties-special-occasions',
         shortDescription:
-          'Elegant wedding-ready booth with custom templates, unlimited prints, and a dedicated attendant for your big day.',
+          'You bring the party — we capture the memories. $250/hour, 2-hour minimum. Birthdays, graduations, mitzvahs, and more.',
         fullDescription:
-          'Make your wedding unforgettable with a Red Rose photo booth experience tailored to your theme. Custom tap-to-start screens, branded photo templates, fabric backdrops, and instant sharing keep guests entertained from cocktail hour through the reception.',
+          'One price, your celebration, your way. Every hour includes DSLR photography, studio lighting, unlimited sessions, prints, props, personalized templates, digital sharing, and a friendly attendant.',
         features: [
-          'Custom wedding photo template',
-          'Fabric backdrop selection',
-          'Unlimited sessions & prints',
-          'Dedicated on-site attendant',
-          'Online gallery after the event',
+          '$250 per hour — 2-hour minimum',
+          'Birthdays, graduations, anniversaries, and more',
+          'Professional prints and digital sharing',
         ],
         pricingType: 'fixed',
-        price: 950,
+        price: 500,
         displayOrder: 2,
         isActive: true,
       },
@@ -71,56 +69,41 @@ const seed = async () => {
         title: 'Corporate Events',
         slug: 'corporate-events',
         shortDescription:
-          'Brand-forward photo booth experiences for galas, trade shows, and company celebrations.',
+          'Professional branded photo booth for galas, conferences, and company celebrations. Starting at $950.',
         fullDescription:
-          'Engage your team and impress clients with a professional photo booth setup featuring custom branding, logo overlays, instant digital delivery, and seamless setup for corporate venues.',
+          'Professional. Branded. Engaging. Memorable. Corporate Essential, Signature, and Premier packages with logo branding, galleries, and VIP options.',
         features: [
-          'Custom branded overlay',
-          'Instant SMS & email sharing',
-          'Professional setup & teardown',
-          'On-site attendant',
-          'GIFs available',
+          'Corporate Essential — $950 (3 hours)',
+          'Corporate Signature — $1,150 — Most Popular',
+          'Corporate Premier — $1,400 (5 hours)',
         ],
-        pricingType: 'contact',
+        pricingType: 'fixed',
+        price: 950,
         displayOrder: 3,
-        isActive: true,
-      },
-      {
-        title: 'Private Celebrations',
-        slug: 'private-celebrations',
-        shortDescription:
-          'Birthdays, anniversaries, graduations, and private parties — contact for pricing and consultation.',
-        fullDescription:
-          'From milestone birthdays to anniversary parties, our private celebration packages deliver the same Red Rose experience with props, custom LED lighting, and unlimited fun for guests of all ages. Contact us for pricing and consultation.',
-        features: [
-          'Premium prop collection',
-          'Custom LED lighting',
-          'Instant downloads to phones',
-          'Choice of fabric backdrops',
-          'Contact for pricing and consultation',
-        ],
-        pricingType: 'contact',
-        displayOrder: 4,
         isActive: true,
       },
       {
         title: 'GLAM Filter Add-On',
         slug: 'glam-filter-addon',
         shortDescription:
-          'Studio-quality GLAM beauty filter for flawless, magazine-worthy event photos.',
+          'Studio-inspired GLAM finish for magazine-worthy photos. Add to any wedding, party, or corporate package.',
         fullDescription:
-          'Upgrade any package with our popular GLAM filter — perfect for weddings, galas, and upscale events where every guest wants to look their absolute best.',
+          'Add a sophisticated, studio-inspired GLAM finish to your photo booth experience for smooth, elegant, magazine-worthy photos.',
         features: [
-          'Professional beauty retouching filter',
-          'Works with prints & digital shares',
+          'Beauty-inspired retouching filter',
+          'Prints and digital sharing',
           'Add to any package',
-          'Guest-favorite upgrade',
         ],
         pricingType: 'contact',
-        displayOrder: 5,
+        displayOrder: 4,
         isActive: true,
       },
     ];
+
+    await Service.updateMany(
+      { slug: { $in: ['photo-booth-rental', 'private-celebrations'] } },
+      { $set: { isActive: false } }
+    );
 
     for (const s of sampleServices) {
       const updated = await Service.findOneAndUpdate(

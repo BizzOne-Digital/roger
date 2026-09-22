@@ -1,6 +1,7 @@
 import Testimonial from '../models/Testimonial.js';
 import AppError from '../utils/AppError.js';
 import { deleteImageAsset } from '../services/imageAssetService.js';
+import { storeUpload } from '../services/storedUploadService.js';
 
 const parseBody = (req) => {
   if (req.body?.data) {
@@ -69,18 +70,33 @@ export const submitPublicReview = async (req, res, next) => {
       return next(new AppError('Please select a star rating from 1 to 5.', 400));
     }
 
+    let eventImage;
+    if (req.file) {
+      const stored = await storeUpload({
+        folder: 'gallery',
+        buffer: req.file.buffer,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+      });
+      eventImage = { url: stored.url, alt: eventType };
+    } else {
+      eventImage = normalizeImage(req.body.eventImage, eventType);
+    }
+
     const testimonial = await Testimonial.create({
       customerName,
       eventType,
       review,
       rating,
       featured: false,
-      isActive: true,
+      isActive: false,
+      eventImage,
     });
 
     res.status(201).json({
       success: true,
-      message: 'Thank you! Your review is now live on our Testimonials page.',
+      message:
+        'Thank you! Your review was submitted and is pending approval. Roger will publish it after a quick review.',
       testimonial,
     });
   } catch (error) {
@@ -139,6 +155,18 @@ export const updateTestimonial = async (req, res, next) => {
     await testimonial.save();
 
     res.json({ success: true, testimonial });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const approveTestimonial = async (req, res, next) => {
+  try {
+    const testimonial = await Testimonial.findById(req.params.id);
+    if (!testimonial) return next(new AppError('Testimonial not found', 404));
+    testimonial.isActive = true;
+    await testimonial.save();
+    res.json({ success: true, message: 'Testimonial approved and published.', testimonial });
   } catch (error) {
     next(error);
   }

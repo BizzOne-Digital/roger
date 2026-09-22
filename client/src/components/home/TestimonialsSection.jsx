@@ -21,7 +21,7 @@ export default function TestimonialsSection({
             to="/testimonials"
             className="text-antiqueGold hover:text-richRose transition-colors text-base font-bold shrink-0"
           >
-            Read More →
+            View All Testimonials →
           </Link>
         </div>
 

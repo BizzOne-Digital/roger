@@ -15,6 +15,7 @@ import testimonialRoutes from './routes/testimonialRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
 import { sanitizeInput } from './middleware/sanitize.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 import { createCorsOriginValidator, getAllowedCorsOrigins } from './config/corsOrigins.js';
@@ -87,6 +88,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/uploads', uploadRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 if (serveFrontend) {
   app.use(express.static(frontendDistPath, {

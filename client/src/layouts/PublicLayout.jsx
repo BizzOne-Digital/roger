@@ -5,8 +5,11 @@ import CustomCursor from '../components/animations/CustomCursor';
 import ScrollTriggerRefresh from '../components/animations/ScrollTriggerRefresh';
 import { LocalBusinessSchema } from '../components/ui/Shared';
 import WriteReviewFloatingCTA from '../components/reviews/WriteReviewFloatingCTA';
+import usePageAnalytics from '../hooks/usePageAnalytics';
 
 export default function PublicLayout() {
+  usePageAnalytics();
+
   return (
     <div className="min-w-0 w-full overflow-x-hidden">
       <LocalBusinessSchema />

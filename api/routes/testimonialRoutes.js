@@ -6,8 +6,10 @@ import {
   createTestimonial,
   updateTestimonial,
   deleteTestimonial,
+  approveTestimonial,
 } from '../controllers/testimonialController.js';
 import { protect } from '../middleware/auth.js';
+import { upload } from '../middleware/upload.js';
 
 const router = Router();
 
@@ -18,7 +20,9 @@ const reviewSubmitLimiter = rateLimit({
 });
 
 router.get('/', getTestimonials);
-router.post('/submit', reviewSubmitLimiter, submitPublicReview);
+router.post('/submit', reviewSubmitLimiter, upload.single('eventPhoto'), submitPublicReview);
+
+router.patch('/:id/approve', protect, approveTestimonial);
 
 router.post('/', protect, createTestimonial);
 router.put('/:id', protect, updateTestimonial);
