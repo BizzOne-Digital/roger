@@ -56,6 +56,7 @@ export const PARTY_SERVICE = {
   eventTypes:
     'Birthdays • Graduations • Anniversaries • Bar & Bat Mitzvahs • Retirement Parties • Reunions • Baby Showers • Engagement Parties • Holiday Parties • School Events • Family Celebrations & More',
   experienceTitle: 'The Red Rose Party Experience — $250/Hour',
+  includesHeading: 'Every package includes:',
   includes: [
     '24-Megapixel DSLR Photography',
     'Studio-Quality Lighting',

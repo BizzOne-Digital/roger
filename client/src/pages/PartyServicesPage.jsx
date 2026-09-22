@@ -33,7 +33,9 @@ export default function PartyServicesPage() {
           <p className="text-center text-sm md:text-base text-charcoal/80 font-medium mb-12">{PARTY_SERVICE.eventTypes}</p>
 
           <SectionHeader title={PARTY_SERVICE.experienceTitle} className="mb-6" />
-          <p className="text-center text-body-muted font-semibold mb-6">Every hour includes:</p>
+          <p className="text-center font-display text-lg md:text-xl font-semibold text-charcoal uppercase tracking-wide mb-6">
+            {PARTY_SERVICE.includesHeading}
+          </p>
           <ul className="grid sm:grid-cols-2 gap-3 mb-10 max-w-2xl mx-auto">
             {PARTY_SERVICE.includes.map((item) => (
               <li key={item} className="flex items-start gap-2 text-charcoal font-medium">
@@ -44,7 +46,10 @@ export default function PartyServicesPage() {
           </ul>
 
           <div className="rounded-lg border border-antiqueGold/30 bg-white/70 p-6 md:p-8 mb-8">
-            <h3 className="font-display text-2xl text-center text-charcoal font-semibold mb-6">Pricing</h3>
+            <h3 className="font-display text-2xl text-center text-charcoal font-semibold mb-2">Choose your hours</h3>
+            <p className="text-center text-body-muted text-sm mb-6 max-w-lg mx-auto">
+              Pick how long you want Red Rose at your event — all eight features above are included with every booking.
+            </p>
             <ul className="space-y-3 max-w-md mx-auto">
               {PARTY_SERVICE.pricingTiers.map(({ hours, price }) => (
                 <li
