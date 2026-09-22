@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PhoneIcon, EmailIcon } from '../icons/Icons';
 import BrandLogo from '../ui/BrandLogo';
+import TheKnotBadge from '../ui/TheKnotBadge';
 import { BUSINESS } from '../../utils/constants';
 
 export default function Footer() {
@@ -70,6 +71,13 @@ export default function Footer() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="mt-10 md:mt-12 flex flex-col items-center justify-center gap-3 text-center">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-warmIvory/75">
+            Find us on The Knot
+          </p>
+          <TheKnotBadge />
         </div>
 
         <div className="gold-line my-5 md:my-6" />

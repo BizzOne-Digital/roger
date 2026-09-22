@@ -9,6 +9,7 @@ import {
   PACKAGE_INCLUDES,
   PACKAGE_MINIMUM_NOTE,
   BOOKING_TERMS,
+  PACKAGE_PAGE_INTRO,
 } from '../data/homeContent';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import { formatPrice } from '../utils/constants';
@@ -48,23 +49,27 @@ function PackageFeatures({ features }) {
 export default function PricingPage() {
   usePageMeta({
     title: 'Pricing',
-    description: 'Red Rose Photo Booth wedding packages — 1/2 Dozen and Dozen. Bay Area photo booth rental.',
+    description:
+      'Red Rose Photo Booth packages — 1/2 Dozen, Dozen, and Baker\'s Dozen. Bay Area photo booth rental.',
   });
 
   return (
     <>
       <PageHero
         variant="pricing"
-        title={<>Wedding Packages & <span className="text-gradient-gold">Pricing</span></>}
-        subtitle="Professional photo booth experiences with transparent wedding packages."
+        title={<>Photo Booth <span className="text-gradient-gold">Packages</span></>}
+        subtitle={PACKAGE_PAGE_INTRO.lead}
       />
 
       <section className="section-padding bg-warmIvory">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title="Wedding Package Overview" className="mb-8" />
+          <SectionHeader title="Package Overview" className="mb-4" />
+          <p className="text-body-muted text-center text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
+            {PACKAGE_PAGE_INTRO.body}
+          </p>
 
           <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-6">
-            <table className="w-full text-left border-collapse min-w-[640px]">
+            <table className="w-full text-left border-collapse min-w-[720px]">
               <thead>
                 <tr className="bg-charcoal text-warmIvory border-b border-antiqueGold/30">
                   <th className="p-4 font-display text-lg text-antiqueGold">Package</th>
@@ -77,14 +82,17 @@ export default function PricingPage() {
                   <tr
                     key={pkg.name}
                     className={`border-b border-antiqueGold/15 align-top ${
-                      pkg.featured ? 'bg-antiqueGold/10' : 'bg-white/60'
+                      pkg.featured ? 'bg-antiqueGold/10' : pkg.vip ? 'bg-antiqueGold/5' : 'bg-white/60'
                     }`}
                   >
                     <td className="p-4 font-display text-xl font-semibold">
                       {pkg.name}
+                      {pkg.tagline && (
+                        <span className="block text-base text-antiqueGold/90 font-medium mt-0.5">{pkg.tagline}</span>
+                      )}
                       {pkg.featured && (
-                        <span className="block text-xs text-antiqueGold font-bold uppercase tracking-wider mt-1">
-                          Most Popular
+                        <span className="block text-xs text-antiqueGold font-bold uppercase tracking-wider mt-2">
+                          {pkg.badge || 'Most Popular'}
                         </span>
                       )}
                     </td>
@@ -92,7 +100,11 @@ export default function PricingPage() {
                       {formatPrice(pkg.price)}
                     </td>
                     <td className="p-4">
+                      {pkg.summary && <p className="text-sm text-charcoal/80 mb-3">{pkg.summary}</p>}
                       <PackageFeatures features={pkg.features} />
+                      {pkg.closing && (
+                        <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -105,21 +117,48 @@ export default function PricingPage() {
               <article
                 key={pkg.name}
                 className={`p-5 rounded-lg border ${
-                  pkg.featured ? 'border-antiqueGold bg-antiqueGold/10' : 'border-antiqueGold/25 bg-white/60'
+                  pkg.featured
+                    ? 'border-antiqueGold bg-antiqueGold/10'
+                    : pkg.vip
+                      ? 'border-antiqueGold/40 bg-antiqueGold/5'
+                      : 'border-antiqueGold/25 bg-white/60'
                 }`}
               >
-                <div className="flex justify-between gap-3 mb-3">
-                  <h3 className="font-display text-xl font-semibold">{pkg.name}</h3>
-                  <p className="font-display text-2xl text-antiqueGold font-semibold">{formatPrice(pkg.price)}</p>
+                <div className="flex justify-between gap-3 mb-1">
+                  <div>
+                    <h3 className="font-display text-xl font-semibold">{pkg.name}</h3>
+                    {pkg.tagline && (
+                      <p className="text-antiqueGold/90 text-sm font-medium mt-0.5">{pkg.tagline}</p>
+                    )}
+                  </div>
+                  <p className="font-display text-2xl text-antiqueGold font-semibold shrink-0">
+                    {formatPrice(pkg.price)}
+                  </p>
                 </div>
+                {pkg.featured && (
+                  <p className="text-xs text-antiqueGold font-bold uppercase tracking-wider mb-3">
+                    {pkg.badge || 'Most Popular'}
+                  </p>
+                )}
+                {pkg.summary && <p className="text-body-muted text-sm mb-3">{pkg.summary}</p>}
                 <PackageFeatures features={pkg.features} />
+                {pkg.closing && (
+                  <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>
+                )}
               </article>
             ))}
           </div>
 
-          <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-14 px-4">
+          <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-8 px-4">
             {PACKAGE_MINIMUM_NOTE}
           </p>
+
+          <div className="text-center mb-14 px-4 max-w-2xl mx-auto">
+            <p className="font-display text-lg md:text-xl text-antiqueGold font-semibold mb-2">
+              {PACKAGE_PAGE_INTRO.closing}
+            </p>
+            <p className="text-body-muted font-medium">{PACKAGE_PAGE_INTRO.closingCta}</p>
+          </div>
 
           <HomeAddOnsSection embedded />
 

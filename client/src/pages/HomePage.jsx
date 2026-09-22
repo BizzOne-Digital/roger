@@ -12,6 +12,7 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import { testimonialsAPI } from '../api/client';
 import { mergeHomeTestimonials } from '../data/homeTestimonials';
 import { TESTIMONIALS_UPDATED_EVENT } from '../utils/testimonialsEvents';
+import TheKnotBadge from '../components/ui/TheKnotBadge';
 
 export default function HomePage() {
   const [testimonials, setTestimonials] = useState([]);
@@ -47,6 +48,17 @@ export default function HomePage() {
       <HomeIncludesSection />
       <HowItWorks />
       <TestimonialsSection testimonials={testimonials} loading={loadingTestimonials} />
+      <section className="section-padding bg-warmIvory border-t border-antiqueGold/15">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-4">
+          <p className="font-display text-xl md:text-2xl text-charcoal font-semibold">
+            Planning your wedding?
+          </p>
+          <p className="text-body-muted text-base md:text-lg max-w-xl">
+            See our profile, reviews, and availability on The Knot.
+          </p>
+          <TheKnotBadge />
+        </div>
+      </section>
       <BookingCTA />
     </>
   );

@@ -65,7 +65,7 @@ export const ADD_ON_SERVICES = {
       imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
         'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $450 elsewhere; bundle it with your existing booth package for $250.',
-      note: 'Available when added to 1/2 Dozen. Consultation required.',
+      note: 'Included in Baker\'s Dozen; available as an add-on for other packages. Consultation required.',
     },
     {
       name: 'On-Site Custom Acrylic Keychains',
@@ -88,30 +88,70 @@ export const ADD_ON_SERVICES = {
     'Any package upgrades, add-ons, or custom edits require a consultation so we can tailor everything to your event.',
 };
 
+export const PACKAGE_PAGE_INTRO = {
+  brandLine: 'Red Rose Photo Booth LLC — Photo Booth Packages',
+  lead: 'Step into the camera spotlight and let Red Rose Photo Booth capture your story!',
+  body:
+    'We bring lots of fun, professional-quality photography, and memorable experiences to weddings, birthdays, anniversaries, school events, corporate celebrations, and more.',
+  closing: 'Your Event. Your Memories. Your Story.',
+  closingCta: 'Let Red Rose Photo Booth capture your story!',
+};
+
 export const HOME_PACKAGES = [
   {
     name: '1/2 Dozen',
     price: 950,
+    tagline: 'The Classic Experience',
+    summary:
+      'A complete photo booth experience with everything you need to get the party started.',
+    closing: 'Lots of fun. Great photos. Lasting memories.',
     features: [
-      'Full setup and props',
-      'Instant email sharing',
-      'Basic backdrops',
-      'Red-carpet treatment and a prop table that your guests will love',
+      '24MP DSLR Camera + Studio Lighting',
+      'High-Quality Professional Onsite Prints',
+      'Full Professional Photo Booth Setup',
+      'Fun Photo Booth Props + Prop Table',
+      'Instant Email Photo Sharing',
+      'Choice of Basic Backdrops',
+      'Red-Carpet Runner Treatment',
+      'Personalized Event Photo Template',
     ],
   },
   {
     name: 'Dozen',
-    price: 1300,
+    price: 1150,
     featured: true,
     badge: 'Featured — Most Popular',
+    summary: 'More time, upgraded options, and a special keepsake for your guests.',
+    closing: 'More time. More memories. More fun.',
     features: [
-      'Full setup and props (included from Package 1: 1/2 Dozen)',
-      'Instant email sharing',
-      'One extra hour of service',
-      'Audio guestbook for recorded voice messages',
-      'Choice of custom photo keychains OR photo magnets for guests',
-      'Choice of premium backdrops',
-      'Red-carpet treatment and a prop table that your guests will love',
+      '24MP DSLR Camera + Studio Lighting',
+      'Professional Onsite Prints + Email Sharing',
+      'Full Photo Booth Setup + Fun Props',
+      'One Additional Hour of Booth Service',
+      'Custom Photo Keychains OR Photo Magnets',
+      'Choice of Premium Backdrops',
+      'Red-Carpet Runner Treatment',
+      'Personalized Event Photo Template',
+    ],
+  },
+  {
+    name: "Baker's Dozen",
+    price: 1400,
+    tagline: 'The Red Rose VIP Experience',
+    vip: true,
+    summary:
+      'Our premium experience for celebrations that deserve the full Red Rose treatment.',
+    closing:
+      'The complete Red Rose experience—more fun, more keepsakes, and more ways to capture your story.',
+    features: [
+      '24MP DSLR Camera + Studio Lighting',
+      'Professional Onsite Prints + Email Sharing',
+      '2 Extra Hours of Photo Booth Service',
+      'Audio Guestbook for Recorded Messages',
+      'Custom Photo Keychains + Photo Magnets',
+      'Premium Backdrop + Personalized Template',
+      'VIP Red Carpet, Gold Stanchions & Ropes',
+      'Digital Gallery + Premium Props',
     ],
   },
 ];
