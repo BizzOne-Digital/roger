@@ -7,11 +7,6 @@ export const useIntroSeen = () => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem(INTRO_KEY);
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!seen && !prefersReduced) {
-      setShowIntro(true);
-    }
     setReady(true);
   }, []);
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import HeroSection from '../components/home/HeroSection';
-import HomeFeatureHighlights from '../components/home/HomeFeatureHighlights';
 import EventMarquee from '../components/home/EventMarquee';
 import HomeIntroSection from '../components/home/HomeIntroSection';
 import HomePackagesSection from '../components/home/HomePackagesSection';
@@ -40,7 +39,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <HomeFeatureHighlights />
       <EventMarquee />
       <HomeIntroSection />
       <HomePackagesSection />

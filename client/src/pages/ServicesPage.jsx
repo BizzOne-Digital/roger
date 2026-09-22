@@ -2,9 +2,7 @@ import BookingLink from '../components/ui/BookingLink';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import PageHero from '../components/ui/PageHero';
-import { SectionHeader } from '../components/ui/SectionTypography';
-import ServiceOfferingCard from '../components/services/ServiceOfferingCard';
-import { SERVICE_OFFERINGS } from '../data/servicesContent';
+import HomeServicesSection from '../components/home/HomeServicesSection';
 
 export default function ServicesPage() {
   usePageMeta({
@@ -25,27 +23,14 @@ export default function ServicesPage() {
         subtitle="Choose your event type — see what’s included, what it costs, and book with confidence."
       />
 
-      <section className="section-padding bg-warmIvory">
-        <div className="max-w-7xl mx-auto min-w-0">
-          <SectionHeader
-            eyebrow="What We Offer"
-            title="Photo Booth Experiences"
-            subtitle="Four clear paths: weddings, parties, corporate events, and our GLAM upgrade."
-            className="mb-10 md:mb-14"
-          />
+      <HomeServicesSection className="!pt-0" />
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 items-stretch">
-            {SERVICE_OFFERINGS.map((offering, i) => (
-              <ServiceOfferingCard key={offering.id} offering={offering} index={i} />
-            ))}
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4 mt-12 md:mt-16">
-            <BookingLink className="btn-primary">Book Your Experience</BookingLink>
-            <Link to="/contact" className="btn-secondary">
-              Request a Consultation
-            </Link>
-          </div>
+      <section className="section-padding pt-0 bg-warmIvory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-4">
+          <BookingLink className="btn-primary">Book Your Experience</BookingLink>
+          <Link to="/contact" className="btn-secondary">
+            Request a Consultation
+          </Link>
         </div>
       </section>
     </>

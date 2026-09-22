@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import BookingLink from '../ui/BookingLink';
 import { SectionHeader } from '../ui/SectionTypography';
 import {
-  HOME_WELCOME,
   HOME_CONTACT_LINKS,
   HOME_QUICK_LINKS,
   RED_ROSE_BIO,
@@ -17,30 +16,21 @@ export default function HomeIntroSection() {
         <div className="max-w-4xl mx-auto">
           <SectionHeader
             align="left"
-            eyebrow="Red Rose Photo Booth"
-            title={HOME_WELCOME.title}
-            className="mb-8"
+            eyebrow="Our Story"
+            title={RED_ROSE_BIO.title}
+            className="mb-6"
           />
-          <p className="text-body-muted text-base md:text-lg mb-8 leading-relaxed">
-            {HOME_WELCOME.body}
-          </p>
-
-          <div className="mt-10 pt-8 border-t border-antiqueGold/20">
-            <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-4">
-              {RED_ROSE_BIO.title}
-            </h3>
-            {RED_ROSE_BIO.paragraphs.map((text, i) => (
-              <p key={i} className="text-body-muted text-base md:text-lg mb-4 leading-relaxed last:mb-0">
-                {text}
-              </p>
-            ))}
-            <Link
-              to="/about"
-              className="inline-block mt-2 text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
-            >
-              Read our full story →
-            </Link>
-          </div>
+          {RED_ROSE_BIO.paragraphs.map((text, i) => (
+            <p key={i} className="text-body-muted text-base md:text-lg mb-4 leading-relaxed last:mb-0">
+              {text}
+            </p>
+          ))}
+          <Link
+            to="/about"
+            className="inline-block mt-2 text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
+          >
+            Read our full story →
+          </Link>
 
           <div className="flex flex-wrap gap-3 mt-8">
             <BookingLink className="btn-primary">
