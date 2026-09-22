@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import HeroSection from '../components/home/HeroSection';
 import EventMarquee from '../components/home/EventMarquee';
-import HomeIntroSection from '../components/home/HomeIntroSection';
-import HomePackagesSection from '../components/home/HomePackagesSection';
-import HomeIncludesSection from '../components/home/HomeIncludesSection';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import HowItWorks from '../components/home/HowItWorks';
 import BookingCTA from '../components/home/BookingCTA';
@@ -40,10 +37,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <EventMarquee />
-      <HomeIntroSection />
-      <HomePackagesSection />
       <HomeAddOnsSection />
-      <HomeIncludesSection />
       <HowItWorks />
       <TestimonialsSection testimonials={testimonials} loading={loadingTestimonials} />
       <section className="section-padding bg-warmIvory border-t border-antiqueGold/15">
