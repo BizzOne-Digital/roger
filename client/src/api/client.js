@@ -1,6 +1,24 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
+const resolveApiBase = () => {
+  const env = import.meta.env.VITE_API_BASE_URL?.trim();
+  if (!env) return '/api';
+  if (!/^https?:\/\//i.test(env)) return env;
+
+  if (import.meta.env.PROD && typeof window !== 'undefined') {
+    try {
+      if (new URL(env).origin !== window.location.origin) {
+        return '/api';
+      }
+    } catch {
+      return '/api';
+    }
+  }
+
+  return env;
+};
+
+const API_BASE = resolveApiBase();
 
 const api = axios.create({
   baseURL: API_BASE,

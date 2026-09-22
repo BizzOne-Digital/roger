@@ -17,6 +17,7 @@ import contactRoutes from './routes/contactRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { sanitizeInput } from './middleware/sanitize.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
+import { createCorsOriginValidator, getAllowedCorsOrigins } from './config/corsOrigins.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,6 +29,7 @@ const serveFrontend =
   (process.env.SERVE_FRONTEND !== 'false' && hasFrontendBuild);
 
 const frontendUrl = (process.env.FRONTEND_URL || 'http://localhost:5173').replace(/\/$/, '');
+const allowedCorsOrigins = getAllowedCorsOrigins();
 const app = express();
 app.use(
   helmet({
@@ -37,7 +39,7 @@ app.use(
 
 app.use(
   cors({
-    origin: frontendUrl,
+    origin: createCorsOriginValidator(allowedCorsOrigins),
     credentials: true,
   })
 );
