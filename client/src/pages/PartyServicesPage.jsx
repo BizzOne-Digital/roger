@@ -30,7 +30,13 @@ export default function PartyServicesPage() {
             {PARTY_SERVICE.callout}
           </p>
           <p className="text-body-muted text-center text-base md:text-lg mb-6 leading-relaxed">{PARTY_SERVICE.intro}</p>
-          <p className="text-center text-sm md:text-base text-charcoal/80 font-medium mb-12">{PARTY_SERVICE.eventTypes}</p>
+          <p className="text-center text-sm md:text-base text-charcoal/80 font-medium mb-6">{PARTY_SERVICE.eventTypes}</p>
+          <p className="text-center text-sm md:text-base text-charcoal font-semibold mb-12 max-w-xl mx-auto">
+            {PARTY_SERVICE.schoolEventsNote}{' '}
+            <Link to="/contact" className="text-antiqueGold hover:text-richRose transition-colors">
+              Contact us →
+            </Link>
+          </p>
 
           <SectionHeader title={PARTY_SERVICE.experienceTitle} className="mb-6" />
           <p className="text-center font-display text-lg md:text-xl font-semibold text-charcoal uppercase tracking-wide mb-6">

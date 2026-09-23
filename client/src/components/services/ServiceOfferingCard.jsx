@@ -23,7 +23,12 @@ export default function ServiceOfferingCard({ offering, index = 0 }) {
         <div className="p-6 flex flex-col flex-1">
           <h2 className="card-title mb-2 group-hover:text-antiqueGold transition-colors">{offering.title}</h2>
           <p className="text-antiqueGold font-bold text-lg mb-3 shrink-0">{offering.pricingLabel}</p>
-          <p className="card-text mb-6 flex-1">{offering.description}</p>
+          <p className="card-text mb-4 flex-1">{offering.description}</p>
+          {offering.footnote && (
+            <p className="text-sm font-semibold text-charcoal/85 mb-4 border-l-2 border-antiqueGold pl-3">
+              {offering.footnote}
+            </p>
+          )}
           <Link
             to={offering.buttonTo}
             className="btn-primary w-full text-center mt-auto shrink-0 inline-flex items-center justify-center gap-2"

@@ -41,7 +41,7 @@ export const RED_ROSE_PROMISE = {
 export const BRIDAL_EXPO_ANNOUNCEMENT = {
   eyebrow: 'Meet us in person',
   title: 'California Bridal & Wedding Expo',
-  when: 'Saturday, November 15, 2026',
+  when: 'Sunday, November 15, 2026',
   where: 'SAFE Credit Union Convention Center · Sacramento, CA',
   detail:
     'Red Rose Photo Booth will be an exhibitor — stop by our booth to see the experience and chat about your wedding day.',

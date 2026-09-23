@@ -22,6 +22,7 @@ export const SERVICE_OFFERINGS = [
       'You bring the party. We\'ll capture the memories! Perfect for birthdays, graduations, anniversaries, Bar & Bat Mitzvahs, retirement parties, reunions, baby showers, engagement parties, holiday parties, school events, family celebrations, and more.',
     buttonLabel: 'View Party Details',
     buttonTo: '/services/parties',
+    footnote: 'School events: contact us for a consultation and special offers.',
   },
   {
     id: 'corporate',
@@ -75,6 +76,8 @@ export const PARTY_SERVICE = {
   ],
   additionalHourNote: 'Additional Hours — $250 each',
   minimumNote: '2-hour minimum • Starting at $500',
+  schoolEventsNote:
+    'School events: please contact us for a consultation and special offers.',
 };
 
 export const CORPORATE_PACKAGES = [
