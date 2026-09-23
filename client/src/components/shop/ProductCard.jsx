@@ -6,7 +6,7 @@ import MagneticButton from '../ui/MagneticButton';
 
 export default function ProductCard({ product }) {
   const { addItem } = useCart();
-  const price = product.salePrice ?? product.price;
+  const price = product.price;
   const inStock = product.stockQuantity > 0;
 
   return (

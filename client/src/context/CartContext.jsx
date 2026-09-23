@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
         {
           productId: product._id,
           name: product.name,
-          price: product.salePrice ?? product.price,
+          price: product.price,
           image: product.images?.[0]?.url,
           sku: product.sku,
           quantity,

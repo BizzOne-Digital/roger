@@ -78,11 +78,11 @@ export const ADD_ON_SERVICES = {
   items: [
     {
       name: 'Digital Guest Phone — Audio Guestbook',
-      price: '$250 bundled with booth packages',
+      price: '$250 add-on with booth packages',
       image: '/addon-audio-guestbook.jpg',
       imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
-        'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Typically priced up to $450 elsewhere; bundle it with your existing booth package for $250.',
+        'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Available as an add-on with your booth package.',
       note: 'Included in Baker\'s Dozen; available as an add-on for other packages. Consultation required.',
     },
     {

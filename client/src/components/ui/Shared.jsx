@@ -41,7 +41,7 @@ export function ProductSchema({ product }) {
     sku: product.sku,
     offers: {
       '@type': 'Offer',
-      price: product.salePrice ?? product.price,
+      price: product.price,
       priceCurrency: 'USD',
       availability:
         product.stockQuantity > 0

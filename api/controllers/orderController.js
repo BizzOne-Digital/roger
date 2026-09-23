@@ -116,7 +116,7 @@ export const createProductOrder = async (req, res, next) => {
         return next(new AppError(`${product.name} has insufficient stock`, 400));
       }
 
-      const price = product.salePrice ?? product.price;
+      const price = product.price;
       orderItems.push({
         productId: product._id,
         name: product.name,

@@ -47,7 +47,7 @@ export default function ProductDetailPage() {
     );
   }
 
-  const price = product.salePrice ?? product.price;
+  const price = product.price;
   const inStock = product.stockQuantity > 0;
   const heroImage = product.images?.[0]?.url
     ? getImageUrlFromObject(product.images[0])
@@ -103,11 +103,6 @@ export default function ProductDetailPage() {
             <div>
               <p className="text-2xl font-bold text-antiqueGold mb-4">
                 {formatPrice(price)}
-                {product.salePrice && (
-                  <span className="text-charcoal/50 text-lg line-through ml-2 font-medium">
-                    {formatPrice(product.price)}
-                  </span>
-                )}
               </p>
               <p className={`text-base font-semibold mb-6 ${inStock ? 'text-green-700' : 'text-velvetRed'}`}>
                 {inStock ? `${product.stockQuantity} in stock` : 'Out of stock'}

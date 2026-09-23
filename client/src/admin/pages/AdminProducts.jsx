@@ -12,7 +12,6 @@ const emptyProduct = {
   shortDescription: '',
   fullDescription: '',
   price: '',
-  salePrice: '',
   sku: '',
   stockQuantity: 0,
   featured: false,
@@ -52,7 +51,6 @@ export default function AdminProducts() {
       shortDescription: product.shortDescription,
       fullDescription: product.fullDescription,
       price: product.price,
-      salePrice: product.salePrice || '',
       sku: product.sku,
       stockQuantity: product.stockQuantity,
       featured: product.featured,
@@ -68,7 +66,7 @@ export default function AdminProducts() {
     const payload = {
       ...form,
       price: parseFloat(form.price),
-      salePrice: form.salePrice ? parseFloat(form.salePrice) : null,
+      salePrice: null,
       stockQuantity: parseInt(form.stockQuantity, 10),
       images: imageUrls.map((url) => ({ url, alt: form.name })),
       removedImageUrls,
@@ -126,7 +124,7 @@ export default function AdminProducts() {
               <tr key={p._id} className="border-b border-antiqueGold/5 text-warmIvory/80">
                 <td className="p-4">{p.name}</td>
                 <td className="p-4">{p.category}</td>
-                <td className="p-4">{formatPrice(p.salePrice ?? p.price)}</td>
+                <td className="p-4">{formatPrice(p.price)}</td>
                 <td className="p-4">{p.stockQuantity}</td>
                 <td className="p-4">
                   <span className={p.isActive ? 'text-green-400' : 'text-velvetRed'}>
@@ -158,7 +156,7 @@ export default function AdminProducts() {
                     value={form[field]} onChange={(e) => setForm({ ...form, [field]: e.target.value })} />
                 </div>
               ))}
-              {['price', 'salePrice', 'stockQuantity'].map((field) => (
+              {['price', 'stockQuantity'].map((field) => (
                 <div key={field}>
                   <label className="label-luxury text-warmIvory/70">{field}</label>
                   <input type="number" className="input-luxury bg-charcoal/50 text-warmIvory border-antiqueGold/20"
