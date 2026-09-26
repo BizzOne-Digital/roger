@@ -1,0 +1,120 @@
+import axios from 'axios';
+
+const resolveApiBase = () => {
+  const env = import.meta.env.VITE_API_BASE_URL?.trim();
+  if (!env) return '/api';
+  if (!/^https?:\/\//i.test(env)) return env;
+
+  if (import.meta.env.PROD && typeof window !== 'undefined') {
+    try {
+      if (new URL(env).origin !== window.location.origin) {
+        return '/api';
+      }
+    } catch {
+      return '/api';
+    }
+  }
+
+  return env;
+};
+
+const API_BASE = resolveApiBase();
+
+const api = axios.create({
+  baseURL: API_BASE,
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const message = error.response?.data?.message || error.message || 'Something went wrong';
+    return Promise.reject(new Error(message));
+  }
+);
+
+export const authAPI = {
+  login: (data) => api.post('/auth/login', data),
+  logout: () => api.post('/auth/logout'),
+  getMe: () => api.get('/auth/me'),
+};
+
+export const productsAPI = {
+  getAll: (params) => api.get('/products', { params }),
+  getById: (id) => api.get(`/products/${id}`),
+  getBySlug: (slug) => api.get(`/products/slug/${slug}`),
+  create: (data) => api.post('/products', data),
+  update: (id, data) => api.put(`/products/${id}`, data),
+  delete: (id) => api.delete(`/products/${id}`),
+};
+
+export const servicesAPI = {
+  getAll: (params) => api.get('/services', { params }),
+  getById: (id) => api.get(`/services/${id}`),
+  getBySlug: (slug) => api.get(`/services/slug/${slug}`),
+  create: (data) => api.post('/services', data),
+  update: (id, data) => api.put(`/services/${id}`, data),
+  delete: (id) => api.delete(`/services/${id}`),
+};
+
+export const testimonialsAPI = {
+  getAll: (params) => api.get('/testimonials', { params }),
+  submitReview: (data, eventPhoto) => {
+    if (eventPhoto) {
+      const formData = new FormData();
+      formData.append('customerName', data.customerName);
+      formData.append('eventType', data.eventType);
+      formData.append('rating', String(data.rating));
+      formData.append('review', data.review);
+      formData.append('eventPhoto', eventPhoto);
+      return api.post('/testimonials/submit', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    }
+    return api.post('/testimonials/submit', data);
+  },
+  approve: (id) => api.patch(`/testimonials/${id}/approve`),
+  create: (data) => api.post('/testimonials', data),
+  update: (id, data) => api.put(`/testimonials/${id}`, data),
+  delete: (id) => api.delete(`/testimonials/${id}`),
+};
+
+export const ordersAPI = {
+  getAll: (params) => api.get('/orders', { params }),
+  getById: (id) => api.get(`/orders/${id}`),
+  getStats: () => api.get('/orders/stats'),
+  createProductOrder: (data) => api.post('/orders/product', data),
+  createBooking: (data) => api.post('/orders/booking', data),
+  updateStatus: (id, data) => api.patch(`/orders/${id}/status`, data),
+};
+
+export const contactAPI = {
+  submit: (data) => api.post('/contact', data),
+};
+
+export const analyticsAPI = {
+  recordPageView: (data) => api.post('/analytics/pageview', data),
+  getSummary: (params) => api.get('/analytics/summary', { params }),
+};
+
+export const uploadAPI = {
+  upload: (file, folder) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('folder', folder);
+    return api.post('/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+  },
+  deleteByUrl: async (url) => {
+    if (!url || !url.includes('/api/uploads/')) return { data: { success: true } };
+    return api.delete('/upload', { data: { url } });
+  },
+};
+
+export { API_BASE };
+
+export default api;
