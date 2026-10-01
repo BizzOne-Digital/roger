@@ -77,6 +77,17 @@ export const ADD_ON_SERVICES = {
   title: 'Package Upgrades & Add-Ons',
   items: [
     {
+      name: 'Inflatable LED Photo Booth Experience',
+      price: '$150 Add-On',
+      image: '/addon-inflatable-led-booth.jpg',
+      imageAlt:
+        'Large black inflatable LED photo booth enclosure with blue interior lighting at an event venue',
+      imageCaption:
+        'Floral arrangements and event décor shown for display purposes only and are not included.',
+      description:
+        'Transform your photo booth experience with our large inflatable LED enclosure featuring vibrant LED lighting for a fun, immersive, and unforgettable experience. Perfect for weddings, parties, corporate events, and special occasions.',
+    },
+    {
       name: 'Digital Guest Phone — Audio Guestbook',
       price: '$250 add-on with booth packages',
       image: '/addon-audio-guestbook.jpg',

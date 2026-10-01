@@ -19,13 +19,18 @@ function AddOnCard({ item, index, embedded }) {
     >
       <div className={`${hasImage ? 'grid lg:grid-cols-2 gap-0' : ''}`}>
         {hasImage && (
-          <div className="relative min-h-[220px] sm:min-h-[260px] lg:min-h-full bg-charcoal/5">
+          <div className="relative min-h-[220px] sm:min-h-[260px] lg:min-h-full bg-charcoal/5 flex flex-col">
             <img
               src={item.image}
               alt={item.imageAlt || item.name}
-              className="w-full h-full min-h-[220px] sm:min-h-[260px] object-cover"
+              className="w-full flex-1 min-h-[220px] sm:min-h-[260px] object-cover"
               loading="lazy"
             />
+            {item.imageCaption && (
+              <p className="px-3 py-2 text-xs text-charcoal/65 italic bg-charcoal/5 border-t border-antiqueGold/15 leading-snug">
+                {item.imageCaption}
+              </p>
+            )}
           </div>
         )}
 

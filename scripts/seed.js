@@ -170,6 +170,9 @@ const seed = async () => {
     const erinDaleyPontariReview =
       'I highly recommend Roger to anyone looking for someone to help capture the special memories from their wedding day! He was professional, dependable, and arrived right on time. Throughout the day, he captured so many wonderful moments of us and our guests that we will be able to look back on for years to come. He stayed until the reception was completely over, making sure he didn\'t miss anything and that I was fully happy as the bride before leaving. His dedication and attention to detail meant so much to us. We truly enjoyed having him there and are so grateful for the memories he helped preserve from our special day! Thank you so much';
 
+    const darleneDReview =
+      'Shining Star Video was our choice for our wedding-day videography, and Roger did not disappoint! We were Roger\'s first digital video clients back in 2003. From our very first meeting, he never felt like just a vendor—he felt like family. Roger was not only on time—he was extremely early! His attire and demeanor were very professional, and the service he provided throughout our wedding was wonderful. He was friendly, thoughtful, and made everyone feel comfortable and at ease. We still watch our wedding DVD every anniversary and love all the special effects and personal touches he incorporated into our video. A couple who attended our wedding also used Roger for their wedding, and he even included clips of them from our wedding in their wedding DVD. It was such a beautiful and personal touch! Now that Roger has Red Rose Photo Booth, I\'m sure he will bring that same professionalism, work ethic, attention to detail, and friendly personality to every event. Roger has such a joyful and upbeat energy that makes people feel comfortable, excited, and ready to have lots of fun! He has a way of making people smile, laugh, relax, and simply enjoy themselves. If you\'re looking for a photo booth company for your wedding or special event, I\'m confident Red Rose Photo Booth is one you\'ll want to consider. Based on our experience with Roger, I\'m sure he\'ll bring that same energy and care to every event, making sure you and your guests have a great time while capturing memories you\'ll be able to look back on for years to come.';
+
     const cousinsWeddingGuestReview =
       'I had the absolute best experience with Roger and his Red Rose Photo Booth LLC! They were such a wonderful addition to our cousin\'s wedding and made the celebration even more fun and memorable. I\'ve known Roger personally, so I already knew how amazing and caring he is, but seeing how professionally he handled everything made the experience even better. The photo booth setup was beautiful, the pictures came out AMAZING, and the props made it so much fun for everyone. Our entire family had such a great time taking pictures, laughing, and creating memories together. It honestly became one of the highlights of the wedding! I would 100% recommend Roger and his Red Rose Photo Booth LLC for any wedding, birthday, or special event. You can tell he genuinely cares about making people happy and making sure everyone has an unforgettable experience. Thank you for capturing such fun memories for us. We absolutely loved it!';
 
@@ -191,6 +194,19 @@ const seed = async () => {
         alt: 'Kids posing with photo booth props and digital backdrops',
       },
     ];
+
+    const existingDarleneD = await Testimonial.findOne({
+      customerName: 'Darlene D.',
+      eventType: 'Wedding',
+    });
+    if (existingDarleneD) {
+      existingDarleneD.review = darleneDReview;
+      existingDarleneD.rating = 5;
+      existingDarleneD.featured = true;
+      existingDarleneD.isActive = true;
+      await existingDarleneD.save();
+      console.log('Testimonial updated: Darlene D.');
+    }
 
     const existingCamilleSutton = await Testimonial.findOne({
       customerName: 'Mrs. Camille Sutton',
@@ -269,6 +285,14 @@ const seed = async () => {
         eventType: 'Wedding',
         rating: 5,
         review: erinDaleyPontariReview,
+        featured: true,
+        isActive: true,
+      },
+      {
+        customerName: 'Darlene D.',
+        eventType: 'Wedding',
+        rating: 5,
+        review: darleneDReview,
         featured: true,
         isActive: true,
       },
