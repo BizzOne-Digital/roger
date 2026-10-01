@@ -89,7 +89,7 @@ export const ADD_ON_SERVICES = {
     },
     {
       name: 'Digital Guest Phone — Audio Guestbook',
-      price: '$250 add-on with booth packages',
+      price: '$150.00 add-on with booth packages',
       image: '/addon-audio-guestbook.jpg',
       imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
