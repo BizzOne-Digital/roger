@@ -97,6 +97,18 @@ export const ADD_ON_SERVICES = {
       note: 'Included in Baker\'s Dozen; available as an add-on for other packages. Consultation required.',
     },
     {
+      name: 'Custom Name Sign — Wedding Package Backdrop',
+      price: '$200.00 Add-On',
+      image: '/addon-custom-name-sign.jpg',
+      imageAlt:
+        'Gold script custom name sign on a wedding photo booth backdrop with floral accents',
+      imageCaption:
+        'Floral arrangements and event décor shown for display purposes only and are not included.',
+      description:
+        'Personalize your wedding package backdrop with a custom 3D name sign — a keepsake you take home after your event. Standard size is approximately 35.5″ (about 90 cm); other sizes are available upon consultation. Choose from Black, Gold, White, Silver, Red, or Rose Gold.',
+      note: 'Consultation required for names, size, and finish.',
+    },
+    {
       name: 'On-Site Custom Acrylic Keychains',
       price: '$175 for 50 Keychains',
       image: '/addon-keychains.jpg',

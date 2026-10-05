@@ -173,6 +173,9 @@ const seed = async () => {
     const darleneDReview =
       'Shining Star Video was our choice for our wedding-day videography, and Roger did not disappoint! We were Roger\'s first digital video clients back in 2003. From our very first meeting, he never felt like just a vendor—he felt like family. Roger was not only on time—he was extremely early! His attire and demeanor were very professional, and the service he provided throughout our wedding was wonderful. He was friendly, thoughtful, and made everyone feel comfortable and at ease. We still watch our wedding DVD every anniversary and love all the special effects and personal touches he incorporated into our video. A couple who attended our wedding also used Roger for their wedding, and he even included clips of them from our wedding in their wedding DVD. It was such a beautiful and personal touch! Now that Roger has Red Rose Photo Booth, I\'m sure he will bring that same professionalism, work ethic, attention to detail, and friendly personality to every event. Roger has such a joyful and upbeat energy that makes people feel comfortable, excited, and ready to have lots of fun! He has a way of making people smile, laugh, relax, and simply enjoy themselves. If you\'re looking for a photo booth company for your wedding or special event, I\'m confident Red Rose Photo Booth is one you\'ll want to consider. Based on our experience with Roger, I\'m sure he\'ll bring that same energy and care to every event, making sure you and your guests have a great time while capturing memories you\'ll be able to look back on for years to come.';
 
+    const ingridClarkReview =
+      'Roger photographed our wedding in 2007, and even after all these years, I still remember how wonderful he was to work with. From the beginning, Roger was professional, personable, patient, and made us feel completely comfortable in front of the camera. On a day that can easily become overwhelming, he helped everything feel natural and easy while making sure the important moments were captured. What means even more to me now is being able to look back at those photographs almost 20 years later. They aren\'t simply pictures from our wedding day — they\'re memories of the people, emotions, and moments that made that day special. Roger gave us something that has truly stood the test of time. Photography is about more than knowing how to take a beautiful picture. It\'s about connecting with people, making them comfortable, paying attention to the moments happening around you, and understanding that you\'re preserving something they may treasure for the rest of their lives. Roger has that ability. I wouldn\'t hesitate to recommend Roger to anyone looking for someone who genuinely cares about the people he\'s working with and the memories he\'s helping them create. Nearly two decades later, I\'m still grateful that he was the person behind the camera on our wedding day. Knowing how much we loved having Roger as our wedding photographer, I truly believe Red Rose Photo Booth is a perfect fit for him. He has a natural way of making people feel comfortable, bringing out their smiles, and making the experience fun while still capturing those special moments. I know he will bring that same care and personal touch to every couple, family, and guest he works with through Red Rose Photo Booth. I would absolutely recommend him for anyone\'s special day.';
+
     const cousinsWeddingGuestReview =
       'I had the absolute best experience with Roger and his Red Rose Photo Booth LLC! They were such a wonderful addition to our cousin\'s wedding and made the celebration even more fun and memorable. I\'ve known Roger personally, so I already knew how amazing and caring he is, but seeing how professionally he handled everything made the experience even better. The photo booth setup was beautiful, the pictures came out AMAZING, and the props made it so much fun for everyone. Our entire family had such a great time taking pictures, laughing, and creating memories together. It honestly became one of the highlights of the wedding! I would 100% recommend Roger and his Red Rose Photo Booth LLC for any wedding, birthday, or special event. You can tell he genuinely cares about making people happy and making sure everyone has an unforgettable experience. Thank you for capturing such fun memories for us. We absolutely loved it!';
 
@@ -206,6 +209,19 @@ const seed = async () => {
       existingDarleneD.isActive = true;
       await existingDarleneD.save();
       console.log('Testimonial updated: Darlene D.');
+    }
+
+    const existingIngridClark = await Testimonial.findOne({
+      customerName: 'Ingrid Clark',
+      eventType: 'Wedding',
+    });
+    if (existingIngridClark) {
+      existingIngridClark.review = ingridClarkReview;
+      existingIngridClark.rating = 5;
+      existingIngridClark.featured = true;
+      existingIngridClark.isActive = true;
+      await existingIngridClark.save();
+      console.log('Testimonial updated: Ingrid Clark');
     }
 
     const existingCamilleSutton = await Testimonial.findOne({
@@ -293,6 +309,14 @@ const seed = async () => {
         eventType: 'Wedding',
         rating: 5,
         review: darleneDReview,
+        featured: true,
+        isActive: true,
+      },
+      {
+        customerName: 'Ingrid Clark',
+        eventType: 'Wedding',
+        rating: 5,
+        review: ingridClarkReview,
         featured: true,
         isActive: true,
       },
