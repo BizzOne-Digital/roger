@@ -5,12 +5,18 @@ import { ordersAPI, servicesAPI } from '../api/client';
 import { EVENT_TYPES } from '../utils/constants';
 import PageHero from '../components/ui/PageHero';
 import ExternalBookingRedirect from '../components/booking/ExternalBookingRedirect';
-import { isExternalBooking } from '../utils/booking';
+import BoothBookEmbed from '../components/booking/BoothBookEmbed';
+import { getBookingEmbedUrl, getBookingUrl, hasBoothBookEmbed } from '../utils/booking';
 
 const STEPS = ['Contact', 'Event Details', 'Service & Features', 'Review'];
 
 export default function BookingPage() {
-  if (isExternalBooking()) {
+  if (hasBoothBookEmbed() && getBookingEmbedUrl()) {
+    return <BoothBookEmbed />;
+  }
+
+  const bookingUrl = getBookingUrl();
+  if (/^https?:\/\//i.test(bookingUrl)) {
     return <ExternalBookingRedirect />;
   }
 

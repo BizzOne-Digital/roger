@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getBookingUrl } from '../../utils/booking';
+import { getBookingLinkHref, isBookingLinkExternal } from '../../utils/booking';
 
 export default function BookingLink({ className, children, ...props }) {
-  const url = getBookingUrl();
-  const isExternal = /^https?:\/\//i.test(url);
+  const url = getBookingLinkHref();
+  const isExternal = isBookingLinkExternal();
 
   if (isExternal) {
     return (
