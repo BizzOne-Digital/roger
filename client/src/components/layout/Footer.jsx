@@ -50,6 +50,16 @@ export default function Footer() {
                   {BUSINESS.email}
                 </a>
               </li>
+              <li>
+                <a
+                  href={BUSINESS.googleReviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-antiqueGold font-semibold hover:text-warmIvory transition-colors"
+                >
+                  Leave a Google Review →
+                </a>
+              </li>
             </ul>
           </div>
 

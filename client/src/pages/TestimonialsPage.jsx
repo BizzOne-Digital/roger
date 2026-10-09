@@ -6,6 +6,7 @@ import { LoadingSpinner } from '../components/ui/Shared';
 import PageHero from '../components/ui/PageHero';
 import { motion } from 'framer-motion';
 import { TESTIMONIALS_UPDATED_EVENT } from '../utils/testimonialsEvents';
+import { BUSINESS } from '../utils/constants';
 
 export default function TestimonialsPage() {
   usePageMeta({
@@ -45,6 +46,23 @@ export default function TestimonialsPage() {
 
       <section className="section-padding bg-warmIvory">
         <div className="max-w-7xl mx-auto">
+          <div className="mb-10 md:mb-12 p-6 md:p-8 rounded-lg border border-antiqueGold/30 bg-white/80 text-center max-w-2xl mx-auto">
+            <p className="font-display text-xl md:text-2xl font-semibold text-charcoal mb-2">
+              Loved your experience?
+            </p>
+            <p className="text-body-muted text-base md:text-lg mb-6">
+              Leave us a review on Google — it helps other couples and event hosts find Red Rose Photo Booth.
+            </p>
+            <a
+              href={BUSINESS.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex"
+            >
+              Leave a Google Review
+            </a>
+          </div>
+
           {loading ? (
             <div className="flex justify-center py-20"><LoadingSpinner size="lg" /></div>
           ) : testimonials.length === 0 ? (

@@ -9,6 +9,7 @@ export const BUSINESS = {
   serviceArea: 'Sacramento, Bay Area & Northern California',
   website: 'www.redrosephotobooth.com',
   state: 'CA',
+  googleReviewUrl: 'https://g.page/r/CeM2bTloU4n0EAI/review',
 };
 
 export const NAV_LINKS = [

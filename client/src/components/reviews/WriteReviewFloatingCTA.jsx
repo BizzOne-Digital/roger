@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonialsAPI } from '../../api/client';
-import { EVENT_TYPES } from '../../utils/constants';
+import { BUSINESS, EVENT_TYPES } from '../../utils/constants';
 
 const emptyForm = {
   customerName: '',
@@ -126,6 +126,17 @@ export default function WriteReviewFloatingCTA() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-4">
+                  <p className="text-sm text-body-muted text-center pb-2 border-b border-antiqueGold/15">
+                    Prefer Google?{' '}
+                    <a
+                      href={BUSINESS.googleReviewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-antiqueGold font-semibold hover:underline"
+                    >
+                      Leave a review on Google
+                    </a>
+                  </p>
                   <div>
                     <label className="label-luxury" htmlFor="review-name">
                       Your name
