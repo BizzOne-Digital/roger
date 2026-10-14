@@ -6,6 +6,7 @@ const petals = Array.from({ length: 8 }, (_, i) => ({
   delay: Math.random() * 2,
   duration: 6 + Math.random() * 4,
   size: 4 + Math.random() * 8,
+  driftX: Math.random() * 40 - 20,
 }));
 
 export default function RosePetals({ count = 8, className = '' }) {
@@ -24,7 +25,7 @@ export default function RosePetals({ count = 8, className = '' }) {
           }}
           animate={{
             y: ['-10%', '110%'],
-            x: [0, Math.random() * 40 - 20],
+            x: [0, p.driftX],
             rotate: [0, 360],
             opacity: [0, 0.6, 0],
           }}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { analyticsAPI } from '../../api/client';
 import { LoadingSpinner } from '../../components/ui/Shared';
 import toast from 'react-hot-toast';
@@ -8,18 +8,18 @@ export default function AdminAnalytics() {
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const load = () => {
+  const load = useCallback(() => {
     setLoading(true);
     analyticsAPI
       .getSummary({ days })
       .then(({ data }) => setSummary(data.summary))
       .catch(() => toast.error('Failed to load analytics'))
       .finally(() => setLoading(false));
-  };
+  }, [days]);
 
   useEffect(() => {
     load();
-  }, [days]);
+  }, [load]);
 
   if (loading && !summary) {
     return (

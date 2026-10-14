@@ -10,6 +10,7 @@ import {
   getPackageTitleLine,
 } from '../../data/homeContent';
 import { formatPrice } from '../../utils/constants';
+import PackageFlyersGallery from '../services/PackageFlyersGallery';
 
 function PackageFeatures({ features }) {
   return (
@@ -119,6 +120,13 @@ export default function HomePackagesSection() {
             </motion.article>
           ))}
         </div>
+
+        <PackageFlyersGallery
+          packages={HOME_PACKAGES}
+          light
+          showHeader
+          className="mb-10 md:mb-12"
+        />
 
         <p className="text-center text-warmIvory/90 font-semibold text-base md:text-lg mb-4 px-4">
           {PACKAGE_MINIMUM_NOTE}

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 export const useMagnetic = (strength = 0.3) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });

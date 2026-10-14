@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 /** Small gold flourish used beside hero eyebrow text */
 export default function GoldFlourish({ className = '' }) {
   return (

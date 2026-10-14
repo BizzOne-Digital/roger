@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useCart } from '../context/CartContext';
@@ -24,16 +24,22 @@ export default function ShopPage() {
   const [category, setCategory] = useState('');
   const [sort, setSort] = useState('');
   const [availability, setAvailability] = useState('');
+  const searchRef = useRef(search);
+  useEffect(() => {
+    searchRef.current = search;
+  }, [search]);
 
-  const fetchProducts = () => {
+  const fetchProducts = useCallback(() => {
     setLoading(true);
     const params = { limit: 50 };
-    if (search) params.search = search;
+    const term = searchRef.current;
+    if (term) params.search = term;
     if (category) params.category = category;
     if (sort) params.sort = sort;
     if (availability) params.availability = availability;
 
-    productsAPI.getAll(params)
+    productsAPI
+      .getAll(params)
       .then(({ data }) => {
         setProducts(data.products);
         const cats = [...new Set(data.products.map((p) => p.category))];
@@ -41,11 +47,11 @@ export default function ShopPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  };
+  }, [category, sort, availability]);
 
   useEffect(() => {
     fetchProducts();
-  }, [category, sort, availability]);
+  }, [fetchProducts]);
 
   const handleSearch = (e) => {
     e.preventDefault();

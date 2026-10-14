@@ -140,9 +140,17 @@ export const PACKAGE_PAGE_INTRO = {
 
 export const HOME_PACKAGES = [
   {
+    slug: 'half-dozen',
     name: '1/2 Dozen',
     price: 950,
+    hours: 4,
     tagline: 'The Classic Experience',
+    flyer: '/packages/package-half-dozen-flyer.jpg',
+    flyerAlt:
+      '1/2 Dozen — The Classic Experience: 4-hour Red Rose Photo Booth package at $950 with DSLR camera, prints, props, and red-carpet setup',
+    detailFlyer: '/packages/package-half-dozen-detail-flyer.jpg',
+    detailFlyerAlt:
+      '1/2 Dozen package detail flyer showing included features, photo strips, props, and instant sharing',
     summary:
       'A complete photo booth experience with everything you need to get the party started. Lots of fun. Great photos. Lasting memories.',
     features: [
@@ -157,10 +165,18 @@ export const HOME_PACKAGES = [
     ],
   },
   {
+    slug: 'dozen',
     name: 'Dozen',
     price: 1150,
+    hours: 5,
     featured: true,
     badge: 'Featured — Most Popular',
+    flyer: '/packages/package-dozen-flyer.jpg',
+    flyerAlt:
+      'Dozen package — Featured Most Popular: $1,150 Red Rose VIP experience with extra hour, keepsakes, and premium backdrops',
+    detailFlyer: '/packages/package-dozen-detail-flyer.jpg',
+    detailFlyerAlt:
+      'Dozen package detail flyer with photo keychain and magnet keepsake examples',
     summary: 'More time, upgraded options, and a special keepsake for your guests.',
     closing: 'More time. More memories. More fun.',
     features: [
@@ -171,10 +187,18 @@ export const HOME_PACKAGES = [
     ],
   },
   {
+    slug: 'bakers-dozen',
     name: "Baker's Dozen",
     price: 1400,
+    hours: 6,
     tagline: 'The Red Rose VIP Experience',
     vip: true,
+    flyer: '/packages/package-bakers-dozen-flyer.jpg',
+    flyerAlt:
+      "Baker's Dozen — The Red Rose VIP Experience: $1,400 premium package with audio guestbook, both keepsakes, and VIP red carpet",
+    detailFlyer: '/packages/package-bakers-dozen-detail-flyer.jpg',
+    detailFlyerAlt:
+      "Baker's Dozen of Roses VIP flyer with keychains, magnets, audio guestbook, and premium props",
     summary:
       'Our premium experience for celebrations that deserve the full Red Rose treatment.',
     closing:

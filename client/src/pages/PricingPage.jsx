@@ -13,6 +13,7 @@ import {
   getPackageTitleLine,
 } from '../data/homeContent';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
+import PackageFlyersGallery from '../components/services/PackageFlyersGallery';
 import { formatPrice } from '../utils/constants';
 
 const faqs = [
@@ -141,6 +142,8 @@ export default function PricingPage() {
           <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-8 px-4">
             {PACKAGE_MINIMUM_NOTE}
           </p>
+
+          <PackageFlyersGallery packages={HOME_PACKAGES} className="mb-14" />
 
           <div className="text-center mb-14 px-4 max-w-2xl mx-auto">
             <p className="font-display text-lg md:text-xl text-antiqueGold font-semibold mb-2">
