@@ -6,18 +6,38 @@ import { EVENT_TYPES } from '../utils/constants';
 import PageHero from '../components/ui/PageHero';
 import ExternalBookingRedirect from '../components/booking/ExternalBookingRedirect';
 import BoothBookEmbed from '../components/booking/BoothBookEmbed';
-import { getBookingEmbedUrl, getBookingUrl, hasBoothBookEmbed } from '../utils/booking';
+import useBookingConfig from '../hooks/useBookingConfig';
 
 const STEPS = ['Contact', 'Event Details', 'Service & Features', 'Review'];
 
 export default function BookingPage() {
-  if (hasBoothBookEmbed() && getBookingEmbedUrl()) {
-    return <BoothBookEmbed />;
+  const { loading, embedUrl, externalUrl } = useBookingConfig();
+
+  if (loading) {
+    return (
+      <>
+        <PageHero
+          variant="booking"
+          title={
+            <>
+              Book Your <span className="text-gradient-gold">Experience</span>
+            </>
+          }
+          subtitle="Loading secure online booking…"
+        />
+        <section className="section-padding bg-warmIvory">
+          <p className="text-center text-body-muted font-medium">One moment please.</p>
+        </section>
+      </>
+    );
   }
 
-  const bookingUrl = getBookingUrl();
-  if (/^https?:\/\//i.test(bookingUrl)) {
-    return <ExternalBookingRedirect />;
+  if (embedUrl) {
+    return <BoothBookEmbed embedUrl={embedUrl} />;
+  }
+
+  if (externalUrl) {
+    return <ExternalBookingRedirect bookingUrl={externalUrl} />;
   }
 
   return <BookingRequestForm />;

@@ -152,7 +152,8 @@ npm start
 | Project | Build command | Output | Env |
 |---------|---------------|--------|-----|
 | **Backend** | (uses `vercel.json` + `server.js`) | — | All `.env` vars except `VITE_*` |
-| **Frontend** | `npm run build` | `dist` | `VITE_API_BASE_URL` |
+| **Frontend** | `npm run build` | `dist` | `VITE_API_BASE_URL`, optional `VITE_BOOKING_EMBED_URL` |
+| **Backend (BoothBook)** | — | — | `BOOKING_EMBED_URL` (recommended — powers `/api/config/booking` and `/booking` without a frontend rebuild) |
 
 ### Production checklist
 
@@ -162,6 +163,8 @@ npm start
 - [ ] Gmail SMTP configured
 - [ ] `npm run seed` completed
 - [ ] Admin password changed after first login
+- [ ] `BOOKING_EMBED_URL` set on the API host (Roger’s BoothBook **embed** form URL). After deploy, open `/booking` — you should see BoothBook, not the on-site inquiry form.
+- [ ] Test Book Now → package selection → date → Square retainer on mobile and desktop
 ## API Endpoints
 
 | Endpoint | Description |

@@ -113,9 +113,10 @@ export default function ContactPage() {
           </div>
 
           <motion.div
+            id="inquiry-form"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white border border-antiqueGold/20 rounded-lg p-6 md:p-8"
+            className="bg-white border border-antiqueGold/20 rounded-lg p-6 md:p-8 scroll-mt-28"
           >
             <h2 className="section-heading text-2xl md:text-3xl mb-6">Send a Message</h2>
 

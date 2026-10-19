@@ -13,7 +13,7 @@ import {
   getPackageTitleLine,
 } from '../data/homeContent';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
-import PackageFlyersGallery from '../components/services/PackageFlyersGallery';
+import CustomPackagesSection from '../components/pricing/CustomPackagesSection';
 import { formatPrice } from '../utils/constants';
 
 const faqs = [
@@ -108,6 +108,7 @@ export default function PricingPage() {
                 ))}
               </tbody>
             </table>
+            <CustomPackagesSection />
           </div>
 
           <div className="md:hidden space-y-4 mb-6">
@@ -137,13 +138,15 @@ export default function PricingPage() {
                 )}
               </article>
             ))}
+
+            <div className="rounded-lg border border-antiqueGold/30 overflow-hidden">
+              <CustomPackagesSection className="border-t-0" />
+            </div>
           </div>
 
           <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-8 px-4">
             {PACKAGE_MINIMUM_NOTE}
           </p>
-
-          <PackageFlyersGallery packages={HOME_PACKAGES} className="mb-14" />
 
           <div className="text-center mb-14 px-4 max-w-2xl mx-auto">
             <p className="font-display text-lg md:text-xl text-antiqueGold font-semibold mb-2">

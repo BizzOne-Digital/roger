@@ -36,6 +36,10 @@ api.interceptors.response.use(
   }
 );
 
+export const configAPI = {
+  getBooking: () => api.get('/config/booking'),
+};
+
 export const authAPI = {
   login: (data) => api.post('/auth/login', data),
   logout: () => api.post('/auth/logout'),

@@ -3,8 +3,8 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 import PageHero from '../ui/PageHero';
 import { getBookingUrl } from '../../utils/booking';
 
-export default function ExternalBookingRedirect() {
-  const bookingUrl = getBookingUrl();
+export default function ExternalBookingRedirect({ bookingUrl: bookingUrlProp }) {
+  const bookingUrl = bookingUrlProp || getBookingUrl();
 
   usePageMeta({
     title: 'Book Your Booth',

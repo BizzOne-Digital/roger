@@ -5,8 +5,8 @@ import { getBookingEmbedUrl } from '../../utils/booking';
 
 const BOOTHBOOK_WIDGET_SRC = 'https://cdn.system-assets.com/plugins/widget.js';
 
-export default function BoothBookEmbed() {
-  const embedUrl = getBookingEmbedUrl();
+export default function BoothBookEmbed({ embedUrl: embedUrlProp }) {
+  const embedUrl = embedUrlProp || getBookingEmbedUrl();
 
   usePageMeta({
     title: 'Book Your Booth',

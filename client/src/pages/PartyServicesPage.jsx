@@ -5,8 +5,6 @@ import { SectionHeader } from '../components/ui/SectionTypography';
 import BookingLink from '../components/ui/BookingLink';
 import { PARTY_SERVICE } from '../data/servicesContent';
 import { formatPrice } from '../utils/constants';
-import { PartyHourlyFlyer } from '../components/services/PackageFlyersGallery';
-
 export default function PartyServicesPage() {
   usePageMeta({
     title: 'Parties & Special Occasions',
@@ -38,8 +36,6 @@ export default function PartyServicesPage() {
               Contact us →
             </Link>
           </p>
-
-          <PartyHourlyFlyer className="mb-10 max-w-3xl mx-auto" />
 
           <SectionHeader title={PARTY_SERVICE.experienceTitle} className="mb-6" />
           <p className="text-center font-display text-lg md:text-xl font-semibold text-charcoal uppercase tracking-wide mb-6">
