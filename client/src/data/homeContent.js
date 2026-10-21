@@ -24,7 +24,7 @@ export const HOME_WELCOME = {
 export const RED_ROSE_BIO = {
   title: 'About Red Rose Photo Booth',
   paragraphs: [
-    'Red Rose Photo Booth was born out of gratitude to God and an ongoing story of love. When I asked my now-wife to be my girlfriend years ago, I gave her a single red rose. Ever since that day, giving her a red rose has been a special tradition throughout the journey from being significant others to marriage.',
+    'Red Rose Photo Booth was created to bring joy, excitement, and heartfelt happiness to life\'s most special celebrations. Our passion is turning beautiful moments into unforgettable experiences filled with laughter, love, and cherished memories that last a lifetime.',
     'This business was started to share that joy and help capture your own unforgettable moments. Weddings and special social events are a specialty!',
   ],
 };
@@ -50,7 +50,7 @@ export const BRIDAL_EXPO_ANNOUNCEMENT = {
 export const ABOUT_PAGE = {
   title: 'Red Rose Photo Booths',
   paragraphs: [
-    'Red Rose Photo Booth was born out of gratitude to God and an ongoing story of love. When I asked my now-wife to be my girlfriend years ago, I gave her a single red rose. Ever since that day, giving her a red rose has been a special tradition throughout the journey from being significant others to marriage.',
+    'Red Rose Photo Booth was created to bring joy, excitement, and heartfelt happiness to life\'s most special celebrations. Our passion is turning beautiful moments into unforgettable experiences filled with laughter, love, and cherished memories that last a lifetime.',
     'This business was started to share that joy and help capture your own unforgettable moments. Weddings and special social events are a specialty!',
     'For anyone looking for a premier photo booth experience for a school event, party, or wedding, Red Rose Photo Booths is the ideal choice.',
     'Backed by over a decade of professional event and media experience, memories are preserved using the latest technology and the finest equipment. Experience, style, and care in creating images that will be loved forever remain the primary goal.',
@@ -94,7 +94,7 @@ export const ADD_ON_SERVICES = {
       imageAlt: 'Red Rose Photo Booth vintage guest phone audio guestbook station at a wedding',
       description:
         'Our digital guest phone lets guests leave you a personal voice message — a modern audio guestbook your clients will treasure. Available as an add-on with your booth package.',
-      note: 'Included in Baker\'s Dozen; available as an add-on for other packages. Consultation required.',
+      note: 'Included in Bouquet; available as an add-on for other packages. Consultation required.',
     },
     {
       name: 'Custom Name Sign — Wedding Package Backdrop',
@@ -110,7 +110,7 @@ export const ADD_ON_SERVICES = {
     },
     {
       name: 'On-Site Custom Acrylic Keychains',
-      price: '$175 for 50 Keychains',
+      price: '$150.00 for 50 Keychains',
       image: '/addon-keychains.jpg',
       imageAlt: 'Red Rose Photo Booth on-site keychain station with custom photo keychains',
       description:
@@ -155,18 +155,19 @@ export const CUSTOM_PACKAGES = {
 
 export const HOME_PACKAGES = [
   {
-    slug: 'half-dozen',
-    name: '1/2 Dozen',
+    slug: 'one-rose',
+    name: 'One Rose',
     price: 950,
     hours: 4,
-    tagline: 'The Classic Experience',
+    tagline: 'The Classic',
     summary:
-      'A complete photo booth experience with everything you need to get the party started. Lots of fun. Great photos. Lasting memories.',
+      'A complete open-air photo booth experience with everything you need to get the celebration started! Great photos, lots of fun, and unforgettable memories.',
+    closing: 'Everything you need to capture the fun and create lasting memories!',
     features: [
-      '24MP DSLR Camera + Studio Lighting',
+      'Professional Open Air Photo Booth Setup',
+      '24MP DSLR Camera with Professional Studio Lighting',
       'High-Quality Professional Onsite Prints',
-      'Full Professional Photo Booth Setup',
-      'Fun Photo Booth Props + Prop Table',
+      'Fun Photo Booth Props and Prop Table',
       'Instant Email Photo Sharing',
       'Choice of Four (4) Basic Backdrops',
       'Red-Carpet Runner Treatment',
@@ -179,19 +180,21 @@ export const HOME_PACKAGES = [
     price: 1150,
     hours: 5,
     featured: true,
-    badge: 'Featured — Most Popular',
-    summary: 'More time, upgraded options, and a special keepsake for your guests.',
-    closing: 'More time. More memories. More fun.',
+    tagline: 'The Favorite',
+    badge: 'MOST POPULAR',
+    summary:
+      'More time, upgraded options, and personalized keepsakes for your guests. The perfect balance of elegance, excitement, and unforgettable memories.',
+    closing: 'More time. More memories. More fun!',
     features: [
-      'Everything in 1/2 Dozen, PLUS:',
-      '1 Additional Hour of Booth Service',
-      'Choice of Custom Keepsake: Photo Keychains OR Photo Magnets',
-      'Upgrade to Choice of Premium Backdrops',
+      'Everything in the One Rose Package, PLUS:',
+      'One (1) Additional Hour of Photo Booth Service',
+      'Choice of Custom Photo Keepsakes: Photo Keychains OR Photo Magnets',
+      'Choice of Premium Backdrops',
     ],
   },
   {
-    slug: 'bakers-dozen',
-    name: "Baker's Dozen",
+    slug: 'bouquet',
+    name: 'Bouquet',
     price: 1400,
     hours: 6,
     tagline: 'The Red Rose VIP Experience',
@@ -202,7 +205,7 @@ export const HOME_PACKAGES = [
       'The complete Red Rose experience—more fun, more keepsakes, and more ways to capture your story.',
     features: [
       'Everything in Dozen, PLUS:',
-      '1 Additional Hour of Booth Service (2 Extra Hours total over Classic)',
+      '1 Additional Hour of Booth Service (2 Extra Hours total over One Rose)',
       'Audio Guestbook for Recorded Messages',
       'BOTH Keepsakes Included: Custom Photo Keychains AND Photo Magnets',
       'VIP Upgrade: Gold Stanchions & Velvet Ropes added to Red Carpet Treatment',
@@ -212,11 +215,17 @@ export const HOME_PACKAGES = [
   },
 ];
 
-/** Single-line package title: `1/2 Dozen | The Classic Experience` or `Dozen | Featured — Most Popular`. */
+/** Single-line package title: `One Rose | The Classic` or `Dozen | The Favorite`. */
 export function getPackageTitleLine(pkg) {
   if (pkg.tagline) return `${pkg.name} | ${pkg.tagline}`;
   if (pkg.featured && pkg.badge) return `${pkg.name} | ${pkg.badge}`;
   return pkg.name;
+}
+
+/** Optional badge line under the title (e.g. MOST POPULAR). */
+export function getPackageBadgeLine(pkg) {
+  if (pkg.featured && pkg.badge && pkg.tagline) return pkg.badge;
+  return '';
 }
 
 export const PACKAGE_MINIMUM_NOTE =

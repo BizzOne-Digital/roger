@@ -38,7 +38,7 @@ const seed = async () => {
         fullDescription:
           'Elegant, wedding-ready photo booth experiences featuring professional DSLR photography, studio-quality lighting, unlimited photo sessions, professional onsite prints, personalized wedding templates, instant digital sharing, fun props, and a professional booth attendant.',
         features: [
-          '½ Dozen, Dozen, and Baker\'s Dozen packages',
+          'One Rose, Dozen, and Bouquet packages',
           'Professional DSLR photography & lighting',
           'Unlimited sessions and onsite prints',
           'Personalized wedding templates',

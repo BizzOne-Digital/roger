@@ -7,8 +7,8 @@ import {
   PACKAGE_MINIMUM_NOTE,
   ADD_ON_SERVICES,
   PACKAGE_PAGE_INTRO,
-  getPackageTitleLine,
 } from '../../data/homeContent';
+import PackageTitle from '../pricing/PackageTitle';
 import { formatPrice } from '../../utils/constants';
 
 function PackageFeatures({ features }) {
@@ -65,7 +65,7 @@ export default function HomePackagesSection() {
                   }`}
                 >
                   <td className="p-4 md:p-5 font-display text-xl font-semibold text-warmIvory">
-                    {getPackageTitleLine(pkg)}
+                    <PackageTitle pkg={pkg} />
                   </td>
                   <td className="p-4 md:p-5 font-display text-2xl text-antiqueGold font-semibold whitespace-nowrap">
                     {formatPrice(pkg.price)}
@@ -103,7 +103,7 @@ export default function HomePackagesSection() {
             >
               <div className="flex justify-between gap-3 mb-3">
                 <h3 className="font-display text-xl font-semibold leading-snug pr-2">
-                  {getPackageTitleLine(pkg)}
+                  <PackageTitle pkg={pkg} />
                 </h3>
                 <p className="font-display text-2xl text-antiqueGold font-semibold shrink-0">
                   {formatPrice(pkg.price)}

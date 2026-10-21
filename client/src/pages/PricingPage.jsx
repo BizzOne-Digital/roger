@@ -10,10 +10,10 @@ import {
   PACKAGE_MINIMUM_NOTE,
   BOOKING_TERMS,
   PACKAGE_PAGE_INTRO,
-  getPackageTitleLine,
 } from '../data/homeContent';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import CustomPackagesSection from '../components/pricing/CustomPackagesSection';
+import PackageTitle from '../components/pricing/PackageTitle';
 import { formatPrice } from '../utils/constants';
 
 const faqs = [
@@ -52,7 +52,7 @@ export default function PricingPage() {
   usePageMeta({
     title: 'Wedding Packages',
     description:
-      'Red Rose Photo Booth wedding packages — 1/2 Dozen, Dozen, and Baker\'s Dozen. Bay Area photo booth rental.',
+      'Red Rose Photo Booth wedding packages — One Rose, Dozen, and Bouquet. Bay Area photo booth rental.',
   });
 
   return (
@@ -92,7 +92,7 @@ export default function PricingPage() {
                     }`}
                   >
                     <td className="p-4 font-display text-xl font-semibold">
-                      {getPackageTitleLine(pkg)}
+                      <PackageTitle pkg={pkg} badgeClassName="text-richRose" />
                     </td>
                     <td className="p-4 font-display text-2xl text-antiqueGold font-semibold whitespace-nowrap">
                       {formatPrice(pkg.price)}
@@ -125,7 +125,7 @@ export default function PricingPage() {
               >
                 <div className="flex justify-between gap-3 mb-3">
                   <h3 className="font-display text-xl font-semibold leading-snug pr-2">
-                    {getPackageTitleLine(pkg)}
+                    <PackageTitle pkg={pkg} badgeClassName="text-richRose" />
                   </h3>
                   <p className="font-display text-2xl text-antiqueGold font-semibold shrink-0">
                     {formatPrice(pkg.price)}
