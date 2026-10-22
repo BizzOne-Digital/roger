@@ -6,7 +6,8 @@ import { contactAPI } from '../api/client';
 import { BUSINESS, EVENT_TYPES } from '../utils/constants';
 import PageHero from '../components/ui/PageHero';
 import { PhoneIcon, EmailIcon } from '../components/icons/Icons';
-import { RED_ROSE_BIO } from '../data/homeContent';
+import { OUR_STORY, OUR_STORY_CONTACT_EXCERPT } from '../data/homeContent';
+import OurStoryContent from '../components/ui/StoryRichText';
 
 export default function ContactPage() {
   usePageMeta({
@@ -96,13 +97,9 @@ export default function ContactPage() {
 
             <div className="card-luxury p-6 md:p-8">
               <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-4">
-                {RED_ROSE_BIO.title}
+                {OUR_STORY.title}
               </h3>
-              {RED_ROSE_BIO.paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-body-muted text-base leading-relaxed mb-4 last:mb-0">
-                  {paragraph}
-                </p>
-              ))}
+              <OurStoryContent blocks={OUR_STORY_CONTACT_EXCERPT} className="mb-4" />
               <Link
                 to="/about"
                 className="inline-block text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"

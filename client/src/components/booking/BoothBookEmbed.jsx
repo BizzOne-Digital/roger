@@ -46,10 +46,11 @@ export default function BoothBookEmbed({ embedUrl: embedUrlProp }) {
             src={embedUrl}
             title="Red Rose Photo Booth — online booking"
             width="100%"
-            height="300"
+            height="900"
             frameBorder="0"
-            scrolling="no"
-            className="w-full border-0 rounded-lg bg-white/80 shadow-sm min-h-[320px]"
+            scrolling="yes"
+            className="w-full border-0 rounded-lg bg-white/80 shadow-sm min-h-[min(900px,85vh)]"
+            allow="payment *; fullscreen"
             style={{ display: 'block' }}
           />
           <p className="text-sm text-body-muted text-center mt-6 max-w-2xl mx-auto">

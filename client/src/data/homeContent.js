@@ -21,13 +21,64 @@ export const HOME_WELCOME = {
     'We appreciate your interest in Red Rose Photo Booth for your special occasion! We are dedicated to collaborating with you to deliver an exceptional, unforgettable photo booth experience for you and your guests on your big day.',
 };
 
-export const RED_ROSE_BIO = {
-  title: 'About Red Rose Photo Booth',
-  paragraphs: [
-    'Red Rose Photo Booth was created to bring joy, excitement, and heartfelt happiness to life\'s most special celebrations. Our passion is turning beautiful moments into unforgettable experiences filled with laughter, love, and cherished memories that last a lifetime.',
-    'This business was started to share that joy and help capture your own unforgettable moments. Weddings and special social events are a specialty!',
+export const OUR_STORY = {
+  title: 'Our Story – Red Rose Photo Booth 🌹',
+  blocks: [
+    {
+      type: 'lead',
+      text:
+        'Every love story has a beginning. Ours began with a beautiful connection, a special spirit, and one single red rose.',
+    },
+    {
+      type: 'p',
+      text:
+        'Years ago, when I asked my now-wife, Kristina, to be my girlfriend, I gave her one single red rose. It was a simple gesture that became a lasting tradition, symbolizing our love, happiness, and the beautiful journey we would share together.',
+    },
+    {
+      type: 'p',
+      text:
+        'That special rose eventually became the inspiration behind **Red Rose Photo Booth**, a business created from love and a passion for helping others capture their own unforgettable moments.',
+    },
+    {
+      type: 'p',
+      text:
+        'We believe every celebration tells a story worth remembering. Whether it\'s a wedding, birthday, anniversary, school event, or corporate celebration, our goal is to bring joy, excitement, and plenty of laughter to your special day.',
+    },
+    {
+      type: 'p',
+      text:
+        'With over a decade of professional event and media experience, we combine high-quality photography, beautiful prints, modern technology, and personalized service to create a fun and memorable experience.',
+    },
+    {
+      type: 'emphasis',
+      text:
+        '**Because it\'s more than just pictures and props.** It\'s about capturing genuine smiles, heartfelt connections, and memories you\'ll treasure for a lifetime.',
+    },
+    {
+      type: 'p',
+      text:
+        'At Red Rose Photo Booth, your celebration is our priority. We take pride in making every experience personal, enjoyable, and truly unforgettable.',
+    },
+    {
+      type: 'p',
+      text: '**Our story began with one red rose. Now, we\'d love to help capture yours.**',
+    },
+    {
+      type: 'signoff',
+      text: '🌹 **Red Rose Photo Booth – Let\'s Capture Your Story!**',
+    },
   ],
 };
+
+/** @deprecated Use OUR_STORY — kept for imports that expect title only */
+export const RED_ROSE_BIO = {
+  title: OUR_STORY.title,
+  paragraphs: [],
+};
+
+export const OUR_STORY_HOME_EXCERPT = OUR_STORY.blocks.slice(0, 3);
+
+export const OUR_STORY_CONTACT_EXCERPT = OUR_STORY.blocks.slice(0, 3);
 
 /** Opening value proposition — home page (below logo banner). */
 export const RED_ROSE_PROMISE = {
@@ -48,17 +99,7 @@ export const BRIDAL_EXPO_ANNOUNCEMENT = {
 };
 
 export const ABOUT_PAGE = {
-  title: 'Red Rose Photo Booths',
-  paragraphs: [
-    'Red Rose Photo Booth was created to bring joy, excitement, and heartfelt happiness to life\'s most special celebrations. Our passion is turning beautiful moments into unforgettable experiences filled with laughter, love, and cherished memories that last a lifetime.',
-    'This business was started to share that joy and help capture your own unforgettable moments. Weddings and special social events are a specialty!',
-    'For anyone looking for a premier photo booth experience for a school event, party, or wedding, Red Rose Photo Booths is the ideal choice.',
-    'Backed by over a decade of professional event and media experience, memories are preserved using the latest technology and the finest equipment. Experience, style, and care in creating images that will be loved forever remain the primary goal.',
-    'It is your day! Expectations and desires are most important. Knowing what matters to you ensures a full understanding of what photo booth services can accomplish for your event.',
-    'Memories are very important, which is why photos are memorable. It is more than props and prints—it is the smiles, the candid moments, and all the laughter captured on camera.',
-    'There will be many things beyond your control during a special event, but the choice of photo booth company is a dependable constant.',
-    'Enjoy your day, embrace the excitement, and let your cherished memories be preserved.',
-  ],
+  title: OUR_STORY.title,
 };
 
 export const EVENT_EXPERIENCE = {
@@ -259,12 +300,12 @@ export const PACKAGE_INCLUDES = [
 
 export const BOOKING_TERMS = [
   {
-    title: 'Retainer',
-    description: '20% non-refundable retainer required to lock in your date.',
+    title: 'Booking Retainer',
+    description: '$100 non-refundable booking retainer required to lock in your date (via BoothBook & Stripe).',
   },
   {
     title: 'Final Balance',
-    description: 'Remaining balance is due 7 days prior to your event.',
+    description: 'Remaining balance is due 14 days prior to your event.',
   },
 ];
 

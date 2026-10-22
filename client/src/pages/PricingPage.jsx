@@ -19,11 +19,11 @@ import { formatPrice } from '../utils/constants';
 const faqs = [
   {
     q: 'How do I lock in my date?',
-    a: 'Use our secure BoothBook online booking page to check availability, select your package, and pay your 20% non-refundable retainer. You can also contact Roger directly for a consultation.',
+    a: 'Use our secure BoothBook online booking page to check availability, select your package, and pay your $100 booking retainer through Stripe. You can also contact Roger directly for a consultation.',
   },
   {
     q: 'When is the final balance due?',
-    a: 'The remaining balance is due 7 days prior to your event.',
+    a: 'The remaining balance is due 14 days prior to your event.',
   },
   {
     q: 'Do you travel outside the Bay Area?',
@@ -190,7 +190,7 @@ export default function PricingPage() {
           <div className="text-center mb-12">
             <div className="flex flex-wrap justify-center gap-4">
               <BookingLink className="btn-primary">Check Availability & Book</BookingLink>
-              <Link to="/contact" className="btn-secondary">Request a Consultation</Link>
+              <Link to="/contact#inquiry-form" className="btn-secondary">Request a Consultation</Link>
             </div>
           </div>
 

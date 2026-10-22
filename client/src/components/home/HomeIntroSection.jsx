@@ -4,8 +4,10 @@ import { SectionHeader } from '../ui/SectionTypography';
 import {
   HOME_CONTACT_LINKS,
   HOME_QUICK_LINKS,
-  RED_ROSE_BIO,
+  OUR_STORY,
+  OUR_STORY_HOME_EXCERPT,
 } from '../../data/homeContent';
+import OurStoryContent from '../ui/StoryRichText';
 
 export default function HomeIntroSection() {
   const secondaryLinks = HOME_QUICK_LINKS.filter((l) => l.variant === 'secondary');
@@ -17,14 +19,10 @@ export default function HomeIntroSection() {
           <SectionHeader
             align="left"
             eyebrow="Our Story"
-            title={RED_ROSE_BIO.title}
+            title={OUR_STORY.title}
             className="mb-6"
           />
-          {RED_ROSE_BIO.paragraphs.map((text, i) => (
-            <p key={i} className="text-body-muted text-base md:text-lg mb-4 leading-relaxed last:mb-0">
-              {text}
-            </p>
-          ))}
+          <OurStoryContent blocks={OUR_STORY_HOME_EXCERPT} className="mb-2" />
           <Link
             to="/about"
             className="inline-block mt-2 text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
@@ -36,7 +34,7 @@ export default function HomeIntroSection() {
             <BookingLink className="btn-primary">
               Check Availability & Book
             </BookingLink>
-            <Link to="/contact" className="btn-secondary">
+            <Link to="/contact#inquiry-form" className="btn-secondary">
               Schedule a Consultation
             </Link>
           </div>

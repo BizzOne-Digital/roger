@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import { usePageMeta } from '../hooks/usePageMeta';
 import PageHero from '../components/ui/PageHero';
 import BookingLink from '../components/ui/BookingLink';
-import { ABOUT_PAGE } from '../data/homeContent';
+import { ABOUT_PAGE, OUR_STORY } from '../data/homeContent';
+import OurStoryContent from '../components/ui/StoryRichText';
 
 export default function AboutPage() {
   usePageMeta({
     title: 'About',
     description:
-      'The story behind Red Rose Photo Booths—gratitude, love, and a tradition of red roses—and why we preserve your unforgettable event memories.',
+      'The story behind Red Rose Photo Booth — one red rose, Kristina, and a passion for capturing unforgettable celebrations.',
   });
 
   return (
@@ -21,7 +22,7 @@ export default function AboutPage() {
             Our <span className="text-gradient-gold">Story</span>
           </>
         }
-        subtitle="Gratitude, love, and a tradition that grew into a premier photo booth experience."
+        subtitle="One red rose became a tradition — and the heart of Red Rose Photo Booth."
       />
 
       <section className="section-padding bg-warmIvory">
@@ -34,17 +35,11 @@ export default function AboutPage() {
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-antiqueGold mb-8">
               {ABOUT_PAGE.title}
             </h2>
-            <div className="space-y-6">
-              {ABOUT_PAGE.paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-body-muted text-base md:text-lg leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            <OurStoryContent blocks={OUR_STORY.blocks} />
 
             <div className="flex flex-wrap gap-3 mt-12 pt-8 border-t border-antiqueGold/20">
               <BookingLink className="btn-primary">Check Availability & Book</BookingLink>
-              <Link to="/contact" className="btn-secondary">
+              <Link to="/contact#inquiry-form" className="btn-secondary">
                 Schedule a Consultation
               </Link>
             </div>

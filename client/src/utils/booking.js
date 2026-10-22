@@ -1,15 +1,6 @@
-/** Set VITE_BOOKING_EMBED_URL (or VITE_BOOKING_URL) to Roger’s BoothBook embed form. Legacy Check Cherry URLs are ignored. */
+/** Set VITE_BOOKING_EMBED_URL (or VITE_BOOKING_URL) to Roger’s BoothBook form or embed URL. */
 
-const isDisallowedBookingUrl = (url) => {
-  try {
-    const host = new URL(url).hostname.toLowerCase();
-    return host.includes('checkcherry.com');
-  } catch {
-    return false;
-  }
-};
-
-const isBoothBookEmbedUrl = (url) => /boothbook\.com\/embed\//i.test(url);
+import { isBoothBookIframeUrl, isDisallowedBookingUrl } from './boothbookUrls.js';
 
 const resolveEnvBookingUrl = () => {
   const embedEnv = import.meta.env.VITE_BOOKING_EMBED_URL?.trim();
@@ -20,7 +11,7 @@ const resolveEnvBookingUrl = () => {
 /** BoothBook iframe `src` — embed path on /booking. */
 export const getBookingEmbedUrl = () => {
   const env = resolveEnvBookingUrl();
-  if (env && !isDisallowedBookingUrl(env) && isBoothBookEmbedUrl(env)) {
+  if (env && !isDisallowedBookingUrl(env) && isBoothBookIframeUrl(env)) {
     return env;
   }
   return '';
@@ -33,7 +24,7 @@ export const getBookingUrl = () => {
   const env = resolveEnvBookingUrl();
   if (!env || env === '/booking') return '/booking';
   if (isDisallowedBookingUrl(env)) return '/booking';
-  if (isBoothBookEmbedUrl(env)) return '/booking';
+  if (isBoothBookIframeUrl(env)) return '/booking';
   return env;
 };
 

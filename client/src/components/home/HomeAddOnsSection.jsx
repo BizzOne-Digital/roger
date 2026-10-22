@@ -87,7 +87,7 @@ export default function HomeAddOnsSection({ embedded = false }) {
         <p className="font-medium text-base md:text-lg text-warmIvory/95">
           {ADD_ON_SERVICES.consultationNote}
         </p>
-        <Link to="/contact" className="btn-primary inline-flex mt-6">
+        <Link to="/contact#inquiry-form" className="btn-primary inline-flex mt-6">
           Request a Consultation
         </Link>
       </div>

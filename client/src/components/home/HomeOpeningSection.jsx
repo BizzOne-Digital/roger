@@ -2,7 +2,15 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionTypography';
 import HomeServicesSection from './HomeServicesSection';
-import { HERO_BANNER, PACKAGE_PAGE_INTRO, RED_ROSE_BIO, RED_ROSE_PROMISE, BRIDAL_EXPO_ANNOUNCEMENT } from '../../data/homeContent';
+import {
+  HERO_BANNER,
+  PACKAGE_PAGE_INTRO,
+  OUR_STORY,
+  OUR_STORY_HOME_EXCERPT,
+  RED_ROSE_PROMISE,
+  BRIDAL_EXPO_ANNOUNCEMENT,
+} from '../../data/homeContent';
+import OurStoryContent from '../ui/StoryRichText';
 import { BUSINESS } from '../../utils/constants';
 
 export default function HomeOpeningSection() {
@@ -74,12 +82,8 @@ export default function HomeOpeningSection() {
       {/* Bio */}
       <section className="section-padding bg-warmIvory pt-0 md:pt-4 border-t border-antiqueGold/15">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader align="left" eyebrow="Our Story" title={RED_ROSE_BIO.title} className="mb-6" />
-          {RED_ROSE_BIO.paragraphs.map((text, i) => (
-            <p key={i} className="text-body-muted text-base md:text-lg mb-4 leading-relaxed last:mb-0">
-              {text}
-            </p>
-          ))}
+          <SectionHeader align="left" eyebrow="Our Story" title={OUR_STORY.title} className="mb-6" />
+          <OurStoryContent blocks={OUR_STORY_HOME_EXCERPT} className="mb-2" />
           <Link
             to="/about"
             className="inline-block mt-4 text-sm font-bold text-antiqueGold hover:text-richRose transition-colors"
@@ -120,7 +124,7 @@ export default function HomeOpeningSection() {
         </div>
         <HomeServicesSection showHeader={false} className="!py-0 !pt-0" />
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4 mt-10 md:mt-12 px-4">
-          <Link to="/contact" className="btn-secondary">
+          <Link to="/contact#inquiry-form" className="btn-secondary">
             Schedule a Consultation
           </Link>
           <Link to="/pricing" className="text-sm font-bold text-antiqueGold hover:text-richRose transition-colors self-center">
