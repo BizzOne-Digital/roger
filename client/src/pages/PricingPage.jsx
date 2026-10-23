@@ -14,6 +14,7 @@ import {
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import CustomPackagesSection from '../components/pricing/CustomPackagesSection';
 import PackageTitle from '../components/pricing/PackageTitle';
+import CustomPrintsSection from '../components/home/CustomPrintsSection';
 import { formatPrice } from '../utils/constants';
 
 const faqs = [
@@ -73,6 +74,8 @@ export default function PricingPage() {
           <p className="text-body-muted text-center text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
             {PACKAGE_PAGE_INTRO.body}
           </p>
+
+          <CustomPrintsSection className="!py-8 md:!py-10 mb-8 rounded-lg border border-antiqueGold/20 bg-white/50" />
 
           <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-6">
             <table className="w-full text-left border-collapse min-w-[720px]">

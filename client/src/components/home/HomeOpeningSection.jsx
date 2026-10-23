@@ -11,6 +11,7 @@ import {
   BRIDAL_EXPO_ANNOUNCEMENT,
 } from '../../data/homeContent';
 import OurStoryContent from '../ui/StoryRichText';
+import CustomPrintsSection from './CustomPrintsSection';
 import { BUSINESS } from '../../utils/constants';
 
 export default function HomeOpeningSection() {
@@ -60,6 +61,8 @@ export default function HomeOpeningSection() {
           ))}
         </div>
       </section>
+
+      <CustomPrintsSection className="!py-10 md:!py-14 pt-0" />
 
       <section className="section-padding bg-softBlush pt-0 pb-10 md:pb-12">
         <div className="max-w-3xl mx-auto px-4">

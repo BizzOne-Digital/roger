@@ -1,5 +1,5 @@
-const DEFAULT_BOOTHBOOK_FORM_URL =
-  'https://redrosephotobooth.boothbook.com/forms/booking-form-1';
+const DEFAULT_BOOTHBOOK_EMBED_URL =
+  'https://app.boothbook.com/businesses/01a0b696-ccd1-73bf-96b4-4c35897e38f3/embed/forms/01a144ff-5652-7005-9573-1234461b3e6f';
 
 const isDisallowedBookingUrl = (url) => {
   try {
@@ -23,7 +23,7 @@ export function resolvePublicBookingConfig(env = process.env) {
     env.VITE_BOOKING_EMBED_URL,
     env.BOOKING_URL,
     env.VITE_BOOKING_URL,
-    DEFAULT_BOOTHBOOK_FORM_URL,
+    DEFAULT_BOOTHBOOK_EMBED_URL,
   ]
     .map((value) => (typeof value === 'string' ? value.trim() : ''))
     .filter(Boolean);

@@ -2,11 +2,17 @@ import { BUSINESS } from '../utils/constants';
 
 export const HERO_BANNER = '/banner-hero-top.jpg';
 
+export const CUSTOM_PRINTS = {
+  title: 'Custom Prints – Your Memories, Your Way!',
+  body:
+    '**Why choose one when you can have both?** Enjoy our classic **2x6 photo strips**, our beautiful **4x6 postcard-style prints**, or **BOTH!** Every print is professionally produced and personalized for your celebration, giving your guests a fun, picture-perfect keepsake they\'ll treasure long after the party ends!',
+};
+
 export const HERO_FEATURE_HIGHLIGHTS = [
   {
-    title: 'Tailored Event Prints',
+    title: CUSTOM_PRINTS.title,
     description:
-      'Custom-tailored to you and your event. Choose 2×6 photo strips, classic 4×6 prints, or enjoy both!',
+      'Classic 2x6 photo strips, beautiful 4x6 postcard-style prints, or both — professionally produced and personalized for your celebration.',
   },
   {
     title: 'Instant Digital Sharing',
@@ -109,7 +115,7 @@ export const EVENT_EXPERIENCE = {
     'Studio-Quality Lighting',
     'High-Quality Professional Prints',
     'Black & White or Color Photo Options',
-    '2×6 Photo Strips or 4×6 Prints',
+    '2x6 Photo Strips, 4x6 Postcard-Style Prints, or Both',
     'Bonus: 1.5 Hours Included for Early Setup & Breakdown (at no extra charge to your active booth time)',
   ],
 };

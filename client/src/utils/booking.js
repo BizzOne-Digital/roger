@@ -1,6 +1,10 @@
 /** Set VITE_BOOKING_EMBED_URL (or VITE_BOOKING_URL) to Roger’s BoothBook form or embed URL. */
 
-import { isBoothBookIframeUrl, isDisallowedBookingUrl } from './boothbookUrls.js';
+import {
+  DEFAULT_BOOTHBOOK_EMBED_URL,
+  isBoothBookIframeUrl,
+  isDisallowedBookingUrl,
+} from './boothbookUrls.js';
 
 const resolveEnvBookingUrl = () => {
   const embedEnv = import.meta.env.VITE_BOOKING_EMBED_URL?.trim();
@@ -10,9 +14,11 @@ const resolveEnvBookingUrl = () => {
 
 /** BoothBook iframe `src` — embed path on /booking. */
 export const getBookingEmbedUrl = () => {
-  const env = resolveEnvBookingUrl();
-  if (env && !isDisallowedBookingUrl(env) && isBoothBookIframeUrl(env)) {
-    return env;
+  const candidates = [resolveEnvBookingUrl(), DEFAULT_BOOTHBOOK_EMBED_URL].filter(Boolean);
+  for (const url of candidates) {
+    if (!isDisallowedBookingUrl(url) && isBoothBookIframeUrl(url)) {
+      return url;
+    }
   }
   return '';
 };

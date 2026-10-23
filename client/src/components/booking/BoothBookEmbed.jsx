@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import PageHero from '../ui/PageHero';
 import { getBookingEmbedUrl } from '../../utils/booking';
+import { DEFAULT_BOOTHBOOK_EMBED_URL } from '../../utils/boothbookUrls';
 
 const BOOTHBOOK_WIDGET_SRC = 'https://cdn.system-assets.com/plugins/widget.js';
 
@@ -46,15 +47,24 @@ export default function BoothBookEmbed({ embedUrl: embedUrlProp }) {
             src={embedUrl}
             title="Red Rose Photo Booth — online booking"
             width="100%"
-            height="900"
+            height="300"
             frameBorder="0"
-            scrolling="yes"
-            className="w-full border-0 rounded-lg bg-white/80 shadow-sm min-h-[min(900px,85vh)]"
+            scrolling="no"
+            className="w-full border-0 rounded-lg bg-white/80 shadow-sm min-h-[320px]"
             allow="payment *; fullscreen"
             style={{ display: 'block' }}
           />
           <p className="text-sm text-body-muted text-center mt-6 max-w-2xl mx-auto">
-            Secure booking powered by BoothBook. Questions?{' '}
+            Secure booking powered by BoothBook &amp; Stripe.{' '}
+            <a
+              href={embedUrl || DEFAULT_BOOTHBOOK_EMBED_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-antiqueGold font-semibold hover:underline"
+            >
+              Open full booking page
+            </a>
+            {' '}if the form does not display. Questions?{' '}
             <a href="/contact" className="text-antiqueGold font-semibold hover:underline">
               Contact us
             </a>
