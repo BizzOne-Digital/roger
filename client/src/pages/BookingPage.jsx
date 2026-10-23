@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ordersAPI, servicesAPI } from '../api/client';
@@ -11,6 +12,8 @@ import useBookingConfig from '../hooks/useBookingConfig';
 const STEPS = ['Contact', 'Event Details', 'Service & Features', 'Review'];
 
 export default function BookingPage() {
+  const [searchParams] = useSearchParams();
+  const packageSlug = searchParams.get('package') || '';
   const { loading, embedUrl, externalUrl } = useBookingConfig();
 
   if (loading) {
@@ -33,7 +36,7 @@ export default function BookingPage() {
   }
 
   if (embedUrl) {
-    return <BoothBookEmbed embedUrl={embedUrl} />;
+    return <BoothBookEmbed embedUrl={embedUrl} packageSlug={packageSlug} />;
   }
 
   if (externalUrl) {

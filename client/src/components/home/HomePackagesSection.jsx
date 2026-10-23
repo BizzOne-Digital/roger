@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import BookingLink from '../ui/BookingLink';
 import { SectionHeader } from '../ui/SectionTypography';
 import {
@@ -9,6 +8,7 @@ import {
   PACKAGE_PAGE_INTRO,
 } from '../../data/homeContent';
 import PackageTitle from '../pricing/PackageTitle';
+import { PackageBookingRow, PackageBookCtaLink } from '../pricing/PackageBookingLink';
 import { formatPrice } from '../../utils/constants';
 
 function PackageFeatures({ features }) {
@@ -35,8 +35,11 @@ export default function HomePackagesSection() {
           className="mb-6 md:mb-8"
           light
         />
-        <p className="text-center text-warmIvory/85 text-base md:text-lg max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed">
+        <p className="text-center text-warmIvory/85 text-base md:text-lg max-w-3xl mx-auto mb-4 leading-relaxed">
           {PACKAGE_PAGE_INTRO.body}
+        </p>
+        <p className="text-center text-antiqueGold/90 text-sm font-semibold mb-10 md:mb-12">
+          Tap any package below to check availability and book through BoothBook.
         </p>
 
         <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-8">
@@ -49,13 +52,11 @@ export default function HomePackagesSection() {
               </tr>
             </thead>
             <tbody>
-              {HOME_PACKAGES.map((pkg, i) => (
-                <motion.tr
+              {HOME_PACKAGES.map((pkg) => (
+                <PackageBookingRow
                   key={pkg.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
+                  pkg={pkg}
+                  asTableRow
                   className={`border-b border-antiqueGold/15 align-top ${
                     pkg.featured
                       ? 'bg-antiqueGold/10'
@@ -66,6 +67,9 @@ export default function HomePackagesSection() {
                 >
                   <td className="p-4 md:p-5 font-display text-xl font-semibold text-warmIvory">
                     <PackageTitle pkg={pkg} />
+                    <span className="block text-xs font-bold text-antiqueGold mt-2 uppercase tracking-wide">
+                      Book this package →
+                    </span>
                   </td>
                   <td className="p-4 md:p-5 font-display text-2xl text-antiqueGold font-semibold whitespace-nowrap">
                     {formatPrice(pkg.price)}
@@ -79,20 +83,17 @@ export default function HomePackagesSection() {
                       <p className="text-antiqueGold/90 text-sm font-semibold mt-3 italic">{pkg.closing}</p>
                     )}
                   </td>
-                </motion.tr>
+                </PackageBookingRow>
               ))}
             </tbody>
           </table>
         </div>
 
         <div className="md:hidden space-y-4 mb-8">
-          {HOME_PACKAGES.map((pkg, i) => (
-            <motion.article
+          {HOME_PACKAGES.map((pkg) => (
+            <PackageBookingRow
               key={pkg.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              pkg={pkg}
               className={`p-5 rounded-lg border ${
                 pkg.featured
                   ? 'border-antiqueGold bg-antiqueGold/10'
@@ -116,7 +117,8 @@ export default function HomePackagesSection() {
               {pkg.closing && (
                 <p className="text-antiqueGold/90 text-sm font-semibold mt-4 italic">{pkg.closing}</p>
               )}
-            </motion.article>
+              <PackageBookCtaLink pkg={pkg} className="btn-primary w-full mt-4" />
+            </PackageBookingRow>
           ))}
         </div>
 

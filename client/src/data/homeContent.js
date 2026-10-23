@@ -207,6 +207,10 @@ export const HOME_PACKAGES = [
     price: 950,
     hours: 4,
     tagline: 'The Classic',
+    /** Optional BoothBook URL params (e.g. hidden event type from BoothBook Settings). */
+    boothBookQuery: '',
+    /** Optional full BoothBook embed URL for this package only (overrides query). */
+    boothBookDirectUrl: '',
     summary:
       'A complete open-air photo booth experience with everything you need to get the celebration started! Great photos, lots of fun, and unforgettable memories.',
     closing: 'Everything you need to capture the fun and create lasting memories!',
@@ -229,6 +233,8 @@ export const HOME_PACKAGES = [
     featured: true,
     tagline: 'The Favorite',
     badge: 'MOST POPULAR',
+    boothBookQuery: '',
+    boothBookDirectUrl: '',
     summary:
       'More time, upgraded options, and personalized keepsakes for your guests. The perfect balance of elegance, excitement, and unforgettable memories.',
     closing: 'More time. More memories. More fun!',
@@ -246,6 +252,8 @@ export const HOME_PACKAGES = [
     hours: 6,
     tagline: 'The Red Rose VIP Experience',
     vip: true,
+    boothBookQuery: '',
+    boothBookDirectUrl: '',
     summary:
       'Our premium experience for celebrations that deserve the full Red Rose treatment.',
     closing:
@@ -276,7 +284,7 @@ export function getPackageBadgeLine(pkg) {
 }
 
 export const PACKAGE_MINIMUM_NOTE =
-  '4-hour event minimum. $250 for each additional hour after your initial booking.';
+  '4-hour event minimum. $150 for each additional hour after your initial booking.';
 
 export const PACKAGE_INCLUDES = [
   {

@@ -14,6 +14,7 @@ import {
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import CustomPackagesSection from '../components/pricing/CustomPackagesSection';
 import PackageTitle from '../components/pricing/PackageTitle';
+import { PackageBookingRow, PackageBookCtaLink } from '../components/pricing/PackageBookingLink';
 import CustomPrintsSection from '../components/home/CustomPrintsSection';
 import { formatPrice } from '../utils/constants';
 
@@ -77,6 +78,10 @@ export default function PricingPage() {
 
           <CustomPrintsSection className="!py-8 md:!py-10 mb-8 rounded-lg border border-antiqueGold/20 bg-white/50" />
 
+          <p className="text-center text-charcoal/80 text-sm font-semibold mb-4">
+            Click a wedding package to open BoothBook booking for that package.
+          </p>
+
           <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-6">
             <table className="w-full text-left border-collapse min-w-[720px]">
               <thead>
@@ -88,14 +93,19 @@ export default function PricingPage() {
               </thead>
               <tbody>
                 {HOME_PACKAGES.map((pkg) => (
-                  <tr
+                  <PackageBookingRow
                     key={pkg.name}
+                    pkg={pkg}
+                    asTableRow
                     className={`border-b border-antiqueGold/15 align-top ${
                       pkg.featured ? 'bg-antiqueGold/10' : pkg.vip ? 'bg-antiqueGold/5' : 'bg-white/60'
                     }`}
                   >
                     <td className="p-4 font-display text-xl font-semibold">
                       <PackageTitle pkg={pkg} badgeClassName="text-richRose" />
+                      <span className="block text-xs font-bold text-richRose mt-2 uppercase tracking-wide">
+                        Book this package →
+                      </span>
                     </td>
                     <td className="p-4 font-display text-2xl text-antiqueGold font-semibold whitespace-nowrap">
                       {formatPrice(pkg.price)}
@@ -107,7 +117,7 @@ export default function PricingPage() {
                         <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>
                       )}
                     </td>
-                  </tr>
+                  </PackageBookingRow>
                 ))}
               </tbody>
             </table>
@@ -116,8 +126,9 @@ export default function PricingPage() {
 
           <div className="md:hidden space-y-4 mb-6">
             {HOME_PACKAGES.map((pkg) => (
-              <article
+              <PackageBookingRow
                 key={pkg.name}
+                pkg={pkg}
                 className={`p-5 rounded-lg border ${
                   pkg.featured
                     ? 'border-antiqueGold bg-antiqueGold/10'
@@ -139,7 +150,8 @@ export default function PricingPage() {
                 {pkg.closing && (
                   <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>
                 )}
-              </article>
+                <PackageBookCtaLink pkg={pkg} className="btn-primary w-full mt-4" />
+              </PackageBookingRow>
             ))}
 
             <div className="rounded-lg border border-antiqueGold/30 overflow-hidden">

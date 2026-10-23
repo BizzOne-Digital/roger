@@ -1,19 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import PageHero from '../ui/PageHero';
+import PackageBookingBanner from '../pricing/PackageBookingBanner';
 import { getBookingEmbedUrl } from '../../utils/booking';
 import { DEFAULT_BOOTHBOOK_EMBED_URL } from '../../utils/boothbookUrls';
+import { buildBoothBookEmbedSrc, findPackageBySlug } from '../../utils/packageBooking';
+import { getPackageTitleLine } from '../../data/homeContent';
 
 const BOOTHBOOK_WIDGET_SRC = 'https://cdn.system-assets.com/plugins/widget.js';
 
-export default function BoothBookEmbed({ embedUrl: embedUrlProp }) {
-  const embedUrl = embedUrlProp || getBookingEmbedUrl();
+export default function BoothBookEmbed({ embedUrl: embedUrlProp, packageSlug = '' }) {
+  const baseEmbedUrl = embedUrlProp || getBookingEmbedUrl();
+  const selectedPackage = findPackageBySlug(packageSlug);
+  const embedUrl = useMemo(
+    () => buildBoothBookEmbedSrc(baseEmbedUrl, selectedPackage),
+    [baseEmbedUrl, selectedPackage],
+  );
 
   usePageMeta({
     title: 'Book Your Booth',
     description:
       'Check availability, choose your package, and complete your booking with Red Rose Photo Booth.',
   });
+
+  useEffect(() => {
+    if (!selectedPackage) return undefined;
+    const banner = document.getElementById('selected-package-banner');
+    banner?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return undefined;
+  }, [selectedPackage]);
 
   useEffect(() => {
     if (!embedUrl) return;
@@ -38,11 +53,17 @@ export default function BoothBookEmbed({ embedUrl: embedUrlProp }) {
             Book Your <span className="text-gradient-gold">Experience</span>
           </>
         }
-        subtitle="Check availability, select your package, and complete your booking securely below."
+        subtitle={
+          selectedPackage
+            ? `You're booking ${getPackageTitleLine(selectedPackage)} — choose your date and complete checkout below.`
+            : 'Check availability, select your package, and complete your booking securely below.'
+        }
       />
       <section className="section-padding bg-warmIvory">
         <div className="max-w-4xl mx-auto min-w-0">
+          <PackageBookingBanner pkg={selectedPackage} />
           <iframe
+            id="boothbook-embed"
             widget="true"
             src={embedUrl}
             title="Red Rose Photo Booth — online booking"
