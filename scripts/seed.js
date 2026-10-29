@@ -52,11 +52,11 @@ const seed = async () => {
         title: 'Parties & Special Occasions',
         slug: 'parties-special-occasions',
         shortDescription:
-          'You bring the party — we capture the memories. $250/hour, 2-hour minimum. Birthdays, graduations, mitzvahs, and more.',
+          'You bring the party — we capture the memories. 4-hour event minimum. Birthdays, graduations, mitzvahs, and more.',
         fullDescription:
           'One price, your celebration, your way. Every hour includes DSLR photography, studio lighting, unlimited sessions, prints, props, personalized templates, digital sharing, and a friendly attendant.',
         features: [
-          '$250 per hour — 2-hour minimum',
+          '4-hour event minimum. $150 for each additional hour after your initial booking.',
           'Birthdays, graduations, anniversaries, and more',
           'Professional prints and digital sharing',
         ],
