@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import PartyServicesPage from './pages/PartyServicesPage';
 import CorporateServicesPage from './pages/CorporateServicesPage';
+import EngagementServicesPage from './pages/EngagementServicesPage';
 import GlamAddOnPage from './pages/GlamAddOnPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
@@ -41,6 +42,7 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="services" element={<ServicesPage />} />
                 <Route path="services/parties" element={<PartyServicesPage />} />
+                <Route path="services/engagement" element={<EngagementServicesPage />} />
                 <Route path="services/corporate" element={<CorporateServicesPage />} />
                 <Route path="services/glam" element={<GlamAddOnPage />} />
                 <Route path="testimonials" element={<TestimonialsPage />} />

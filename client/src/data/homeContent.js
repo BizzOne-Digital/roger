@@ -201,6 +201,52 @@ export const CUSTOM_PACKAGES = {
   ctaLabel: 'Request Your Custom Quote',
 };
 
+export const ENGAGEMENT_ADDITIONAL_HOUR_NOTE =
+  'Additional hours available for $150 per hour. Consultation required.';
+
+export const ENGAGEMENT_PAGE_COPY = {
+  sectionTitle: 'Engagement Celebrations',
+  sectionLead:
+    'The First Bloom is for engagement parties and celebrations — separate from our wedding reception packages below.',
+  receptionSectionTitle: 'Wedding Reception Packages',
+  receptionSectionLead:
+    'One Rose, Dozen, and Bouquet are designed for wedding receptions. The four-hour minimum applies to these packages.',
+};
+
+/** Engagement-only package (not subject to the 4-hour wedding reception minimum). */
+export const ENGAGEMENT_PACKAGES = [
+  {
+    slug: 'first-bloom',
+    category: 'engagement',
+    name: 'The First Bloom',
+    tagline: 'Where Every Love Story Begins.',
+    price: 650,
+    hours: 3,
+    boothBookQuery: '',
+    boothBookDirectUrl: '',
+    callouts: ['Your Love Story Begins Here!', 'She Said Yes! Let the Celebration Begin!'],
+    paragraphs: [
+      'Before the wedding bells ring, celebrate the beginning of forever with Red Rose Photo Booth LLC!',
+      'Our Red Rose Engagement Experience brings three unforgettable hours of laughter, excitement, and beautiful memories to your engagement celebration.',
+      'From the happy couple to family and friends, everyone can strike a pose, share a smile, and take home a personalized keepsake from your special day.',
+    ],
+    featuresHeading: "What's Included",
+    features: [
+      '3 hours of photo booth entertainment',
+      'Professional 24MP camera and studio lighting',
+      'Unlimited photo sessions',
+      'High-quality on-site 2×6 photo strips or 4×6 prints',
+      'Personalized engagement photo template',
+      'Choice of available standard backdrops',
+      'Fun props and prop table',
+      'Instant digital photo sharing',
+      'Professional on-site attendant',
+      'Complete photo booth setup and breakdown',
+    ],
+    closing: 'Three Hours. Countless Memories. Just $650!',
+  },
+];
+
 export const HOME_PACKAGES = [
   {
     slug: 'one-rose',

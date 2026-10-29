@@ -53,14 +53,18 @@ export function PackageBookingRow({
   );
 }
 
-export function PackageBookCtaLink({ pkg, className = 'btn-primary w-full sm:w-auto mt-4' }) {
+export function PackageBookCtaLink({
+  pkg,
+  className = 'btn-primary w-full sm:w-auto mt-4',
+  label = 'Book this package',
+}) {
   return (
     <Link
       to={getPackageBookingPath(pkg)}
       className={className}
       onClick={(e) => e.stopPropagation()}
     >
-      Book this package
+      {label}
     </Link>
   );
 }

@@ -14,7 +14,7 @@ export default function HomeServicesSection({ className = '', showHeader = true 
           <SectionHeader
             eyebrow="What We Offer"
             title="Photo Booth Experiences"
-            subtitle="Pick your event type — weddings, parties, corporate events, or add GLAM to any package."
+            subtitle="Pick your event type — engagements, wedding receptions, parties, corporate events, or add GLAM to any package."
             className="mb-10 md:mb-14"
           />
         )}

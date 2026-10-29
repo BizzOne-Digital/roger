@@ -6,13 +6,24 @@ export { PACKAGE_MINIMUM_NOTE as EVENT_MINIMUM_NOTE };
 
 export const SERVICE_OFFERINGS = [
   {
+    id: 'engagement',
+    title: 'Engagement Celebrations',
+    startingAt: 650,
+    pricingLabel: 'The First Bloom — $650 · 3 hours',
+    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
+    description:
+      'Celebrate your engagement with The First Bloom — three hours of photo booth fun designed for engagement parties and celebrations, separate from our wedding reception packages.',
+    buttonLabel: 'View Engagement Experience',
+    buttonTo: '/services/engagement',
+  },
+  {
     id: 'wedding',
-    title: 'Wedding Photo Booth',
+    title: 'Wedding Reception Photo Booth',
     startingAt: 950,
-    pricingLabel: 'Starting at $950',
+    pricingLabel: 'One Rose from $950 · 4-hour minimum',
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
     description:
-      'Elegant, wedding-ready photo booth experiences featuring professional DSLR photography, studio-quality lighting, unlimited photo sessions, professional onsite prints, personalized wedding templates, instant digital sharing, fun props, and a professional booth attendant.',
+      'Elegant reception packages — One Rose, Dozen, and Bouquet — with professional DSLR photography, studio lighting, unlimited sessions, onsite prints, personalized templates, digital sharing, props, and a professional attendant.',
     buttonLabel: 'View Wedding Packages',
     buttonTo: '/pricing',
   },

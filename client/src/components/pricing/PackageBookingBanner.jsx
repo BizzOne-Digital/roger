@@ -10,7 +10,7 @@ export default function PackageBookingBanner({ pkg }) {
       id="selected-package-banner"
     >
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-antiqueGold mb-2">
-        Selected wedding package
+        {pkg.category === 'engagement' ? 'Selected engagement package' : 'Selected wedding package'}
       </p>
       <p className="font-display text-xl md:text-2xl font-semibold text-charcoal">
         {getPackageTitleLine(pkg)}

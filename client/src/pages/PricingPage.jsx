@@ -10,7 +10,9 @@ import {
   PACKAGE_MINIMUM_NOTE,
   BOOKING_TERMS,
   PACKAGE_PAGE_INTRO,
+  ENGAGEMENT_PAGE_COPY,
 } from '../data/homeContent';
+import EngagementPackageSection from '../components/pricing/EngagementPackageSection';
 import HomeAddOnsSection from '../components/home/HomeAddOnsSection';
 import CustomPackagesSection from '../components/pricing/CustomPackagesSection';
 import PackageTitle from '../components/pricing/PackageTitle';
@@ -33,7 +35,7 @@ const faqs = [
   },
   {
     q: 'What is the minimum booking time?',
-    a: PACKAGE_MINIMUM_NOTE,
+    a: `${PACKAGE_MINIMUM_NOTE} The First Bloom engagement package is 3 hours and is separate from wedding reception packages.`,
   },
 ];
 
@@ -52,9 +54,9 @@ function PackageFeatures({ features }) {
 
 export default function PricingPage() {
   usePageMeta({
-    title: 'Wedding Packages',
+    title: 'Wedding & Engagement Packages',
     description:
-      'Red Rose Photo Booth wedding packages — One Rose, Dozen, and Bouquet. Bay Area photo booth rental.',
+      'The First Bloom engagement package and wedding reception packages — One Rose, Dozen, and Bouquet. Red Rose Photo Booth Bay Area.',
   });
 
   return (
@@ -78,8 +80,17 @@ export default function PricingPage() {
 
           <CustomPrintsSection className="!py-8 md:!py-10 mb-8 rounded-lg border border-antiqueGold/20 bg-white/50" />
 
+          <EngagementPackageSection />
+
+          <SectionHeader
+            title={ENGAGEMENT_PAGE_COPY.receptionSectionTitle}
+            subtitle={ENGAGEMENT_PAGE_COPY.receptionSectionLead}
+            className="mb-6"
+            align="left"
+          />
+
           <p className="text-center text-charcoal/80 text-sm font-semibold mb-4">
-            Click a wedding package to open BoothBook booking for that package.
+            Click a wedding reception package to open BoothBook booking for that package.
           </p>
 
           <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-6">

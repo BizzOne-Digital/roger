@@ -1,8 +1,12 @@
-import { HOME_PACKAGES, getPackageTitleLine } from '../data/homeContent';
+import { ENGAGEMENT_PACKAGES, HOME_PACKAGES, getPackageTitleLine } from '../data/homeContent';
 
 export function findPackageBySlug(slug) {
   if (!slug) return null;
-  return HOME_PACKAGES.find((pkg) => pkg.slug === slug) || null;
+  return (
+    ENGAGEMENT_PACKAGES.find((pkg) => pkg.slug === slug) ||
+    HOME_PACKAGES.find((pkg) => pkg.slug === slug) ||
+    null
+  );
 }
 
 /** On-site booking path with package pre-selection for BoothBook embed. */

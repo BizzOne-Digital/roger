@@ -6,7 +6,9 @@ import {
   PACKAGE_MINIMUM_NOTE,
   ADD_ON_SERVICES,
   PACKAGE_PAGE_INTRO,
+  ENGAGEMENT_PAGE_COPY,
 } from '../../data/homeContent';
+import EngagementPackageSection from '../pricing/EngagementPackageSection';
 import PackageTitle from '../pricing/PackageTitle';
 import { PackageBookingRow, PackageBookCtaLink } from '../pricing/PackageBookingLink';
 import { formatPrice } from '../../utils/constants';
@@ -38,8 +40,18 @@ export default function HomePackagesSection() {
         <p className="text-center text-warmIvory/85 text-base md:text-lg max-w-3xl mx-auto mb-4 leading-relaxed">
           {PACKAGE_PAGE_INTRO.body}
         </p>
+        <EngagementPackageSection light showSectionHeader className="mb-12 md:mb-14" />
+
+        <SectionHeader
+          title={ENGAGEMENT_PAGE_COPY.receptionSectionTitle}
+          subtitle={ENGAGEMENT_PAGE_COPY.receptionSectionLead}
+          className="mb-6 md:mb-8"
+          light
+          align="left"
+        />
+
         <p className="text-center text-antiqueGold/90 text-sm font-semibold mb-10 md:mb-12">
-          Tap any package below to check availability and book through BoothBook.
+          Tap any reception package below to check availability and book through BoothBook.
         </p>
 
         <div className="hidden md:block overflow-x-auto rounded-lg border border-antiqueGold/30 mb-8">
