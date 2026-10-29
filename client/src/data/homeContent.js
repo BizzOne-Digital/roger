@@ -166,10 +166,11 @@ export const ADD_ON_SERVICES = {
     },
     {
       name: 'Photo Strip Magnet Keepsakes',
-      price: '$175 for 50 Magnets',
+      price: '150 memories. One amazing price. Just $150!',
       description:
-        'Guests snap their photo at the booth, then we add it on-site to a photo strip magnet — the same great keepsake experience as our keychains, priced the same. A fun takeaway they can stick on the fridge and enjoy every day.',
-      note: 'Distributed on a first-come, first-served basis. Consultation required.',
+        'Give your guests more than a photo — give them a keepsake they\'ll treasure! With up to 150 personalized photo strip magnets created right at your event, everyone can take home a little piece of your special celebration.',
+      note:
+        'Available as a photo booth add-on. Up to 150 magnets per event, distributed first-come, first-served. Consultation required.',
     },
   ],
   consultationNote:
