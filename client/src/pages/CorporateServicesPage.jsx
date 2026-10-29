@@ -31,6 +31,10 @@ export default function CorporateServicesPage() {
 
           <TierPackageSection packages={CORPORATE_PACKAGES} />
 
+          <p className="text-center text-charcoal/90 font-semibold text-base md:text-lg mb-8 px-4 max-w-2xl mx-auto">
+            {CORPORATE_PAGE.minimumNote}
+          </p>
+
           <div className="flex flex-wrap justify-center gap-4 mt-4">
             <BookingLink className="btn-primary">Book Corporate Event</BookingLink>
             <Link to="/services" className="btn-secondary">

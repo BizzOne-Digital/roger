@@ -66,8 +66,12 @@ export default function PartyServicesPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-center text-antiqueGold font-bold mt-6">{PARTY_SERVICE.additionalHourNote}</p>
-            <p className="text-center text-body-muted text-sm mt-3">{PARTY_SERVICE.minimumNote}</p>
+            {PARTY_SERVICE.additionalHourNote ? (
+              <p className="text-center text-antiqueGold font-bold mt-6">{PARTY_SERVICE.additionalHourNote}</p>
+            ) : null}
+            <p className="text-center text-charcoal/90 font-semibold text-base mt-6 px-2">
+              {PARTY_SERVICE.minimumNote}
+            </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">

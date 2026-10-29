@@ -1,4 +1,8 @@
+import { PACKAGE_MINIMUM_NOTE } from './homeContent';
+
 /** Photo Booth Services — four main offerings (Roger 2026). */
+
+export { PACKAGE_MINIMUM_NOTE as EVENT_MINIMUM_NOTE };
 
 export const SERVICE_OFFERINGS = [
   {
@@ -16,7 +20,7 @@ export const SERVICE_OFFERINGS = [
     id: 'parties',
     title: 'Parties & Special Occasions',
     startingAt: 500,
-    pricingLabel: 'Starting at $500 • 2-Hour Minimum',
+    pricingLabel: 'Starting at $500 • 4-Hour Event Minimum',
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80',
     description:
       'You bring the party. We\'ll capture the memories! Perfect for birthdays, graduations, anniversaries, Bar & Bat Mitzvahs, retirement parties, reunions, baby showers, engagement parties, holiday parties, school events, family celebrations, and more.',
@@ -50,13 +54,13 @@ export const SERVICE_OFFERINGS = [
 
 export const PARTY_SERVICE = {
   heroTitle: 'Parties & Special Occasions',
-  heroSubtitle: '$250 per hour — one price, your celebration, your way.',
+  heroSubtitle: 'One price, your celebration, your way — birthdays, graduations, and more.',
   callout: '🎉 YOU BRING THE PARTY. WE\'LL CAPTURE THE MEMORIES! 📸',
   intro:
-    'No complicated packages. Choose the number of hours you need and let Red Rose Photo Booth bring the fun. $250 per hour. Simple. Fun. Memorable. 🌹',
+    'No complicated packages. Choose the number of hours you need and let Red Rose Photo Booth bring the fun. Simple. Fun. Memorable. 🌹',
   eventTypes:
     'Birthdays • Graduations • Anniversaries • Bar & Bat Mitzvahs • Retirement Parties • Reunions • Baby Showers • Engagement Parties • Holiday Parties • School Events • Family Celebrations & More',
-  experienceTitle: 'The Red Rose Party Experience — $250/Hour',
+  experienceTitle: 'The Red Rose Party Experience',
   includesHeading: 'Every package includes:',
   includes: [
     '24-Megapixel DSLR Photography',
@@ -69,13 +73,12 @@ export const PARTY_SERVICE = {
     'Friendly Professional Booth Attendant',
   ],
   pricingTiers: [
-    { hours: 2, price: 500 },
-    { hours: 3, price: 750 },
     { hours: 4, price: 1000 },
-    { hours: 5, price: 1250 },
+    { hours: 5, price: 1150 },
+    { hours: 6, price: 1300 },
   ],
-  additionalHourNote: 'Additional Hours — $250 each',
-  minimumNote: '2-hour minimum • Starting at $500',
+  additionalHourNote: '',
+  minimumNote: PACKAGE_MINIMUM_NOTE,
   schoolEventsNote: 'School events: please contact us for a consultation.',
 };
 
@@ -141,6 +144,7 @@ export const CORPORATE_PAGE = {
   heroSubtitle: 'Professional. Branded. Engaging. Memorable.',
   intro:
     'Bring the Red Rose experience to company celebrations, employee events, holiday parties, grand openings, conferences, fundraisers, galas, and promotional events. Our corporate experiences combine professional DSLR photography with custom branding and instant guest engagement.',
+  minimumNote: PACKAGE_MINIMUM_NOTE,
 };
 
 export const GLAM_PAGE = {
