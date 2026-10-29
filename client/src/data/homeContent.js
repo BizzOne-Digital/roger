@@ -165,8 +165,28 @@ export const ADD_ON_SERVICES = {
       note: 'Distributed on a first-come, first-served basis. Consultation required.',
     },
     {
+      name: 'Memory Book Keepsake',
+      price: '$150 Add-On',
+      image: '/addon-memory-book.jpg',
+      imageAlt:
+        'Red Rose Photo Booth memory book with guest photo strips, handwritten messages, roses, and candles',
+      headline: 'Your Photos. Their Words. A Lifetime of Memories.',
+      description:
+        'Turn your special celebration into a beautiful keepsake filled with unforgettable moments! Our elegant Memory Book brings together your guests\' favorite 2×6 photo strips and their handwritten messages, heartfelt wishes, and personal notes—all in one treasured album. Whether you\'re celebrating a wedding, graduation, anniversary, birthday, or another special occasion, this memory book allows you to relive the laughter, happiness, and meaningful connections long after the celebration ends.',
+      includes: [
+        'Elegant keepsake photo album',
+        'Space for 2×6 photo strips',
+        'Room for handwritten guest messages and well wishes',
+        'A beautiful collection of memories to cherish for years to come',
+      ],
+      note: 'Available with Red Rose Photo Booth packages. Consultation required.',
+    },
+    {
       name: 'Photo Strip Magnet Keepsakes',
       price: '150 memories. One amazing price. Just $150!',
+      image: '/addon-photo-strip-magnets.png',
+      imageAlt:
+        'Personalized 2×6 photo strip magnets with guest messages from a Red Rose Photo Booth event',
       description:
         'Give your guests more than a photo — give them a keepsake they\'ll treasure! With up to 150 personalized photo strip magnets created right at your event, everyone can take home a little piece of your special celebration.',
       note:
@@ -307,7 +327,7 @@ export const HOME_PACKAGES = [
       'The complete Red Rose experience—more fun, more keepsakes, and more ways to capture your story.',
     features: [
       'Everything in Dozen, PLUS:',
-      '1 Additional Hour of Booth Service (2 Extra Hours total over One Rose)',
+      'Up to 6 Hours of Photo Booth Service — 2 Additional Hours Compared to Our One Red Rose Package',
       'Audio Guestbook for Recorded Messages',
       'BOTH Keepsakes Included: Custom Photo Keychains AND Photo Magnets',
       'VIP Upgrade: Gold Stanchions & Velvet Ropes added to Red Carpet Treatment',

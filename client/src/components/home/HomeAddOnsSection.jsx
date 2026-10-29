@@ -43,9 +43,25 @@ function AddOnCard({ item, index, embedded }) {
               {item.price}
             </p>
           </div>
+          {item.headline && (
+            <p className="font-display text-lg text-charcoal font-semibold mb-3">{item.headline}</p>
+          )}
           <p className="text-body-muted text-base md:text-lg leading-relaxed mb-3">
             {item.description}
           </p>
+          {item.includes?.length > 0 && (
+            <div className="mb-3">
+              <p className="font-display font-semibold text-charcoal mb-2">What&apos;s Included:</p>
+              <ul className="space-y-1.5">
+                {item.includes.map((line) => (
+                  <li key={line} className="flex items-start gap-2 text-body-muted text-sm md:text-base">
+                    <span className="text-antiqueGold shrink-0">✦</span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {item.note && (
             <p className="text-sm font-semibold text-charcoal/70 italic">
               Note: {item.note}
