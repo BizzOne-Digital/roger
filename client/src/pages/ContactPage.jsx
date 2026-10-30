@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { contactAPI } from '../api/client';
 import { BUSINESS, EVENT_TYPES } from '../utils/constants';
+import SocialLinks from '../components/ui/SocialLinks';
 import PageHero from '../components/ui/PageHero';
 import { PhoneIcon, EmailIcon } from '../components/icons/Icons';
 import { OUR_STORY, OUR_STORY_CONTACT_EXCERPT } from '../data/homeContent';
@@ -83,6 +84,14 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-charcoal/70">Service Area</p>
                   <p className="font-bold text-lg">{BUSINESS.serviceArea}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-semibold text-charcoal/70 mb-2">Facebook &amp; Instagram</p>
+                  <SocialLinks variant="footer" />
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { MenuIcon, CloseIcon } from '../icons/Icons';
 import BrandLogo from '../ui/BrandLogo';
 import BookingLink from '../ui/BookingLink';
 import { NAV_LINKS, NAV_LINKS_EXTENDED } from '../../utils/constants';
+import SocialLinks from '../ui/SocialLinks';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -94,7 +95,8 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <SocialLinks variant="header" className="hidden md:flex" />
             <BookingLink
               className={`hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-sm lg:text-base font-bold tracking-[0.18em] uppercase border transition-all duration-300 ${
                 onDarkHero || scrolled
@@ -183,6 +185,17 @@ export default function Header() {
                       >
                         Book Now
                       </BookingLink>
+                    </motion.li>
+                    <motion.li
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: NAV_LINKS_EXTENDED.length * 0.04 + 0.05 }}
+                      className="w-full pt-8 text-center"
+                    >
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-warmIvory/70 mb-3">
+                        Follow us
+                      </p>
+                      <SocialLinks variant="large" className="justify-center" />
                     </motion.li>
                   </ul>
                 </nav>

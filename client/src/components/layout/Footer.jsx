@@ -3,6 +3,7 @@ import { PhoneIcon, EmailIcon } from '../icons/Icons';
 import BrandLogo from '../ui/BrandLogo';
 import TheKnotBadge from '../ui/TheKnotBadge';
 import { BUSINESS } from '../../utils/constants';
+import SocialLinks from '../ui/SocialLinks';
 
 export default function Footer() {
   return (
@@ -69,17 +70,8 @@ export default function Footer() {
             <p className="text-body-muted-light mb-4">
               Hours: Mon–Sat 9AM–6PM
             </p>
-            <div className="flex gap-3">
-              {['Facebook', 'Instagram', 'Pinterest'].map((social) => (
-                <span
-                  key={social}
-                  className="w-9 h-9 rounded-full border border-antiqueGold/30 flex items-center justify-center text-sm font-bold text-antiqueGold/80"
-                  aria-label={`${social} link`}
-                >
-                  {social[0]}
-                </span>
-              ))}
-            </div>
+            <p className="font-display text-lg font-semibold text-antiqueGold mb-3">Follow Us</p>
+            <SocialLinks variant="footer" />
           </div>
         </div>
 

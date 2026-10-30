@@ -9,6 +9,7 @@ import { testimonialsAPI } from '../api/client';
 import { mergeHomeTestimonials } from '../data/homeTestimonials';
 import { TESTIMONIALS_UPDATED_EVENT } from '../utils/testimonialsEvents';
 import TheKnotBadge from '../components/ui/TheKnotBadge';
+import SocialFeedSection from '../components/home/SocialFeedSection';
 
 export default function HomePage() {
   const [testimonials, setTestimonials] = useState([]);
@@ -51,6 +52,7 @@ export default function HomePage() {
           <TheKnotBadge />
         </div>
       </section>
+      <SocialFeedSection />
       <BookingCTA />
     </>
   );
