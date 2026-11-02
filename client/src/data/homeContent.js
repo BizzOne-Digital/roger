@@ -360,9 +360,9 @@ export const PACKAGE_INCLUDES = [
       'Professional set up & tear down, plus a dedicated booth attendant on-site for the duration of your event.',
   },
   {
-    title: 'Instant Sharing & Digital Access',
+    title: 'Instant Photo Sharing & Private Event Gallery',
     description:
-      "Instant file downloads straight to guests' phones, unlimited GIFs, and a complete online gallery post-event.",
+      'Guests can instantly receive and download their own photos through our digital sharing options—each guest accesses only the photos from their own booth sessions during the event, not the entire wedding gallery. After your celebration, the bride and groom receive exclusive access to a complete private gallery of every photo captured at your wedding. Unlimited GIFs are also included.',
   },
   {
     title: 'Custom Branding & Visuals',
