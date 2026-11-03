@@ -8,6 +8,11 @@ import {
 } from '../../data/homeContent';
 import { formatPrice } from '../../utils/constants';
 
+function tierLabel(tier) {
+  if (tier.hoursLabel) return tier.hoursLabel;
+  return `${tier.hours} Hours`;
+}
+
 function PackageFeatures({ features, light }) {
   return (
     <ul className="space-y-1.5">
@@ -72,14 +77,21 @@ export default function EngagementPackageSection({
                   Book engagement experience →
                 </span>
               </td>
-              <td className="p-4 font-display text-2xl text-antiqueGold font-semibold whitespace-nowrap">
-                {formatPrice(pkg.price)}
+              <td className="p-4 align-top">
+                <ul className="space-y-2 font-display text-base text-antiqueGold font-semibold">
+                  {(pkg.pricingTiers || [{ hours: pkg.hours, price: pkg.price }]).map((tier) => (
+                    <li key={tier.hours} className="flex justify-between gap-4 max-w-[200px]">
+                      <span>{tierLabel(tier)}</span>
+                      <span>{formatPrice(tier.price)}</span>
+                    </li>
+                  ))}
+                </ul>
               </td>
               <td className="p-4">
                 <PackageFeatures features={pkg.features} light={light} />
-                {pkg.closing && (
+                {pkg.closing ? (
                   <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>
-                )}
+                ) : null}
               </td>
             </PackageBookingRow>
           </tbody>
@@ -91,10 +103,18 @@ export default function EngagementPackageSection({
           <h3 className={`font-display text-xl font-semibold leading-snug pr-2 ${light ? 'text-warmIvory' : ''}`}>
             <PackageTitle pkg={pkg} badgeClassName={light ? 'text-antiqueGold' : 'text-richRose'} />
           </h3>
-          <p className="font-display text-2xl text-antiqueGold font-semibold shrink-0">
-            {formatPrice(pkg.price)}
+          <p className="font-display text-lg text-antiqueGold font-semibold shrink-0 text-right">
+            from {formatPrice(pkg.price)}
           </p>
         </div>
+        <ul className="space-y-2 mb-4 font-display text-base">
+          {(pkg.pricingTiers || [{ hours: pkg.hours, price: pkg.price }]).map((tier) => (
+            <li key={tier.hours} className={`flex justify-between ${light ? 'text-warmIvory' : 'text-charcoal'}`}>
+              <span>{tierLabel(tier)}</span>
+              <span className="text-antiqueGold font-semibold">{formatPrice(tier.price)}</span>
+            </li>
+          ))}
+        </ul>
         <PackageFeatures features={pkg.features} light={light} />
         {pkg.closing && (
           <p className="text-sm text-antiqueGold font-semibold mt-3 italic">{pkg.closing}</p>

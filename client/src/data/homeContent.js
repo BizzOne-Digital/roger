@@ -222,7 +222,7 @@ export const CUSTOM_PACKAGES = {
 };
 
 export const ENGAGEMENT_ADDITIONAL_HOUR_NOTE =
-  'Additional hours available for $150 per hour. Consultation required.';
+  'Additional hours available for $150 per hour.';
 
 export const ENGAGEMENT_PAGE_COPY = {
   sectionTitle: 'Engagement Celebrations',
@@ -231,6 +231,21 @@ export const ENGAGEMENT_PAGE_COPY = {
   receptionSectionTitle: 'Wedding Reception Packages',
   receptionSectionLead:
     'One Rose, Dozen, and Bouquet are designed for wedding receptions. The four-hour minimum applies to these packages.',
+  heroImage: '/engagement-first-bloom.jpg',
+  heroImageAlt: 'The First Bloom engagement celebration — proposal at sunset with Red Rose branding',
+  titleLine: 'The First Bloom | Where Every Love Story Begins 🌹',
+  startingLabel: 'Starting at $650 • 3-Hour Engagement Experience',
+  callout: 'She Said Yes! Let the Celebration Begin!',
+  introParagraphs: [
+    'Before the wedding bells ring, celebrate the beginning of forever with Red Rose Photo Booth!',
+    'Our First Bloom Engagement Experience adds an elegant, romantic touch to your celebration, with personalized details, beautiful keepsakes, and unforgettable moments shared with family and friends.',
+  ],
+  includesHeading: 'Every Engagement Package Includes',
+  pricingSectionTitle: 'Choose Your Celebration Hours',
+  consultationTitle: "Let's Make Your Engagement Celebration Unforgettable!",
+  consultationBody:
+    "Every love story is unique, and your engagement celebration should be too! Please call (916) 287-0870 for a personalized consultation. Together, we'll create a beautiful photo booth experience that reflects your love story and makes your special occasion even more memorable.",
+  weddingReceptionNote: 'Wedding reception packages are available separately.',
 };
 
 /** Engagement-only package (not subject to the 4-hour wedding reception minimum). */
@@ -244,26 +259,25 @@ export const ENGAGEMENT_PACKAGES = [
     hours: 3,
     boothBookQuery: '',
     boothBookDirectUrl: '',
-    callouts: ['Your Love Story Begins Here!', 'She Said Yes! Let the Celebration Begin!'],
-    paragraphs: [
-      'Before the wedding bells ring, celebrate the beginning of forever with Red Rose Photo Booth LLC!',
-      'Our Red Rose Engagement Experience brings three unforgettable hours of laughter, excitement, and beautiful memories to your engagement celebration.',
-      'From the happy couple to family and friends, everyone can strike a pose, share a smile, and take home a personalized keepsake from your special day.',
-    ],
-    featuresHeading: "What's Included",
+    featuresHeading: 'Every Engagement Package Includes',
     features: [
-      '3 hours of photo booth entertainment',
       'Professional 24MP camera and studio lighting',
-      'Unlimited photo sessions',
+      'Unlimited photo booth sessions',
       'High-quality on-site 2×6 photo strips or 4×6 prints',
-      'Personalized engagement photo template',
-      'Choice of available standard backdrops',
-      'Fun props and prop table',
+      'Engagement-themed customized photo strips, beautifully personalized with the couple\'s names, engagement date, colors, or special message',
+      'Backdrop upgrade from our available collection, creating a more elegant engagement setting',
+      'Engagement-themed premium props and prop table',
       'Instant digital photo sharing',
-      'Professional on-site attendant',
+      'Private digital keepsake gallery for the couple',
+      'Friendly professional booth attendant',
       'Complete photo booth setup and breakdown',
     ],
-    closing: 'Three Hours. Countless Memories. Just $650!',
+    pricingTiers: [
+      { hours: 3, price: 650 },
+      { hours: 4, price: 800, hoursLabel: '4 Hours' },
+      { hours: 5, price: 950, hoursLabel: 'Up to 5 Hours' },
+    ],
+    closing: '',
   },
 ];
 
@@ -296,7 +310,8 @@ export const HOME_PACKAGES = [
     slug: 'dozen',
     name: 'Dozen',
     price: 1150,
-    hours: 5,
+    hours: 4,
+    hoursDisplay: '4 Hours of Photo Booth Service',
     featured: true,
     tagline: 'The Favorite',
     badge: 'MOST POPULAR',
@@ -306,8 +321,8 @@ export const HOME_PACKAGES = [
       'More time, upgraded options, and personalized keepsakes for your guests. The perfect balance of elegance, excitement, and unforgettable memories.',
     closing: 'More time. More memories. More fun!',
     features: [
+      '4 Hours of Photo Booth Service',
       'Everything in the One Rose Package, PLUS:',
-      'One (1) Additional Hour of Photo Booth Service',
       'Choice of Custom Photo Keepsakes: Photo Keychains OR Photo Magnets',
       'Choice of Premium Backdrops',
     ],
@@ -316,7 +331,8 @@ export const HOME_PACKAGES = [
     slug: 'bouquet',
     name: 'Bouquet',
     price: 1400,
-    hours: 6,
+    hours: 5,
+    hoursDisplay: 'Up to 5 Hours of Photo Booth Service',
     tagline: 'The Red Rose VIP Experience',
     vip: true,
     boothBookQuery: '',
@@ -327,7 +343,7 @@ export const HOME_PACKAGES = [
       'The complete Red Rose experience—more fun, more keepsakes, and more ways to capture your story.',
     features: [
       'Everything in Dozen, PLUS:',
-      'Up to 6 Hours of Photo Booth Service — 2 Additional Hours Compared to Our One Red Rose Package',
+      'Up to 5 Hours of Photo Booth Service — 1 Additional Hour Compared to Our One Red Rose Package',
       'Audio Guestbook for Recorded Messages',
       'BOTH Keepsakes Included: Custom Photo Keychains AND Photo Magnets',
       'VIP Upgrade: Gold Stanchions & Velvet Ropes added to Red Carpet Treatment',

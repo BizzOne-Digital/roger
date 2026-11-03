@@ -4,13 +4,16 @@ import { PACKAGE_MINIMUM_NOTE } from './homeContent';
 
 export { PACKAGE_MINIMUM_NOTE as EVENT_MINIMUM_NOTE };
 
+export const PARTY_MINIMUM_NOTE =
+  '2-hour event minimum. Additional hours are just $150 each.';
+
 export const SERVICE_OFFERINGS = [
   {
     id: 'engagement',
     title: 'Engagement Celebrations',
     startingAt: 650,
-    pricingLabel: 'The First Bloom — $650 · 3 hours',
-    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
+    pricingLabel: 'Starting at $650 · 3-hour engagement experience',
+    image: '/engagement-first-bloom.jpg',
     description:
       'Celebrate your engagement with The First Bloom — three hours of photo booth fun designed for engagement parties and celebrations, separate from our wedding reception packages.',
     buttonLabel: 'View Engagement Experience',
@@ -30,12 +33,12 @@ export const SERVICE_OFFERINGS = [
   {
     id: 'parties',
     title: 'Parties & Special Occasions',
-    startingAt: 500,
-    pricingLabel: 'Starting at $500 • 4-Hour Event Minimum',
+    startingAt: 300,
+    pricingLabel: 'Starting at $300 • 2-Hour Minimum',
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80',
     description:
       'You bring the party. We\'ll capture the memories! Perfect for birthdays, graduations, anniversaries, Bar & Bat Mitzvahs, retirement parties, reunions, baby showers, engagement parties, holiday parties, school events, family celebrations, and more.',
-    buttonLabel: 'View Party Details',
+    buttonLabel: 'Explore Party Packages',
     buttonTo: '/services/parties',
     footnote: 'School events: contact us for a consultation.',
   },
@@ -65,31 +68,23 @@ export const SERVICE_OFFERINGS = [
 
 export const PARTY_SERVICE = {
   heroTitle: 'Parties & Special Occasions',
-  heroSubtitle: 'One price, your celebration, your way — birthdays, graduations, and more.',
-  callout: '🎉 YOU BRING THE PARTY. WE\'LL CAPTURE THE MEMORIES! 📸',
+  heroSubtitle: 'Your Celebration. Your Moments. Your Memories! 🌹',
+  startingAtLabel: 'Starting at just $300 • 2-Hour Minimum',
   intro:
-    'No complicated packages. Choose the number of hours you need and let Red Rose Photo Booth bring the fun. Simple. Fun. Memorable. 🌹',
-  eventTypes:
-    'Birthdays • Graduations • Anniversaries • Bar & Bat Mitzvahs • Retirement Parties • Reunions • Baby Showers • Engagement Parties • Holiday Parties • School Events • Family Celebrations & More',
-  experienceTitle: 'The Red Rose Party Experience',
-  includesHeading: 'Every package includes:',
-  includes: [
-    '24-Megapixel DSLR Photography',
-    'Studio-Quality Lighting',
-    'Unlimited Photo Booth Sessions',
-    'Professional Onsite Prints',
-    'Fun Photo Booth Props',
-    'Personalized Event Photo Template',
-    'Instant Digital Sharing',
-    'Friendly Professional Booth Attendant',
-  ],
+    'From birthdays and graduations to anniversaries, baby showers, family reunions, and milestone celebrations, Red Rose Photo Booth brings excitement, laughter, and unforgettable memories to every occasion.',
+  introHighlight:
+    'Enjoy professional-quality photos, instant prints, fun props, and unlimited photo booth sessions—all designed to make your celebration extra special!',
+  consultationTitle: "Let's Make Your Special Occasion Even More Memorable!",
+  consultationBody:
+    "Every celebration is unique, and we'd love to help bring your vision to life! Please call us at (916) 287-0870 for a personalized consultation. Together, we'll create a photo booth experience that makes your special party or occasion even more memorable!",
+  pricingSectionTitle: 'Choose the Perfect Package for Your Celebration!',
   pricingTiers: [
-    { hours: 4, price: 1000 },
-    { hours: 5, price: 1150 },
-    { hours: 6, price: 1300 },
+    { hours: 2, price: 300 },
+    { hours: 3, price: 450 },
+    { hours: 4, price: 600, hoursLabel: '4 Hours' },
+    { hours: 5, price: 750, hoursLabel: 'Up to 5 Hours' },
   ],
-  additionalHourNote: '',
-  minimumNote: PACKAGE_MINIMUM_NOTE,
+  minimumNote: PARTY_MINIMUM_NOTE,
   schoolEventsNote: 'School events: please contact us for a consultation.',
 };
 
@@ -97,10 +92,10 @@ export const CORPORATE_PACKAGES = [
   {
     name: 'Corporate Essential',
     price: 950,
-    hours: 3,
+    hours: 4,
     summary: 'A polished photo booth experience for your event.',
     features: [
-      '3 Hours of Service',
+      '4 Hours of Photo Booth Service',
       '24-Megapixel DSLR Photography',
       'Studio-Quality Professional Lighting',
       'Unlimited Photo Booth Sessions',
@@ -119,7 +114,7 @@ export const CORPORATE_PACKAGES = [
     badge: 'Most Popular',
     summary: 'Take your company event to the next level.',
     features: [
-      '4 Hours of Service',
+      '4 Hours of Photo Booth Service',
       'Everything in Corporate Essential, PLUS:',
       'Premium Backdrop Selection',
       'Custom-Branded Welcome Screen',
@@ -137,7 +132,7 @@ export const CORPORATE_PACKAGES = [
     vip: true,
     summary: 'The complete Red Rose VIP corporate experience.',
     features: [
-      '5 Hours of Service',
+      'Up to 5 Hours of Photo Booth Service',
       'Everything in Corporate Signature, PLUS:',
       'VIP Red-Carpet Experience',
       'Gold Stanchions & Red Velvet Ropes',
