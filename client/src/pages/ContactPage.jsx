@@ -7,7 +7,7 @@ import { BUSINESS, EVENT_TYPES } from '../utils/constants';
 import SocialLinks from '../components/ui/SocialLinks';
 import PageHero from '../components/ui/PageHero';
 import { PhoneIcon, EmailIcon } from '../components/icons/Icons';
-import { OUR_STORY, OUR_STORY_CONTACT_EXCERPT } from '../data/homeContent';
+import { OUR_STORY, OUR_STORY_CONTACT_EXCERPT, BRIDAL_EXPO_ANNOUNCEMENT } from '../data/homeContent';
 import OurStoryContent from '../components/ui/StoryRichText';
 
 export default function ContactPage() {
@@ -94,6 +94,19 @@ export default function ContactPage() {
                   <SocialLinks variant="footer" />
                 </div>
               </div>
+            </div>
+
+            <div className="card-luxury p-6 md:p-8 mb-8">
+              <h3 className="font-display text-xl md:text-2xl font-semibold text-antiqueGold mb-3">Events</h3>
+              <p className="font-display text-lg font-semibold text-charcoal mb-1">
+                {BRIDAL_EXPO_ANNOUNCEMENT.title}
+              </p>
+              <p className="text-charcoal font-semibold text-sm md:text-base">{BRIDAL_EXPO_ANNOUNCEMENT.when}</p>
+              <p className="text-body-muted text-sm mt-1 mb-3">{BRIDAL_EXPO_ANNOUNCEMENT.where}</p>
+              <p className="text-body-muted text-sm md:text-base mb-4">{BRIDAL_EXPO_ANNOUNCEMENT.detail}</p>
+              <Link to="/bridal-expo" className="btn-primary inline-flex text-sm">
+                Bridal Expo Registration
+              </Link>
             </div>
 
             <div className="card-luxury p-6 mb-8">

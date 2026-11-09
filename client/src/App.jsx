@@ -22,6 +22,8 @@ import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
+import BridalExpoPage from './pages/BridalExpoPage';
+import BridalExpoThankYouPage from './pages/BridalExpoThankYouPage';
 import AdminLogin from './admin/pages/AdminLogin';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import AdminProducts from './admin/pages/AdminProducts';
@@ -57,6 +59,8 @@ function App() {
                 <Route path="blog/:slug" element={<BlogDetailPage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="contact" element={<ContactPage />} />
+                <Route path="bridal-expo" element={<BridalExpoPage />} />
+                <Route path="bridal-expo/thank-you" element={<BridalExpoThankYouPage />} />
               </Route>
 
               <Route path="admin/login" element={<AdminLogin />} />

@@ -15,6 +15,6 @@ export const isBoothBookIframeUrl = (url) => {
   if (!url || typeof url !== 'string') return false;
   return (
     /boothbook\.com\/embed\//i.test(url) ||
-    /^https?:\/\/([a-z0-9-]+\.)*boothbook\.com\/forms\//i.test(url)
+    /^https?:\/\/([a-z0-9-]+\.)*boothbook\.com\/(forms|embed\/forms)\//i.test(url)
   );
 };
