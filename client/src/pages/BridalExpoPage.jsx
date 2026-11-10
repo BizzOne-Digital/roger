@@ -56,10 +56,11 @@ export default function BridalExpoPage() {
             src={embedUrl}
             title="Red Rose Photo Booth — Bridal Expo registration"
             width="100%"
-            height="320"
+            height="300"
             frameBorder="0"
             scrolling="no"
-            className="w-full border-0 rounded-lg bg-white shadow-sm border border-antiqueGold/20 min-h-[400px] md:min-h-[520px]"
+            loading="lazy"
+            className="w-full border-0 rounded-lg bg-white shadow-sm border border-antiqueGold/20 min-h-[300px] md:min-h-[400px]"
             allow="fullscreen"
             style={{ display: 'block' }}
           />
