@@ -78,6 +78,9 @@ export default function HomeOpeningSection() {
             <p className="text-body-muted text-sm md:text-base mt-4 leading-relaxed">
               {BRIDAL_EXPO_ANNOUNCEMENT.detail}
             </p>
+            <p className="text-antiqueGold font-bold text-sm md:text-base mt-4">
+              {BRIDAL_EXPO_ANNOUNCEMENT.offer}
+            </p>
             <Link to="/bridal-expo" className="btn-primary inline-flex text-sm mt-5">
               Bridal Expo Registration
             </Link>

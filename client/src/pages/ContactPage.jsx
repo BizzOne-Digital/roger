@@ -104,6 +104,7 @@ export default function ContactPage() {
               <p className="text-charcoal font-semibold text-sm md:text-base">{BRIDAL_EXPO_ANNOUNCEMENT.when}</p>
               <p className="text-body-muted text-sm mt-1 mb-3">{BRIDAL_EXPO_ANNOUNCEMENT.where}</p>
               <p className="text-body-muted text-sm md:text-base">{BRIDAL_EXPO_ANNOUNCEMENT.detail}</p>
+              <p className="text-antiqueGold font-bold text-sm md:text-base mt-3">{BRIDAL_EXPO_ANNOUNCEMENT.offer}</p>
             </div>
 
             <div className="card-luxury p-6 mb-8">

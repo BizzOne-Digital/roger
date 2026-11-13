@@ -102,6 +102,7 @@ export const BRIDAL_EXPO_ANNOUNCEMENT = {
   where: 'SAFE Credit Union Convention Center · Sacramento, CA',
   detail:
     'Red Rose Photo Booth will be an exhibitor — stop by our booth to see the experience and chat about your wedding day.',
+  offer: 'Register to receive a discount on any wedding package. Offer ends December 12th.',
 };
 
 export const ABOUT_PAGE = {
